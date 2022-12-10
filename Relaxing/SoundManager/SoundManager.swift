@@ -19,10 +19,13 @@ final class SoundManager: NSObject, AVAudioPlayerDelegate {
      */
     var audioPlayers: [String: AVAudioPlayer] = [:]
     
+    var entirePlaying: Bool = false
+    var isNothingPlaying: Bool = true
+    
     private override init() {}
     
     /**
-     재생 & 정지 메서드
+     개별 Player 재생 및 정지 메서드
      */
     func play(sound: Sound) {
         let title = sound.getTitle()
@@ -34,16 +37,23 @@ final class SoundManager: NSObject, AVAudioPlayerDelegate {
 
         if let playingPlayer = audioPlayers[title] {
             if playingPlayer.isPlaying {
+    
                 audioPlayers.removeValue(forKey: title)
                 playingPlayer.stop()
+                
             } else {
+
                 player.volume = sound.getVolume()
                 player.numberOfLoops = -1 // 무한 반복
                 player.prepareToPlay()
-                player.play()
+                
+                _ = audioPlayers.mapValues { player in
+                    player.play()
+                    entirePlaying = true
+                }
             }
         } else {
-            print("url audioPlayer에 없습니다.")
+            print("선택한 player를 재생목록에서 제거함.")
         }
     }
     
@@ -64,9 +74,11 @@ final class SoundManager: NSObject, AVAudioPlayerDelegate {
             return player
         }
         /*
-         url로 생성한 player가 [audioPlayer]에 존재하지만 playing 중이 아니면 player를 반환
+         전체 일시 정지 상태일때 player가 [audioPlayer]에 존재하는 경우 [audioPlayer]에서 제거한다.
          */
-        guard player.isPlaying else { return player }
+        if !(player.isPlaying) {
+            audioPlayers.removeValue(forKey: title)
+        }
         
         /*
          [audioPlayer]에 url로 생성한 player가 존재하고 재생중인 경우
@@ -76,7 +88,30 @@ final class SoundManager: NSObject, AVAudioPlayerDelegate {
         return duplicatePlayer
     }
     
+    /**
+     Player의 Volumn 조절 메서드
+     */
     func changeVolume(player: AVAudioPlayer, size: Float) {
         player.setVolume(size, fadeDuration: 0)
+    }
+    
+    /**
+     Control Bar View의 재생 컨트롤
+     */
+    func playAndPauseAll() {
+        print("현재 재생 목록 : \(audioPlayers.keys)")
+        if !(audioPlayers.isEmpty) { // audioPlayers(재생 목록)에 사운드가 존재할 때
+            if entirePlaying == true { // 전체 재생 목록이 플레이 중이면
+                _ = audioPlayers.mapValues { player in
+                    player.pause() // 모든 플레이어 일시 정지
+                    entirePlaying = false
+                }
+            } else { // 전체 재생 목록이 플레이 중이 아니라면 = 일시 정지 상태라면
+                _ = audioPlayers.mapValues { player in
+                    player.play() // 모든 플레이어 시작
+                    entirePlaying = true
+                }
+            }
+        }
     }
 }

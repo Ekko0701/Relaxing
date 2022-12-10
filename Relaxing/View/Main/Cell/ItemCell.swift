@@ -60,6 +60,11 @@ class ItemCell: UICollectionViewCell {
     func configure(with: SoundItemModel) {
         titleImage.image = with.image
         titleLabel.text = with.title
+        if with.isSelected {
+            backgroundColor = .systemRed
+        } else {
+            backgroundColor = .systemYellow
+        }
     }
     
     override func layoutSubviews() {

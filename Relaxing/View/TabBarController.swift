@@ -25,10 +25,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         mainVC.tabBarItem.image = UIImage(systemName: "house")
         let MixVC = MixViewController()
         MixVC.tabBarItem.image = UIImage(systemName: "play.square.stack")
+        MixVC.tabBarItem.title = "내 라이브러리"
         viewControllers = [
-            generateNavController(viewController: MainViewController(), title: "소리", image: UIImage(systemName: "house")),
+            generateNavController(viewController: MainViewController(), title: "홈", image: UIImage(systemName: "house")),
             MixVC,
-            generateNavController(viewController: SettingViewController(), title: "Setting", image: UIImage(systemName: "gearshape"))
+            generateNavController(viewController: SettingViewController(), title: "설정", image: UIImage(systemName: "gearshape"))
         ]
         
         self.tabBar.backgroundColor = .white.withAlphaComponent(0.5)
@@ -42,6 +43,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     private func generateNavController(viewController: UIViewController, title: String, image: UIImage?) -> UINavigationController {
         // Set TabBar Item
         viewController.tabBarItem.image = image
+        viewController.tabBarItem.title = title
         
         // Set Navigation
         viewController.navigationItem.title = title

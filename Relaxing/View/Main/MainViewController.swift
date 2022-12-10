@@ -14,25 +14,34 @@ import AVFoundation
 
 class MainViewController: UIViewController {
 
-    let viewModel = MainViewModel()
+    let viewModel: MainViewModelType
     
     let disposeBag = DisposeBag()
     
     var collectionView: UICollectionView!
     
-    /** 오디오 플레이어 변수*/
+    let controlBarView = ControlBarView()
+    
+    /** 오디오 플레이어 변수 */
     var player: AVAudioPlayer?
     var soundPlayers = [AVAudioPlayer]()
+    
+    init(viewModel: MainViewModelType = MainViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .systemYellow
-        
         configureCollectionView()
         configureLayout()
         setBindings()
-        
+        //configureControlView()
     }
     
     /**
@@ -41,10 +50,18 @@ class MainViewController: UIViewController {
     private func configureLayout() {
         // Add Subviews
         view.addSubview(collectionView)
+        view.addSubview(controlBarView)
         
         // AutoLayout
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        controlBarView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(50)
         }
     }
     
@@ -112,60 +129,29 @@ class MainViewController: UIViewController {
     private func setBindings() {
         // CollectionView item Select 액션
         collectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
-            print("CollectionView item Selected - \(indexPath)")
-            if indexPath.item == 0 {
-                guard let sound = self?.viewModel.soundData[indexPath.item] else { return }
-                SoundManager.shared.play(sound: sound)
-            } else if indexPath.item == 1 {
-                SoundManager.shared.play(sound: HighWaySound())
-            } else if indexPath.item == 2 {
-                guard let sound = self?.viewModel.soundData[indexPath.item] else { return }
-                SoundManager.shared.play(sound: sound)
-            } else if indexPath.item == 3 {
-                guard let sound = self?.viewModel.soundData[indexPath.item] else { return }
-                SoundManager.shared.play(sound: sound)
-            } else {
-                print(SoundManager.shared.audioPlayers)
-            }
+            self?.viewModel.soundTouch.onNext(indexPath)
+            
+            #warning("TODO : - test ")
+            self?.collectionView.reloadItems(at: [indexPath])
         }).disposed(by: disposeBag)
-    }
-    
-    /**
-     오디오 재생 (사용 X)
-     로컬에 있는 soundName이라는 mp3파일을 재생한다.
-     */
-    private func playAudio(soundName: String, type: String) {
-        guard let url = Bundle.main.url(forResource: soundName, withExtension: type) else { return }
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            guard let player = player else { return }
-            
-            player.prepareToPlay()
-            player.play()
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
-    
-    /**
-     여러 오디오 재생 (사용 X)
-     */
-    private func playSounds(sound: Sound) {
-        //sound.isNowPlaying = !sound.isNowPlaying
         
-        let fileName = sound.getFileName()
-        let fileExtension = sound.getFileExtension()
+        // Control Bar View Binding
+        /** Play Button을 탭하면 viewModel의 playButtonTouch로 이벤트가 전달됨. */
+        controlBarView.playButton.rx.tap
+            .bind(to: viewModel.playButtonTouch)
+            .disposed(by: disposeBag)
         
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension) else { return }
-        
-        guard let soundPlayer = try? AVAudioPlayer(contentsOf: url) else { return }
-        
-        soundPlayer.numberOfLoops = -1
-        soundPlayer.volume = 1
-        soundPlayer.play()
-        
-        soundPlayers.append(soundPlayer)
+        /** Play Button 이미지 변경 ViewModel의 isEntirePlayed를 구독*/
+        viewModel.isEntirePlayed
+            .do(onNext: { [weak self] isPlaying in
+                if isPlaying {
+                    self?.controlBarView.playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+                } else {
+                    self?.controlBarView.playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+                }
+            })
+            .subscribe(onNext: { _ in () })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -176,15 +162,14 @@ extension MainViewController: UICollectionViewDelegate {
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.sampleDatas.count
+        return viewModel.soundItems.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.identifier, for: indexPath) as? ItemCell else { return UICollectionViewCell() }
-        cell.configure(with: viewModel.sampleDatas[indexPath.row])
+        cell.configure(with: viewModel.soundItems[indexPath.row])
         return cell
     }
 }
-
 

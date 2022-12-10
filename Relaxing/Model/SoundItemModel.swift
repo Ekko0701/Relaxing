@@ -13,4 +13,5 @@ import UIKit
 struct SoundItemModel {
     let image: UIImage
     let title: String
+    var isSelected: Bool = false
 }
