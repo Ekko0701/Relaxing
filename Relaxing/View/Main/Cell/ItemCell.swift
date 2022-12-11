@@ -13,12 +13,12 @@ import Then
 class ItemCell: UICollectionViewCell {
     static let identifier = "ItemCell"
     
-    let titleImage = UIImageView().then {
+    private let titleImage = UIImageView().then {
         $0.contentMode = .scaleAspectFit
         $0.image = UIImage(systemName: "house")
     }
     
-    let titleLabel = UILabel().then {
+    private let titleLabel = UILabel().then {
         $0.textAlignment = .center
         $0.numberOfLines = 1
         $0.applyPoppins(style: .regular, size: 11, color: .black)

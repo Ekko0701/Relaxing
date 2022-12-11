@@ -10,4 +10,21 @@
 - Sound Manager는 싱글톤 패턴으로 구성
 
 ### 2022.12.10
-- SoundManager의 play 메소드 구현 완료
+- SoundManager의 play 메소드 구현 완료 with Rxswift
+    - 여러 player가 동시에 동작 가능하도록 구현
+- ControlBarView 생성 및 Play 버튼 메소드 구현 
+    - RxSwift를 이용해 구현
+- Item 선택시 배경 색상 변경 구현
+- 재생중인 소리가 있는지 여부에 따라 Control Bar의 Play 아이콘 변화 구현
+    - Sound Play 여부 및 재생 목록(SoundManager의 audioPlayers)의 모든 player가 재생중인지 검사해 구현함.
+
+### 2022.12.11
+- 코드 정리, 주석 추가
+- PanModal 라이브러리 추가 (SPM)
+- Control Bar View의 Sound Mix Button 액션 구현 
+    - MainViewController ( rx.tap ) 
+    - -> ViewModel (soundMixButtonTouch)
+    - -> ViewModel (soundMixButtonTouching)
+    - -> ViewModel (showSoundMixVC)
+    - -> MainViewController ( present VC ) (panModal)
+- SoundMixController UI 구성 진행중

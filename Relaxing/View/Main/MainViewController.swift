@@ -11,21 +11,27 @@ import SnapKit
 import RxSwift
 import RxCocoa
 import AVFoundation
+import PanModal
 
 class MainViewController: UIViewController {
 
+    // MARK: - Properties
+    
     let viewModel: MainViewModelType
     
     let disposeBag = DisposeBag()
     
+    /** 오디오 플레이어 관련 변수 */
+    var player: AVAudioPlayer?
+    var soundPlayers = [AVAudioPlayer]()
+    
+    // MARK: - Views
     var collectionView: UICollectionView!
     
     let controlBarView = ControlBarView()
     
-    /** 오디오 플레이어 변수 */
-    var player: AVAudioPlayer?
-    var soundPlayers = [AVAudioPlayer]()
     
+    // MARK: - Initializers
     init(viewModel: MainViewModelType = MainViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -35,13 +41,13 @@ class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureCollectionView()
         configureLayout()
         setBindings()
-        //configureControlView()
     }
     
     /**
@@ -127,16 +133,14 @@ class MainViewController: UIViewController {
      Binding 설정
      */
     private func setBindings() {
-        // CollectionView item Select 액션
+        /** CollectionView item Select 액션 */
         collectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
-            self?.viewModel.soundTouch.onNext(indexPath)
-            
-            #warning("TODO : - test ")
-            self?.collectionView.reloadItems(at: [indexPath])
+            self?.viewModel.soundTouch.onNext(indexPath)        // viewModel에 soundTouch 이벤트 전달
+            self?.collectionView.reloadItems(at: [indexPath])   // 터치시 cell 스타일 변화 적용
         }).disposed(by: disposeBag)
         
-        // Control Bar View Binding
-        /** Play Button을 탭하면 viewModel의 playButtonTouch로 이벤트가 전달됨. */
+        //MARK: - Control Bar View Binding
+        /** Play Button을 탭하면 viewModel의 playButtonTouch로 이벤트 전달. */
         controlBarView.playButton.rx.tap
             .bind(to: viewModel.playButtonTouch)
             .disposed(by: disposeBag)
@@ -152,6 +156,17 @@ class MainViewController: UIViewController {
             })
             .subscribe(onNext: { _ in () })
             .disposed(by: disposeBag)
+                
+        /** Sound Mix Button을 탭하면 viewModel의 soundMixButtonTouch로 이벤트 전달. */
+        controlBarView.soundMixButton.rx.tap
+            .bind(to: viewModel.soundMixButtonTouch)
+            .disposed(by: disposeBag)
+        
+        /** Show Sound Mix VC */
+        viewModel.showSoundMixVC.subscribe(onNext: { _ in
+            self.presentPanModal(SoundMixViewController())
+            
+        }).disposed(by: disposeBag)
     }
 }
 

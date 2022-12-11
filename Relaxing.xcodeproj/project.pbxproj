@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6A08C1832944592B0044242B /* ControlBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A08C1822944592B0044242B /* ControlBarView.swift */; };
+		6A08C1852945E4320044242B /* SoundMixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A08C1842945E4320044242B /* SoundMixViewController.swift */; };
+		6A08C1882945E4EC0044242B /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 6A08C1872945E4EC0044242B /* PanModal */; };
+		6A08C18B2945FC3D0044242B /* SoundTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A08C18A2945FC3D0044242B /* SoundTableCell.swift */; };
 		6A13859B2942410500615E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13859A2942410500615E0E /* AppDelegate.swift */; };
 		6A13859D2942410500615E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13859C2942410500615E0E /* SceneDelegate.swift */; };
 		6A13859F2942410500615E0E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13859E2942410500615E0E /* MainViewController.swift */; };
@@ -42,6 +45,8 @@
 /* Begin PBXFileReference section */
 		2E553FBECA1709B25DB89D5E /* Pods_Relaxing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Relaxing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A08C1822944592B0044242B /* ControlBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlBarView.swift; sourceTree = "<group>"; };
+		6A08C1842945E4320044242B /* SoundMixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMixViewController.swift; sourceTree = "<group>"; };
+		6A08C18A2945FC3D0044242B /* SoundTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTableCell.swift; sourceTree = "<group>"; };
 		6A1385972942410500615E0E /* Relaxing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relaxing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A13859A2942410500615E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A13859C2942410500615E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A08C1882945E4EC0044242B /* PanModal in Frameworks */,
 				6A1385EF29424A7C00615E0E /* SnapKit in Frameworks */,
 				6A1385F229424A8E00615E0E /* Then in Frameworks */,
 				F9410848391AB9DE9876657F /* Pods_Relaxing.framework in Frameworks */,
@@ -95,6 +101,15 @@
 				D18381B17A208381DBEDAE5F /* Pods-Relaxing.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6A08C1892945F40F0044242B /* SoundMixView */ = {
+			isa = PBXGroup;
+			children = (
+				6A08C1842945E4320044242B /* SoundMixViewController.swift */,
+				6A08C18A2945FC3D0044242B /* SoundTableCell.swift */,
+			);
+			path = SoundMixView;
 			sourceTree = "<group>";
 		};
 		6A13858E2942410500615E0E = {
@@ -198,6 +213,7 @@
 			children = (
 				6A13859E2942410500615E0E /* MainViewController.swift */,
 				6A08C1822944592B0044242B /* ControlBarView.swift */,
+				6A08C1892945F40F0044242B /* SoundMixView */,
 				6A1385FE29425C7500615E0E /* Cell */,
 			);
 			path = Main;
@@ -275,6 +291,7 @@
 			packageProductDependencies = (
 				6A1385EE29424A7C00615E0E /* SnapKit */,
 				6A1385F129424A8E00615E0E /* Then */,
+				6A08C1872945E4EC0044242B /* PanModal */,
 			);
 			productName = Relaxing;
 			productReference = 6A1385972942410500615E0E /* Relaxing.app */;
@@ -307,6 +324,7 @@
 			packageReferences = (
 				6A1385ED29424A7C00615E0E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				6A1385F029424A8E00615E0E /* XCRemoteSwiftPackageReference "Then" */,
+				6A08C1862945E4EC0044242B /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = 6A1385982942410500615E0E /* Products */;
 			projectDirPath = "";
@@ -390,7 +408,9 @@
 				6A1385E72942464100615E0E /* UIFont+Ext.swift in Sources */,
 				6A13859F2942410500615E0E /* MainViewController.swift in Sources */,
 				6A8A8B2729433D4600B4451C /* SoundStructures.swift in Sources */,
+				6A08C18B2945FC3D0044242B /* SoundTableCell.swift in Sources */,
 				6A13859B2942410500615E0E /* AppDelegate.swift in Sources */,
+				6A08C1852945E4320044242B /* SoundMixViewController.swift in Sources */,
 				6A1385F429424E6500615E0E /* TabBarController.swift in Sources */,
 				6A13860029425C8300615E0E /* ItemCell.swift in Sources */,
 				6A08C1832944592B0044242B /* ControlBarView.swift in Sources */,
@@ -612,6 +632,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6A08C1862945E4EC0044242B /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		6A1385ED29424A7C00615E0E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -631,6 +659,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6A08C1872945E4EC0044242B /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A08C1862945E4EC0044242B /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
+		};
 		6A1385EE29424A7C00615E0E /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6A1385ED29424A7C00615E0E /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -11,17 +11,16 @@ import RxRelay
 import UIKit
 
 protocol MainViewModelType {
-    // ---------------------
     // INPUT
     // ---------------------
     /** Sound Item (Cell) 터치 이벤트 PublishSubject */
     var soundTouch: PublishSubject<IndexPath> { get }
     
-    /** Play Button 터치 이벤트 PublishSubject */
+    /** Play Button 터치 이벤트 Observer */
     var playButtonTouch: AnyObserver<Void> { get }
+    /** Sound Mix Button 터치 이벤트 Observer*/
+    var soundMixButtonTouch: AnyObserver<Void> { get }
 
-    
-    // ---------------------
     // OUTPUT
     // ---------------------
     /** Sound Item (Cell) 배열 */
@@ -32,20 +31,27 @@ protocol MainViewModelType {
     
     /** Control Bar에서 컨트롤 하는 전체 플레이 여부 Observable */
     var isEntirePlayed: Observable<Bool> { get }
+    
+    /** Sound Mix View Controller를 보임 */
+    var showSoundMixVC: Observable<Void> { get }
 }
 
 class MainViewModel: MainViewModelType {
     
     let disposeBag = DisposeBag()
-    
-    // INPUT ----------------
+   
+    // INPUT
+    // ---------------------
     var soundTouch: PublishSubject<IndexPath>
     var playButtonTouch: AnyObserver<Void>
+    var soundMixButtonTouch: AnyObserver<Void>
     
-    // OUTPUT ---------------
+    // OUTPUT
+    // ---------------------
     var soundItems: [SoundItemModel]
     let soundData: [Sound]
     var isEntirePlayed: Observable<Bool>
+    var showSoundMixVC: Observable<Void>
     
     init() {
         /** CollectionView의 Sound Item Touch Event */
@@ -53,16 +59,22 @@ class MainViewModel: MainViewModelType {
         
         /** Control Bar View Button Touch Event */
         let playButtonTouching = PublishSubject<Void>()
+        /** Control Bar View Sound Mix Button Event */
+        let soundMixButtonTouching = PublishSubject<Void>()
         
-        /** Control Bar View로 전체 player를 컨트롤 하는 경우 버튼 이미지 변환을 위한 Relay */
+        /** Control Bar View로 전체 player를 컨트롤 하는 경우 버튼 이미지 변환을 위한 Relay*/
         let isEntirePlaying = BehaviorRelay<Bool>(value: false)
         
         // INPUT
+        // ---------------------
         soundTouch = soundToucing.asObserver()
         playButtonTouch = playButtonTouching.asObserver()
+        soundMixButtonTouch = soundMixButtonTouching.asObserver()
         
         // OUTPUT
+        // ---------------------
         isEntirePlayed = isEntirePlaying.distinctUntilChanged()
+        showSoundMixVC = soundMixButtonTouching.asObserver() // soundMixButtonTouch -> SoundMixButtonTouching -> showSoundMixVC
         
         soundItems = [
             SoundItemModel(image: UIImage(systemName: "gear")!, title: "새소리"),
@@ -93,46 +105,40 @@ class MainViewModel: MainViewModelType {
             WaterSound(),
         ]
         
-        // Touch Events
-        // 1. Sound Item Touch
-        soundToucing.do(onNext: { _ in
-            //isEntirePlaying.accept(true)
-        
-        })
+        // Sound Item Touch
+        soundToucing
             .subscribe { [weak self] indexPath in
             guard let sound = self?.soundData[indexPath.item] else { return }
             SoundManager.shared.play(sound: sound)
-                
-                #warning("TODO : - test ")
-                self?.soundItems[indexPath.item].isSelected.toggle()
+                self?.playingState(observable: isEntirePlaying)         // Control Bar의 Play 버튼 활성화 여부 전달
+                self?.soundItems[indexPath.item].isSelected.toggle()    // Cell 의 배경 색상 바꿔주는 코드 -> isSelected 속성을 바꿔 준다.
         }.disposed(by: disposeBag)
         
-        // 2. Play Button Touch
+        // Play Button Touch
         playButtonTouching
-            .do(onNext: { _ in
-//                if SoundManager.shared.audioPlayers.isEmpty {
-//                    isEntirePlaying.accept(false)
-//                } else {
-//                    isEntirePlaying.accept(SoundManager.shared.entirePlaying)
-//                }
-                #warning("TODO : - 필터를 이용해서 구현하는 방법도 생각해보자. ")
-                var testIsPlaying = false
-                _ = SoundManager.shared.audioPlayers.mapValues({ player in
-                    if player.isPlaying {
-                        testIsPlaying = true
-                    }
-                })
-                if testIsPlaying {
-                    isEntirePlaying.accept(true)
-                } else {
-                    isEntirePlaying.accept(false)
-                }
-            })
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { [weak self] _ in
             SoundManager.shared.playAndPauseAll()
+                self?.playingState(observable: isEntirePlaying)         // Control Bar의 Play 버튼 활성화 여부 전달
         }).disposed(by: disposeBag)
-            
         
+        
+    }
+    
+    /**
+     플레이 버튼 활성화 여부를 체크해 이벤트로 보내는 메서드
+     */
+    private func playingState(observable: BehaviorRelay<Bool>) {
+        var nowPlaying = false
+        _ = SoundManager.shared.audioPlayers.mapValues({ player in
+            if player.isPlaying {
+                nowPlaying = true
+            }
+        })
+        if nowPlaying {
+            observable.accept(true)
+        } else {
+            observable.accept(false)
+        }
     }
 }
 

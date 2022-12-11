@@ -14,7 +14,7 @@ import Then
  사운드 플레이시 나오는 하단 Control Bar
  */
 class ControlBarView: UIView {
-    var itemStack = UIStackView().then{
+    var itemStack = UIStackView().then {
         $0.distribution = .fillEqually
     }
     
@@ -24,7 +24,7 @@ class ControlBarView: UIView {
     }
     
     /** 볼륨 조절 믹스 버튼 */
-    var volumeButton = UIButton().then {
+    var soundMixButton = UIButton().then {
         $0.setImage(UIImage(systemName: "speaker.circle"), for: .normal)
     }
     
@@ -58,7 +58,7 @@ class ControlBarView: UIView {
         self.addSubview(itemStack)
         
         // Add Stacks
-        itemStack.addArrangedSubview(volumeButton)
+        itemStack.addArrangedSubview(soundMixButton)
         itemStack.addArrangedSubview(playButton)
         itemStack.addArrangedSubview(timerButton)
         
