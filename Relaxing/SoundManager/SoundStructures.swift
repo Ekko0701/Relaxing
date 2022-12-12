@@ -14,6 +14,8 @@ protocol Sound {
     func getFileName() -> String
     func getFileExtension() -> String
     
+    /** 태그 = MainView의 indexPath.item*/
+    var tag: Int { get set }
     var soundTitle: String { get set }
     var volumeSize: Float { get set }
 }
@@ -25,6 +27,7 @@ extension Sound {
 
 // MARK: - Sound Structs
 struct BirdSound: Sound {
+    var tag = 0
     var soundTitle = "BirdSound"
     
     func getTitle() -> String { "BirdSound" }
@@ -35,6 +38,7 @@ struct BirdSound: Sound {
 }
 
 struct HighWaySound: Sound {
+    var tag = 1
     var soundTitle = "HighWaySound"
     
     func getTitle() -> String { "HighWaySound" }
@@ -45,6 +49,7 @@ struct HighWaySound: Sound {
 }
 
 struct WaterSound: Sound {
+    var tag = 2
     var soundTitle = "WaterSound"
     
     func getTitle() -> String { "WaterSound" }

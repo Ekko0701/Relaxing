@@ -100,8 +100,7 @@ extension SoundMixViewController: UITableViewDataSource {
         let volumeObservable = cell.volumeSlider.rx.value.map { VolumeData(itemNumber: indexPath, volumeValue: $0) }
         volumeObservable.bind(to: viewModel.volumeChange).disposed(by: disposeBag)
         
-        // Delete Button
-        //let deleteBtnObservable =
+        
         return cell
     }
     

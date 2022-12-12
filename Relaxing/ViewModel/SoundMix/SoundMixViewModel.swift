@@ -16,6 +16,7 @@ protocol SoundMixViewModelType {
     /** volumeSlider 값이 변할 때마다 volumeData를 전달받는다.
      volumeData는 cell의 indexPath와 그 cell의 slider 값으로 구성되었다.*/
     var volumeChange: PublishSubject<VolumeData> { get }
+
     
     // OUTPUT
     // ---------------------
@@ -50,21 +51,13 @@ class SoundMixViewModel: SoundMixViewModelType {
         // OUTPUT
         // ---------------------
         SoundManager.shared.audioPlayers.forEach { title, player in
-            playerItems.append(ViewSoundMix(titleLabel: title, playerVolume: player.volume))
+            playerItems.append(ViewSoundMix(title: title, playerVolume: player.volume))
         }
         
-        volumeChanging.subscribe { [weak self] event in
-            _ = event.map { volumeData in
-                let playerTitle = self?.playerItems[volumeData.itemNumber.item].titleLabel
-                
-                let player = SoundManager.shared.audioPlayers[playerTitle!]
-                
-                SoundManager.shared.changeVolume(player: player!, size: volumeData.volumeValue / 100)
-               
-            }
+        volumeChanging.bind { [weak self] volumeDate in
+            guard let playerTitle = self?.playerItems[volumeDate.itemNumber.item].title else { return }
+            guard let player = SoundManager.shared.audioPlayers[playerTitle] else { return }
+            SoundManager.shared.changeVolume(player: player, size: volumeDate.volumeValue / 100 )
         }.disposed(by: disposeBag)
     }
 }
-
-
-

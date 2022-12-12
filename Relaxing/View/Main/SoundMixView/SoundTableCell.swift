@@ -43,10 +43,6 @@ class SoundTableCell: UITableViewCell {
         $0.tintColor = .systemGreen
     }
     
-    let deleteButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "x.square.fill"), for: .normal)
-    }
-    
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -72,7 +68,6 @@ class SoundTableCell: UITableViewCell {
         
         background.addSubview(titleStack)
         background.addSubview(volumeSlider)
-        background.addSubview(deleteButton)
         
         // Constraints
         background.snp.makeConstraints { make in
@@ -87,12 +82,7 @@ class SoundTableCell: UITableViewCell {
         
         volumeSlider.snp.makeConstraints { make in
             make.centerY.equalTo(background)
-            make.trailing.equalTo(deleteButton.snp.leading).offset(-8)
-        }
-        
-        deleteButton.snp.makeConstraints { make in
-            make.centerY.equalTo(background)
-            make.trailing.equalToSuperview().offset(-8)
+            make.trailing.equalToSuperview().offset(-16)
         }
     }
     
@@ -103,5 +93,10 @@ class SoundTableCell: UITableViewCell {
         self.titleImage.image = data.titleImage
         self.titleLabel.text = data.titleLabel
         self.volumeSlider.value = data.playerVolume * 100
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
     }
 }
