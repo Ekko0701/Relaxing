@@ -8,7 +8,6 @@
 import Foundation
 import RxSwift
 import RxRelay
-import UIKit
 
 protocol MainViewModelType {
     // INPUT
@@ -129,7 +128,8 @@ class MainViewModel: MainViewModelType {
      */
     private func playingState(observable: BehaviorRelay<Bool>) {
         var nowPlaying = false
-        _ = SoundManager.shared.audioPlayers.mapValues({ player in
+        
+        _ = SoundManager.shared.audioPlayers.mapValues({ player in      // audioPlayers(재생목록)에 플레이중인 player가 있다면 true를 보낸다. 반대 상황은 false를 보낸다.
             if player.isPlaying {
                 nowPlaying = true
             }

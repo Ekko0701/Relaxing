@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        /**
+         무음(진동) 모드, 앱이 백그라운드 상태에서도 사운드 재생 가능하도록 설정
+         */
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback, mode: .default, options: [])
+        } catch let error as NSError {
+            print("audioSession 설정 오류 : \(error.localizedDescription)")
+        }
         return true
     }
 

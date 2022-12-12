@@ -28,3 +28,8 @@
     - -> ViewModel (showSoundMixVC)
     - -> MainViewController ( present VC ) (panModal)
 - SoundMixController UI 구성 진행중
+
+### 2022.12.12
+- Audio가 백그라운드 상태에서도 작동하도록 하기 위해 TARGETS - Capability - BackgroundMode에서 '''Audio, Airplay, and Picture in Picture''' 활성화
+    - Issue : 기기가 무음 모드 또는 앱이 백그라운드 상태에서 오디오가 재생되지 않는다.
+- AppDelegate에서 앱이 실행될때 AVAudioSession으로 오디오를 사용할 방식을 설정해서 해결.

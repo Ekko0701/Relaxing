@@ -14,9 +14,15 @@ class SoundTableCell: UITableViewCell {
     static let identifier = "SoundTableCell"
     
     // MARK: - UI
+    let background = UIView().then {
+        $0.backgroundColor = .systemGray
+    }
+    
     private let titleStack = UIStackView().then {
+        $0.alignment = .center
         $0.axis = .vertical
-        $0.distribution = .fillEqually
+        $0.distribution = .fill
+        $0.spacing = 8
     }
     
     private let titleImage = UIImageView().then {
@@ -58,32 +64,35 @@ class SoundTableCell: UITableViewCell {
      셀 레이아웃 설정
      */
     private func configureLayout() {
-        // Add SubView
-        contentView.addSubview(titleStack)
-        contentView.addSubview(volumeSlider)
-        contentView.addSubview(deleteButton)
+        // Add Subview
+        contentView.addSubview(background)
         
-        // Add Arrange Subview
         titleStack.addArrangedSubview(titleImage)
         titleStack.addArrangedSubview(titleLabel)
         
-        // AutoLayout
+        background.addSubview(titleStack)
+        background.addSubview(volumeSlider)
+        background.addSubview(deleteButton)
+        
+        // Constraints
+        background.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         titleStack.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.centerY.equalTo(background)
             make.leading.equalToSuperview().offset(8)
+            make.trailing.equalTo(volumeSlider.snp.leading).offset(-8)
         }
         
         volumeSlider.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.leading.equalTo(titleStack.snp.trailing).offset(8)
+            make.centerY.equalTo(background)
             make.trailing.equalTo(deleteButton.snp.leading).offset(-8)
         }
         
         deleteButton.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.width.equalTo(deleteButton.snp.height).multipliedBy(1)
+            make.centerY.equalTo(background)
             make.trailing.equalToSuperview().offset(-8)
         }
-        
     }
 }

@@ -39,6 +39,7 @@
 		6A8A8B2529433AB400B4451C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A8B2429433AB400B4451C /* SoundManager.swift */; };
 		6A8A8B2729433D4600B4451C /* SoundStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A8B2629433D4600B4451C /* SoundStructures.swift */; };
 		6A8A8B2C294383B200B4451C /* water_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A8B2B294383B200B4451C /* water_sound.mp3 */; };
+		6AB61B212946D24600EEAEE8 /* SoundMixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB61B202946D24600EEAEE8 /* SoundMixViewModel.swift */; };
 		F9410848391AB9DE9876657F /* Pods_Relaxing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E553FBECA1709B25DB89D5E /* Pods_Relaxing.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		6A8A8B2429433AB400B4451C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		6A8A8B2629433D4600B4451C /* SoundStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundStructures.swift; sourceTree = "<group>"; };
 		6A8A8B2B294383B200B4451C /* water_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water_sound.mp3; sourceTree = "<group>"; };
+		6AB61B202946D24600EEAEE8 /* SoundMixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMixViewModel.swift; sourceTree = "<group>"; };
 		9E4B3616D671C9123632A666 /* Pods-Relaxing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.debug.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.debug.xcconfig"; sourceTree = "<group>"; };
 		D18381B17A208381DBEDAE5F /* Pods-Relaxing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.release.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				6A13860129425FFA00615E0E /* MainViewModel.swift */,
+				6AB61B202946D24600EEAEE8 /* SoundMixViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				6A1385F429424E6500615E0E /* TabBarController.swift in Sources */,
 				6A13860029425C8300615E0E /* ItemCell.swift in Sources */,
 				6A08C1832944592B0044242B /* ControlBarView.swift in Sources */,
+				6AB61B212946D24600EEAEE8 /* SoundMixViewModel.swift in Sources */,
 				6A8A8B2529433AB400B4451C /* SoundManager.swift in Sources */,
 				6A13859D2942410500615E0E /* SceneDelegate.swift in Sources */,
 				6A1385FD29425A2100615E0E /* SoundItemModel.swift in Sources */,
