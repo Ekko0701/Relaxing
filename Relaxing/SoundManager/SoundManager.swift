@@ -12,15 +12,14 @@ import AVFoundation
  오디오 재생 메니저 ( Singleton )
  */
 final class SoundManager: NSObject, AVAudioPlayerDelegate {
+    /** Singleton */
     static let shared = SoundManager()
     
-    /**
-     현재 재생중인 player 딕셔너리, key값은 title이다.
-     */
+    /** 현재 재생중인 player 딕셔너리, key값은 title이다. */
     var audioPlayers: [String: AVAudioPlayer] = [:]
     
+    /** 전체 player가 재생중인지 체zm */
     var entirePlaying: Bool = false
-    var isNothingPlaying: Bool = true
     
     private override init() {}
     
@@ -43,7 +42,7 @@ final class SoundManager: NSObject, AVAudioPlayerDelegate {
                 
             } else {
 
-                player.volume = sound.getVolume()
+                player.volume = sound.volumeSize
                 player.numberOfLoops = -1 // 무한 반복
                 player.prepareToPlay()
                 

@@ -14,10 +14,12 @@ import UIKit
 struct ViewSoundMix {
     let titleLabel: String
     let titleImage: UIImage
+    var playerVolume: Float
     
-    init(titleLabel: String) {
+    init(titleLabel: String, playerVolume: Float) {
         self.titleLabel = titleLabel
         self.titleImage = TitleImage(rawValue: titleLabel)?.image ?? UIImage(systemName: "gear")!
+        self.playerVolume = playerVolume
     }
 }
 

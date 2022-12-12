@@ -102,5 +102,6 @@ class SoundTableCell: UITableViewCell {
     func configure(data: ViewSoundMix) {
         self.titleImage.image = data.titleImage
         self.titleLabel.text = data.titleLabel
+        self.volumeSlider.value = data.playerVolume * 100
     }
 }

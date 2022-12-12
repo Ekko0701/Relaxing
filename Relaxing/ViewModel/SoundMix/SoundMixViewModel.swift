@@ -9,10 +9,6 @@ import Foundation
 import RxSwift
 import RxRelay
 
-struct VolumeData {
-    let itemNumber: IndexPath
-    let volumeValue: Float
-}
 
 protocol SoundMixViewModelType {
     // INPUT
@@ -25,6 +21,7 @@ protocol SoundMixViewModelType {
     // ---------------------
     /** 현재 재생중인 플레이어 목록(Cell) 배열*/
     var playerItems: [ViewSoundMix] { get }
+
 }
 
 class SoundMixViewModel: SoundMixViewModelType {
@@ -53,14 +50,17 @@ class SoundMixViewModel: SoundMixViewModelType {
         // OUTPUT
         // ---------------------
         SoundManager.shared.audioPlayers.forEach { title, player in
-            playerItems.append(ViewSoundMix(titleLabel: title))
+            playerItems.append(ViewSoundMix(titleLabel: title, playerVolume: player.volume))
         }
         
-        volumeChanging.subscribe {[weak self] event in
+        volumeChanging.subscribe { [weak self] event in
             _ = event.map { volumeData in
                 let playerTitle = self?.playerItems[volumeData.itemNumber.item].titleLabel
+                
                 let player = SoundManager.shared.audioPlayers[playerTitle!]
+                
                 SoundManager.shared.changeVolume(player: player!, size: volumeData.volumeValue / 100)
+               
             }
         }.disposed(by: disposeBag)
     }

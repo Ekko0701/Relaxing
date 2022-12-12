@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
+/** Sound Protocol */
 protocol Sound {
     func getTitle() -> String
     func getFileName() -> String
     func getFileExtension() -> String
-    func getVolume() -> Float
     
-    var isPlaying: Bool { get set }
     var soundTitle: String { get set }
+    var volumeSize: Float { get set }
 }
 
 extension Sound {
@@ -23,6 +23,7 @@ extension Sound {
     
 }
 
+// MARK: - Sound Structs
 struct BirdSound: Sound {
     var soundTitle = "BirdSound"
     
@@ -30,7 +31,7 @@ struct BirdSound: Sound {
     func getFileName() -> String { "bird_sound" }
     func getFileExtension() -> String { "mp3" }
     
-    var isPlaying = false
+    var volumeSize: Float = 1
 }
 
 struct HighWaySound: Sound {
@@ -40,7 +41,7 @@ struct HighWaySound: Sound {
     func getFileName() -> String { "highway_sound" }
     func getFileExtension() -> String { "mp3" }
     
-    var isPlaying = false
+    var volumeSize: Float = 1
 }
 
 struct WaterSound: Sound {
@@ -50,12 +51,5 @@ struct WaterSound: Sound {
     func getFileName() -> String { "water_sound" }
     func getFileExtension() -> String { "mp3" }
     
-    var isPlaying = false
+    var volumeSize: Float = 1
 }
-
-//struct SoundData {
-//    let title: String
-//    let fileName: String
-//    let filrExtension: String
-//    let image: UIImage
-//}
