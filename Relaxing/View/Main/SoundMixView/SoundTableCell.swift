@@ -36,14 +36,14 @@ class SoundTableCell: UITableViewCell {
         $0.applyPoppins(text: "테스트", style: .regular, size: 11, color: .black)
     }
     
-    private let volumeSlider = UISlider().then {
+    let volumeSlider = UISlider().then {
         $0.minimumValue = 0
         $0.maximumValue = 100
         $0.value = 100
         $0.tintColor = .systemGreen
     }
     
-    private let deleteButton = UIButton().then {
+    let deleteButton = UIButton().then {
         $0.setImage(UIImage(systemName: "x.square.fill"), for: .normal)
     }
     
@@ -94,5 +94,13 @@ class SoundTableCell: UITableViewCell {
             make.centerY.equalTo(background)
             make.trailing.equalToSuperview().offset(-8)
         }
+    }
+    
+    /**
+     Configure
+     */
+    func configure(data: ViewSoundMix) {
+        self.titleImage.image = data.titleImage
+        self.titleLabel.text = data.titleLabel
     }
 }

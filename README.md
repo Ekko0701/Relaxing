@@ -33,3 +33,5 @@
 - Audio가 백그라운드 상태에서도 작동하도록 하기 위해 TARGETS - Capability - BackgroundMode에서 '''Audio, Airplay, and Picture in Picture''' 활성화
     - Issue : 기기가 무음 모드 또는 앱이 백그라운드 상태에서 오디오가 재생되지 않는다.
 - AppDelegate에서 앱이 실행될때 AVAudioSession으로 오디오를 사용할 방식을 설정해서 해결.
+- SoundMixView의 volumeSlider로 volume 조절 구현 (slider.rx.value)
+    - Issue : SoundMixVC가 다시 초기화 되면 volumeSlider의 value도 다시 초기화됨. -> ViewSoundMix에 volume 프로퍼티 추가 필요.

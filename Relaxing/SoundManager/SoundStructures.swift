@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Sound {
     func getTitle() -> String
@@ -14,6 +15,7 @@ protocol Sound {
     func getVolume() -> Float
     
     var isPlaying: Bool { get set }
+    var soundTitle: String { get set }
 }
 
 extension Sound {
@@ -22,6 +24,8 @@ extension Sound {
 }
 
 struct BirdSound: Sound {
+    var soundTitle = "BirdSound"
+    
     func getTitle() -> String { "BirdSound" }
     func getFileName() -> String { "bird_sound" }
     func getFileExtension() -> String { "mp3" }
@@ -30,6 +34,8 @@ struct BirdSound: Sound {
 }
 
 struct HighWaySound: Sound {
+    var soundTitle = "HighWaySound"
+    
     func getTitle() -> String { "HighWaySound" }
     func getFileName() -> String { "highway_sound" }
     func getFileExtension() -> String { "mp3" }
@@ -38,9 +44,18 @@ struct HighWaySound: Sound {
 }
 
 struct WaterSound: Sound {
+    var soundTitle = "WaterSound"
+    
     func getTitle() -> String { "WaterSound" }
     func getFileName() -> String { "water_sound" }
     func getFileExtension() -> String { "mp3" }
     
     var isPlaying = false
 }
+
+//struct SoundData {
+//    let title: String
+//    let fileName: String
+//    let filrExtension: String
+//    let image: UIImage
+//}
