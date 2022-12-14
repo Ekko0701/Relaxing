@@ -42,3 +42,10 @@
 - Realm 데이터 저장을 위한 Struct 생성
     - Realm에서는 Dictionary와 Array 대신 List를 사용해 soundMix 목록을 만들었다. (해결)
 - MixViewController UI 구성 진행중
+- MixViewController 테이블뷰에 realm에서 받아온 데이터(SoundMix)를 ViewMix로 파싱 후 보여줌
+- realm에서 받아온 SoundMix의 정보로 SoundManager에서 재생 구현 완료 
+    - Title, volume을 기반으로 사운드 플레이어를 설정한다.
+- Issue : mainVC에서 재생 목록에 플레이어 추가 후 믹스로 추가 후 mixVC를 로드하면 최근에 추가한 믹스가 보이지 않는다.
+    - viewWillAppear에서 viewModel을 재정의해 realm에서 데이터를 가져오고 tableView을 리로드했다. (해결)
+    - 시도해볼것 : RxViewController를 사용해 viewWillAppear.rx 로 viewModel에 viewWillAppear 했다는 이벤트를 전달한다. -> realm에서 데이터를 읽어온다. -> tableView를 리로드 한다.
+- Issue : mixVC에서 믹스를 플레이하면 mainVC의 ControlBar의 재생목록에 잘 추가되있다. 그러나 ControlBar의 play 아이콘은 바뀌지 않았다.

@@ -109,8 +109,8 @@ class MainViewModel: MainViewModelType {
             .subscribe { [weak self] indexPath in
             guard let sound = self?.soundData[indexPath.item] else { return }
             SoundManager.shared.play(sound: sound)
-                self?.playingState(observable: isEntirePlaying)         // Control Bar의 Play 버튼 활성화 여부 전달
-                self?.soundItems[indexPath.item].isSelected.toggle()    // Cell 의 배경 색상 바꿔주는 코드 -> isSelected 속성을 바꿔 준다.
+            self?.playingState(observable: isEntirePlaying)         // Control Bar의 Play 버튼 활성화 여부 전달
+            self?.soundItems[indexPath.item].isSelected.toggle()    // Cell 의 배경 색상 바꿔주는 코드 -> isSelected 속성을 바꿔 준다.
         }.disposed(by: disposeBag)
         
         // Play Button Touch
