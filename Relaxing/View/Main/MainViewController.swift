@@ -22,8 +22,8 @@ class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     /** 오디오 플레이어 관련 변수 */
-    var player: AVAudioPlayer?
-    var soundPlayers = [AVAudioPlayer]()
+    //var player: AVAudioPlayer?
+    //var soundPlayers = [AVAudioPlayer]()
     
     // MARK: - Views
     var collectionView: UICollectionView!

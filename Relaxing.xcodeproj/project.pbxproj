@@ -42,6 +42,9 @@
 		6AB61B212946D24600EEAEE8 /* SoundMixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB61B202946D24600EEAEE8 /* SoundMixViewModel.swift */; };
 		6AB61B232946F1C500EEAEE8 /* ViewSoundMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB61B222946F1C500EEAEE8 /* ViewSoundMix.swift */; };
 		6AB61B272947532E00EEAEE8 /* VolumeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB61B262947532E00EEAEE8 /* VolumeData.swift */; };
+		6AB61B2A294979C000EEAEE8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6AB61B29294979C000EEAEE8 /* Realm */; };
+		6AB61B2C294979C000EEAEE8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6AB61B2B294979C000EEAEE8 /* RealmSwift */; };
+		6AB61B2F29497AD200EEAEE8 /* SoundMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB61B2E29497AD200EEAEE8 /* SoundMix.swift */; };
 		F9410848391AB9DE9876657F /* Pods_Relaxing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E553FBECA1709B25DB89D5E /* Pods_Relaxing.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,7 @@
 		6AB61B202946D24600EEAEE8 /* SoundMixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMixViewModel.swift; sourceTree = "<group>"; };
 		6AB61B222946F1C500EEAEE8 /* ViewSoundMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSoundMix.swift; sourceTree = "<group>"; };
 		6AB61B262947532E00EEAEE8 /* VolumeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeData.swift; sourceTree = "<group>"; };
+		6AB61B2E29497AD200EEAEE8 /* SoundMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMix.swift; sourceTree = "<group>"; };
 		9E4B3616D671C9123632A666 /* Pods-Relaxing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.debug.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.debug.xcconfig"; sourceTree = "<group>"; };
 		D18381B17A208381DBEDAE5F /* Pods-Relaxing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.release.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,10 +94,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB61B2C294979C000EEAEE8 /* RealmSwift in Frameworks */,
 				6A08C1882945E4EC0044242B /* PanModal in Frameworks */,
 				6A1385EF29424A7C00615E0E /* SnapKit in Frameworks */,
 				6A1385F229424A8E00615E0E /* Then in Frameworks */,
 				F9410848391AB9DE9876657F /* Pods_Relaxing.framework in Frameworks */,
+				6AB61B2A294979C000EEAEE8 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +185,7 @@
 		6A1385B02942424C00615E0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6AB61B2D29497A9C00EEAEE8 /* Realm */,
 				6A1385FC29425A2100615E0E /* SoundItemModel.swift */,
 				6AB61B262947532E00EEAEE8 /* VolumeData.swift */,
 			);
@@ -287,6 +294,14 @@
 			path = SoundMix;
 			sourceTree = "<group>";
 		};
+		6AB61B2D29497A9C00EEAEE8 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				6AB61B2E29497AD200EEAEE8 /* SoundMix.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		F317A54C5AFCD1140F124B72 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +332,8 @@
 				6A1385EE29424A7C00615E0E /* SnapKit */,
 				6A1385F129424A8E00615E0E /* Then */,
 				6A08C1872945E4EC0044242B /* PanModal */,
+				6AB61B29294979C000EEAEE8 /* Realm */,
+				6AB61B2B294979C000EEAEE8 /* RealmSwift */,
 			);
 			productName = Relaxing;
 			productReference = 6A1385972942410500615E0E /* Relaxing.app */;
@@ -350,6 +367,7 @@
 				6A1385ED29424A7C00615E0E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				6A1385F029424A8E00615E0E /* XCRemoteSwiftPackageReference "Then" */,
 				6A08C1862945E4EC0044242B /* XCRemoteSwiftPackageReference "PanModal" */,
+				6AB61B28294979C000EEAEE8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 6A1385982942410500615E0E /* Products */;
 			projectDirPath = "";
@@ -430,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB61B2F29497AD200EEAEE8 /* SoundMix.swift in Sources */,
 				6A1385E72942464100615E0E /* UIFont+Ext.swift in Sources */,
 				6A13859F2942410500615E0E /* MainViewController.swift in Sources */,
 				6A8A8B2729433D4600B4451C /* SoundStructures.swift in Sources */,
@@ -684,6 +703,14 @@
 				kind = branch;
 			};
 		};
+		6AB61B28294979C000EEAEE8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -701,6 +728,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6A1385F029424A8E00615E0E /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		6AB61B29294979C000EEAEE8 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6AB61B28294979C000EEAEE8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		6AB61B2B294979C000EEAEE8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6AB61B28294979C000EEAEE8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

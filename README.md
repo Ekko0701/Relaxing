@@ -35,3 +35,10 @@
 - AppDelegate에서 앱이 실행될때 AVAudioSession으로 오디오를 사용할 방식을 설정해서 해결.
 - SoundMixView의 volumeSlider로 volume 조절 구현 (slider.rx.value)
     - Issue : SoundMixVC가 다시 초기화 되면 volumeSlider의 value도 다시 초기화됨. -> ViewSoundMix에 volume 프로퍼티 추가 필요.(해결)
+
+### 2022.12.14
+- Realm 추가 (SPM)
+- SoundMixController에 사운드 믹스 저장 Button 추가 및 viewModel과 바인딩 완료.
+- Realm 데이터 저장을 위한 Struct 생성
+    - Realm에서는 Dictionary와 Array 대신 List를 사용해 soundMix 목록을 만들었다. (해결)
+- MixViewController UI 구성 진행중

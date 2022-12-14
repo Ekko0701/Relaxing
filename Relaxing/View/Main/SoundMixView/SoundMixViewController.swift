@@ -18,13 +18,18 @@ import RxSwift
  */
 class SoundMixViewController: UIViewController {
     // MARK: - Properties
-    var soundTable: UITableView!
-    
     let disposeBag = DisposeBag()
     
     let viewModel: SoundMixViewModelType
     
     var isShortFormEnabled = true
+    
+    // MARK: - Views
+    var soundTable: UITableView!
+    
+    var saveButton = UIButton().then {
+        $0.setTitle("내 믹스 저장하기", for: .normal)
+    }
     
     // MARK: - Initializers
     init(viewModel: SoundMixViewModelType = SoundMixViewModel()) {
@@ -41,9 +46,10 @@ class SoundMixViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .systemBlue
+        self.view.backgroundColor = .black
         configureSoundTable()
         configureLayout()
+        setupBindings()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -71,12 +77,26 @@ class SoundMixViewController: UIViewController {
      */
     private func configureLayout() {
         // Add Subviews
+        view.addSubview(saveButton)
         view.addSubview(soundTable)
         
         // AutoLayout
-        soundTable.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        saveButton.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-16)
         }
+        
+        soundTable.snp.makeConstraints { make in
+            make.top.equalTo(saveButton.snp.bottom).offset(8)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Binding
+    private func setupBindings() {
+        // Save Button Touch Event
+        let saveButtonObservable = saveButton.rx.tap
+        saveButtonObservable.bind(to: viewModel.saveButtonTouch).disposed(by: disposeBag)
     }
 }
 
@@ -105,7 +125,7 @@ extension SoundMixViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 70
     }
     
     
