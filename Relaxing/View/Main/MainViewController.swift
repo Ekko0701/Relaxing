@@ -9,6 +9,7 @@ import UIKit
 import Then
 import SnapKit
 import RxSwift
+import RxViewController
 import RxCocoa
 import AVFoundation
 import PanModal
@@ -42,11 +43,6 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - View Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        #warning("TODO : - testinmg ")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -172,6 +168,15 @@ class MainViewController: UIViewController {
             self.presentPanModal(SoundMixViewController())
             
         }).disposed(by: disposeBag)
+        
+        /** View Will Appear */
+        let viewWillAppear = rx.viewWillAppear.map { _ in () }
+        viewWillAppear.bind(to: viewModel.mainViewWillAppear).disposed(by: disposeBag)
+        
+        viewModel.reloadCollection.bind { [weak self] _ in
+            self?.collectionView.reloadData()
+        }.disposed(by: disposeBag)
+        
     }
 }
 
@@ -184,7 +189,6 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.soundItems.count
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.identifier, for: indexPath) as? ItemCell else { return UICollectionViewCell() }

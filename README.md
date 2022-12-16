@@ -31,10 +31,10 @@
 
 ### 2022.12.12
 - Audio가 백그라운드 상태에서도 작동하도록 하기 위해 TARGETS - Capability - BackgroundMode에서 '''Audio, Airplay, and Picture in Picture''' 활성화
-    - Issue : 기기가 무음 모드 또는 앱이 백그라운드 상태에서 오디오가 재생되지 않는다. (해결)
+    - Issue1 : 기기가 무음 모드 또는 앱이 백그라운드 상태에서 오디오가 재생되지 않는다. (해결)
 - AppDelegate에서 앱이 실행될때 AVAudioSession으로 오디오를 사용할 방식을 설정해서 해결.
 - SoundMixView의 volumeSlider로 volume 조절 구현 (slider.rx.value)
-    - Issue : SoundMixVC가 다시 초기화 되면 volumeSlider의 value도 다시 초기화됨. -> ViewSoundMix에 volume 프로퍼티 추가 필요.(해결)
+    - Issue2 : SoundMixVC가 다시 초기화 되면 volumeSlider의 value도 다시 초기화됨. -> ViewSoundMix에 volume 프로퍼티 추가 필요.(해결)
 
 ### 2022.12.14
 - Realm 추가 (SPM)
@@ -45,7 +45,12 @@
 - MixViewController 테이블뷰에 realm에서 받아온 데이터(SoundMix)를 ViewMix로 파싱 후 보여줌
 - realm에서 받아온 SoundMix의 정보로 SoundManager에서 재생 구현 완료 
     - Title, volume을 기반으로 사운드 플레이어를 설정한다.
-- Issue : mainVC에서 재생 목록에 플레이어 추가 후 믹스로 추가 후 mixVC를 로드하면 최근에 추가한 믹스가 보이지 않는다.
+- Issue3 : mainVC에서 재생 목록에 플레이어 추가 후 믹스로 추가 후 mixVC를 로드하면 최근에 추가한 믹스가 보이지 않는다.
     - viewWillAppear에서 viewModel을 재정의해 realm에서 데이터를 가져오고 tableView을 리로드했다. (해결)
     - 시도해볼것 : RxViewController를 사용해 viewWillAppear.rx 로 viewModel에 viewWillAppear 했다는 이벤트를 전달한다. -> realm에서 데이터를 읽어온다. -> tableView를 리로드 한다.
-- Issue : mixVC에서 믹스를 플레이하면 mainVC의 ControlBar의 재생목록에 잘 추가되있다. 그러나 ControlBar의 play 아이콘은 바뀌지 않았다.
+- Issue4 : mixVC에서 믹스를 플레이하면 mainVC의 ControlBar의 재생목록에 잘 추가되있다. 그러나 ControlBar의 play 아이콘은 바뀌지 않았다. (해결)
+
+### 2022.12.16
+- MainView viewWillAppear때 현재 재생중인 사운드의 isSelect를 true로 변경하고, CollectionView를 reload를 함으로써 SoundMix로 재생한 사운드가 mainView에 표시되지 않는 문제를 해결함.
+    - mainVC에 viewWillAppear.rx를 추가해 viewWillAppear 할때마다 viewModel로 이벤트를 전달한다. 이벤트를 reloading이 구독하고 있고 사운드 선택 여부 (isSelected)를 체크한다. 이벤트를 전달 받음과 동시에 collectionView를 reload하는 reloadingCollectionView에 이벤트를 전달한다.
+- MainViewModel의 reloading subject에 이벤트가 전달되면 plaingState()를 실행해 ControlBar의 play 아이콘 활성화 여부를 체크했다. (Issue4 해결)

@@ -47,11 +47,12 @@ class MixViewModel: MixViewModelType {
         mixItems = soundMixs.map { soundMixs in ViewMix(soundMixs) } // Cell의 (ViewMix) Title, Subtitle 설정
         
         mixTouching.bind { indexPath in
-            print("\(indexPath) 셀 터치")
             let mixData = soundMixs[indexPath.row].soundMixs
-            print("ㅎㅎ \(mixData[0].title), \(mixData[0].volume)")
+            
+            // 기존의 재생 목록 초기화
+            SoundManager.shared.audioPlayers.removeAll()
+            
             mixData.forEach { soundMix in
-                
                 switch soundMix.title {
                 case "BirdSound":
                     SoundManager.shared.play(sound: BirdSound(volumeSize: soundMix.volume))
