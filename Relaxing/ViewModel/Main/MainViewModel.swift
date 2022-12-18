@@ -19,6 +19,8 @@ protocol MainViewModelType {
     var playButtonTouch: AnyObserver<Void> { get }
     /** Sound Mix Button 터치 이벤트 Observer*/
     var soundMixButtonTouch: AnyObserver<Void> { get }
+    /** Timer Button 터치 이벤트 Observer */
+    var timerButtonTouch: AnyObserver<Void> { get }
     
     var mainViewWillAppear: AnyObserver<Void> { get }
     
@@ -36,6 +38,9 @@ protocol MainViewModelType {
     /** Sound Mix View Controller를 보임 */
     var showSoundMixVC: Observable<Void> { get }
     
+    /** Timer PopUp View를 보임 */
+    var showTimerPopUp: Observable<Void> { get }
+    
     /** CollectionView Cell의 체크 여부를 확인후 reload해주기 위한 Observable */
     var reloadCollection: Observable<Void> { get }
 }
@@ -49,6 +54,7 @@ class MainViewModel: MainViewModelType {
     var soundTouch: PublishSubject<IndexPath>
     var playButtonTouch: AnyObserver<Void>
     var soundMixButtonTouch: AnyObserver<Void>
+    var timerButtonTouch: AnyObserver<Void>
     
     var mainViewWillAppear: AnyObserver<Void>
 
@@ -59,6 +65,7 @@ class MainViewModel: MainViewModelType {
     let soundData: [Sound]
     var isEntirePlayed: Observable<Bool>
     var showSoundMixVC: Observable<Void>
+    var showTimerPopUp: Observable<Void>
     
     var reloadCollection: Observable<Void>
     
@@ -70,6 +77,8 @@ class MainViewModel: MainViewModelType {
         let playButtonTouching = PublishSubject<Void>()
         /** Control Bar View Sound Mix Button Event */
         let soundMixButtonTouching = PublishSubject<Void>()
+        /** Control Bar View Timer Button Event */
+        let timerButtonTouching = PublishSubject<Void>()
         
         /** Control Bar View로 전체 player를 컨트롤 하는 경우 버튼 이미지 변환을 위한 Relay*/
         let isEntirePlaying = BehaviorRelay<Bool>(value: false)
@@ -84,12 +93,15 @@ class MainViewModel: MainViewModelType {
         soundTouch = soundToucing.asObserver()
         playButtonTouch = playButtonTouching.asObserver()
         soundMixButtonTouch = soundMixButtonTouching.asObserver()
+        timerButtonTouch = timerButtonTouching.asObserver()
+        
         mainViewWillAppear = reloading.asObserver()
         
         // OUTPUT
         // ---------------------
         isEntirePlayed = isEntirePlaying.distinctUntilChanged()
         showSoundMixVC = soundMixButtonTouching.asObserver() // soundMixButtonTouch -> SoundMixButtonTouching -> showSoundMixVC
+        showTimerPopUp = timerButtonTouching.asObserver()
         reloadCollection = reloadingCollection.asObserver()
         
         soundItems = [
@@ -137,6 +149,10 @@ class MainViewModel: MainViewModelType {
                 self?.playingState(observable: isEntirePlaying)         // Control Bar의 Play 버튼 활성화 여부 전달
         }).disposed(by: disposeBag)
         
+//        timerButtonTouching
+//            .subscribe(onNext: { [weak self] _ in })
+//            .disposed(by: disposeBag)
+        
         reloading
             .do(onNext: { _ in reloadingCollection.onNext(Void())})
             .subscribe(onNext: { [weak self] _ in
@@ -150,6 +166,11 @@ class MainViewModel: MainViewModelType {
      MainViewController의 CollectionView에서 선택 여부를 결정하는 메소드
      */
     private func applyMixPlayerToCollection() {
+        // isSelected를 먼저 전부 false 처리를 해준후 아래에서 재생 중인 사운드의 isSelected를 true로 바꿔준다.
+        for i in 0..<soundItems.count {
+            soundItems[i].isSelected = false
+        }
+        
         SoundManager.shared.audioPlayers.forEach { key, players in
             soundItems.forEach { soundItemModel in
                 if soundItemModel.title == key { // key값 변형 필요 switch 추천
@@ -160,7 +181,6 @@ class MainViewModel: MainViewModelType {
                     } else if key == "WaterSound" {
                         soundItems[2].isSelected = true
                     }
-                    #warning("TODO : - 플레이 리스트에 없는 목록을 false로 바꿔줘야해  ")
                 }
             }
         }

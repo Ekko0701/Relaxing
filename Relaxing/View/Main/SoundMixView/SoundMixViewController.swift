@@ -56,7 +56,7 @@ class SoundMixViewController: UIViewController {
         return .lightContent
     }
     
-    // MARK: -
+    // MARK: - Configure
     /**
      SoundTableView 설정
      */
@@ -97,6 +97,27 @@ class SoundMixViewController: UIViewController {
         // Save Button Touch Event
         let saveButtonObservable = saveButton.rx.tap
         saveButtonObservable.bind(to: viewModel.saveButtonTouch).disposed(by: disposeBag)
+        
+        // Show Alert
+        viewModel.showMixAlert.bind { _ in
+            let alert = UIAlertController(title: "믹스 타이틀을 입력하세요", message: "", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "저장", style: .default) { [weak self] (ok) in
+                let inputTitle = alert.textFields?[0].text
+                self?.viewModel.alertOKTouch.onNext(inputTitle ?? "")
+            }
+            
+            let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+                print("cancel pressed")
+            }
+            
+            alert.addTextField { textField in
+                textField.placeholder = "Title"
+            }
+            alert.addAction(ok)
+            alert.addAction(cancel)
+            
+            self.present(alert, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
 }
 

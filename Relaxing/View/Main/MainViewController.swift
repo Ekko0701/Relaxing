@@ -169,6 +169,17 @@ class MainViewController: UIViewController {
             
         }).disposed(by: disposeBag)
         
+        /** Timer Button 탭 */
+        controlBarView.timerButton.rx.tap
+            .bind(to: viewModel.timerButtonTouch)
+            .disposed(by: disposeBag)
+        
+        /** Show Timer VC Pop Up*/
+        viewModel.showTimerPopUp.subscribe(onNext: { _ in
+            print("show Timer Pop Up ")
+            self.present(TimerPopUpViewController(), animated: true)
+        }).disposed(by: disposeBag)
+        
         /** View Will Appear */
         let viewWillAppear = rx.viewWillAppear.map { _ in () }
         viewWillAppear.bind(to: viewModel.mainViewWillAppear).disposed(by: disposeBag)

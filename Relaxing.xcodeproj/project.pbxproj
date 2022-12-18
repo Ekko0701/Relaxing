@@ -37,6 +37,7 @@
 		6A441365294A1B66001CD3DE /* MixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A441364294A1B66001CD3DE /* MixViewModel.swift */; };
 		6A441368294A23AC001CD3DE /* MixItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A441367294A23AC001CD3DE /* MixItemCell.swift */; };
 		6A44136A294A2680001CD3DE /* ViewMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A441369294A2680001CD3DE /* ViewMix.swift */; };
+		6A441372294F3910001CD3DE /* TimerPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A441371294F3910001CD3DE /* TimerPopUpViewController.swift */; };
 		6A8A8B212943306F00B4451C /* bird_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A8B202943306F00B4451C /* bird_sound.mp3 */; };
 		6A8A8B232943355C00B4451C /* highway_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A8B222943355C00B4451C /* highway_sound.mp3 */; };
 		6A8A8B2529433AB400B4451C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A8B2429433AB400B4451C /* SoundManager.swift */; };
@@ -82,6 +83,7 @@
 		6A441364294A1B66001CD3DE /* MixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixViewModel.swift; sourceTree = "<group>"; };
 		6A441367294A23AC001CD3DE /* MixItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixItemCell.swift; sourceTree = "<group>"; };
 		6A441369294A2680001CD3DE /* ViewMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMix.swift; sourceTree = "<group>"; };
+		6A441371294F3910001CD3DE /* TimerPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPopUpViewController.swift; sourceTree = "<group>"; };
 		6A8A8B202943306F00B4451C /* bird_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird_sound.mp3; sourceTree = "<group>"; };
 		6A8A8B222943355C00B4451C /* highway_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = highway_sound.mp3; sourceTree = "<group>"; };
 		6A8A8B2429433AB400B4451C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				6A13859E2942410500615E0E /* MainViewController.swift */,
 				6A08C1822944592B0044242B /* ControlBarView.swift */,
 				6A08C1892945F40F0044242B /* SoundMixView */,
+				6A441370294F38C7001CD3DE /* Timer */,
 				6A1385FE29425C7500615E0E /* Cell */,
 			);
 			path = Main;
@@ -281,6 +284,14 @@
 				6A441367294A23AC001CD3DE /* MixItemCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		6A441370294F38C7001CD3DE /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				6A441371294F3910001CD3DE /* TimerPopUpViewController.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 		6A8A8B1F2943306500B4451C /* Sounds */ = {
@@ -494,6 +505,7 @@
 				6A1385EC294249B900615E0E /* UILabel+Ext.swift in Sources */,
 				6A1385FA2942523500615E0E /* MixViewController.swift in Sources */,
 				6A13860229425FFA00615E0E /* MainViewModel.swift in Sources */,
+				6A441372294F3910001CD3DE /* TimerPopUpViewController.swift in Sources */,
 				6AB61B232946F1C500EEAEE8 /* ViewSoundMix.swift in Sources */,
 				6A44136A294A2680001CD3DE /* ViewMix.swift in Sources */,
 			);

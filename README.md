@@ -54,3 +54,16 @@
 - MainView viewWillAppear때 현재 재생중인 사운드의 isSelect를 true로 변경하고, CollectionView를 reload를 함으로써 SoundMix로 재생한 사운드가 mainView에 표시되지 않는 문제를 해결함.
     - mainVC에 viewWillAppear.rx를 추가해 viewWillAppear 할때마다 viewModel로 이벤트를 전달한다. 이벤트를 reloading이 구독하고 있고 사운드 선택 여부 (isSelected)를 체크한다. 이벤트를 전달 받음과 동시에 collectionView를 reload하는 reloadingCollectionView에 이벤트를 전달한다.
 - MainViewModel의 reloading subject에 이벤트가 전달되면 plaingState()를 실행해 ControlBar의 play 아이콘 활성화 여부를 체크했다. (Issue4 해결)
+
+### 2022.12.17
+- MainViewModel의 applyMixPlayerToCollection() 수정
+    - isSelected를 먼저 전부 false 처리를 해준후 아래에서 재생 중인 사운드의 isSelected를 true로 바꿔준다.
+- 사운드 목록 수집
+- 메인뷰 UI 구상
+
+### 2022.12.18
+- mix 저장 버튼 터치시 textField가 포함된 alert 보여주고 mix의 title 입력 구현
+- SoundManager의 audioPlayers(재생목록)에 플레이어가 없을때 믹스 추가 버튼을 눌러도 아무 동작 하지 않도록 변경
+- App Icon 제작 및 적용
+- Timer 버튼 액션 추가
+- TimerPopUpViewController 구성 진행중
