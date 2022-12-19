@@ -184,6 +184,7 @@ class MainViewController: UIViewController {
         let viewWillAppear = rx.viewWillAppear.map { _ in () }
         viewWillAppear.bind(to: viewModel.mainViewWillAppear).disposed(by: disposeBag)
         
+        /** Reload CollectionView*/
         viewModel.reloadCollection.bind { [weak self] _ in
             self?.collectionView.reloadData()
         }.disposed(by: disposeBag)

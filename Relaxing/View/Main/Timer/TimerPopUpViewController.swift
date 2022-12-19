@@ -18,6 +18,8 @@ class TimerPopUpViewController: UIViewController {
     // MARK: - Properties
     let disposeBag = DisposeBag()
     
+    let viewModel: TimerPopUpViewModelType
+    
     // MARK: - Views
     var backgroundView = UIView().then {
         $0.backgroundColor = .black.withAlphaComponent(0.8)
@@ -45,7 +47,8 @@ class TimerPopUpViewController: UIViewController {
     }
     
     // MARK: - Initializers
-    init() {
+    init(viewModel: TimerPopUpViewModelType = TimerPopUpViewModel()) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .overFullScreen
     }
@@ -59,6 +62,7 @@ class TimerPopUpViewController: UIViewController {
         super.viewDidLoad()
         configureStyle()
         configureLayout()
+        setupBindings()
     }
     
     // MARK: - Configure
@@ -99,7 +103,16 @@ class TimerPopUpViewController: UIViewController {
         
     }
     
-    private func setupBinding() {
-        //self.add
+    /**
+     Binding 설정
+     */
+    private func setupBindings() {
+        /** Start Button 터치시 viewModel의 startButtonTouch로 타이머 시간 전달 */
+        startButton.rx.tap.bind { [weak self] _ in
+            let timer = self?.datePicker.countDownDuration
+            self?.viewModel.startButtonTouch.onNext(timer ?? 0.0)
+        }.disposed(by: disposeBag)
     }
+    
+    
 }

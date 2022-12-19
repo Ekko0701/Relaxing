@@ -67,3 +67,9 @@
 - App Icon 제작 및 적용
 - Timer 버튼 액션 추가
 - TimerPopUpViewController 구성 진행중
+
+### 2022.12.19
+- TimerManager(Singleton)으로 Timer관리하도록 설계
+    - TimerPopUpViewController에서 countDown DatePicker로 타이머 설정 후 시작 버튼 터치시 TimerManager의 Timer실행.
+    - 종료되면 SoundManager의 audioPlayers(재생목록)의 모든 player 중지 및 timer.invalidate()
+- UI 와이어프레임 제작 (Figma)
