@@ -11,6 +11,7 @@ import SnapKit
 import RxSwift
 import RxViewController
 import RxCocoa
+import RxGesture
 import AVFoundation
 import PanModal
 
@@ -33,6 +34,11 @@ class MainViewController: UIViewController {
     
     let controlBarView = ControlBarView()
     
+    let testView = UIView().then {
+        $0.backgroundColor = .purple
+    }
+    
+    let testView2 = TestView()
     
     // MARK: - Initializers
     init(viewModel: MainViewModelType = MainViewModel()) {
@@ -74,6 +80,7 @@ class MainViewController: UIViewController {
         view.addSubview(backgroundView)
         view.addSubview(collectionView)
         view.addSubview(controlBarView)
+        view.addSubview(testView2)
         
         // AutoLayout
         backgroundView.snp.makeConstraints { make in
@@ -90,8 +97,39 @@ class MainViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(60)
         }
+        
+        testView2.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-8)
+            make.bottom.equalTo(controlBarView.snp.top).offset(-8)
+            make.height.width.equalTo(50)
+        }
+        
+        testView2.layer.cornerRadius = 25
+        
+        
+        testView2.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                print("탭탭")
+                self?.animationTest()
+            })
+            .disposed(by: disposeBag)
+            
     }
     
+    private func animationTest() {
+        
+        UIView.animate(withDuration: 0.5, delay: 0,options: .curveEaseInOut) {
+            self.testView2.snp.updateConstraints { make in
+                make.height.equalTo(200)
+            }
+            
+            self.testView2.updateTestView()
+            
+            self.testView2.superview?.layoutIfNeeded()
+        }
+    }
     /**
      UICollectionView 설정
      */

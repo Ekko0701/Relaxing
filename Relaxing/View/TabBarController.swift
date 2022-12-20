@@ -32,9 +32,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             generateNavController(viewController: SettingViewController(), title: "설정", image: UIImage(systemName: "gearshape"))
         ]
         
-        self.tabBar.backgroundColor = .white.withAlphaComponent(0.5)
-        self.tabBar.barTintColor = .white
-        self.tabBar.tintColor = .systemBlue
+        //self.tabBar.backgroundColor = .white.withAlphaComponent(0.5)
+        self.tabBar.backgroundColor = .black.withAlphaComponent(0.2)        //self.tabBar.barTintColor = .lime
+        self.tabBar.isTranslucent = false
+        self.tabBar.tintColor = .systemRed
     }
     
     /**

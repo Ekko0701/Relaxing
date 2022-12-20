@@ -9,4 +9,5 @@ target 'Relaxing' do
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
   pod 'RxViewController'
+  pod "RxGesture"
 end
