@@ -21,17 +21,22 @@ class ItemCell: UICollectionViewCell {
     private let titleLabel = UILabel().then {
         $0.textAlignment = .center
         $0.numberOfLines = 1
-        $0.applyPoppins(style: .regular, size: 11, color: .black)
+        $0.applyPoppins(style: .semiBold, size: 14, color: .black)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureStyle()
         configureLayout()
-        backgroundColor = .systemGray
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configureStyle() {
+        self.layer.applyBorder(color: .clear, radius: 14)
+    
     }
     
     /**
@@ -45,10 +50,9 @@ class ItemCell: UICollectionViewCell {
         
         // AutoLayout
         titleImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8)
-            make.height.equalToSuperview().multipliedBy(0.5)
-            make.leading.equalToSuperview().offset(8)
             make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-8)
+            make.width.height.equalToSuperview().multipliedBy(0.3)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -59,11 +63,15 @@ class ItemCell: UICollectionViewCell {
     
     func configure(with: SoundItemModel) {
         titleImage.image = with.image
-        titleLabel.text = with.title
+        titleLabel.text = with.title.localized()
         if with.isSelected {
-            backgroundColor = .systemRed
+            backgroundColor = UIColor(red: 0.38, green: 0.83, blue: 0.67, alpha: 1.00)
+            titleLabel.textColor = .black
+            titleImage.tintColor = .limeWhite
         } else {
-            backgroundColor = .systemYellow
+            backgroundColor = UIColor.black.withAlphaComponent(0.7)
+            titleLabel.textColor = .limeWhite
+            titleImage.tintColor = .limeWhite
         }
     }
     
@@ -71,3 +79,5 @@ class ItemCell: UICollectionViewCell {
         super.layoutSubviews()
     }
 }
+
+

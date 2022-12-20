@@ -105,9 +105,9 @@ class MainViewModel: MainViewModelType {
         reloadCollection = reloadingCollection.asObserver()
         
         soundItems = [
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "BirdSound"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "HighWaySound"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "WaterSound"),
+            SoundItemModel(image: UIImage(named: "bird")!, title: "BirdSound"),
+            SoundItemModel(image: UIImage(named: "road")!, title: "HighWaySound"),
+            SoundItemModel(image: UIImage(named: "wave")!, title: "WaterSound"),
             SoundItemModel(image: UIImage(systemName: "gear")!, title: "4번"),
             SoundItemModel(image: UIImage(systemName: "gear")!, title: "5번"),
             SoundItemModel(image: UIImage(systemName: "gear")!, title: "1번"),

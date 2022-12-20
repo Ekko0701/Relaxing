@@ -33,6 +33,8 @@ class ControlBarView: UIView {
         $0.setImage(UIImage(systemName: "clock.circle"), for: .normal)
     }
     
+    var coverView = UIView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureStyle()
@@ -47,7 +49,11 @@ class ControlBarView: UIView {
      뷰 스타일 설정
      */
     private func configureStyle() {
-        self.backgroundColor = .black
+        coverView.backgroundColor = .black.withAlphaComponent(0.8)
+        self.backgroundColor = .clear
+        self.layer.cornerRadius = 14
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.layer.masksToBounds = true
     }
     
     /**
@@ -55,6 +61,7 @@ class ControlBarView: UIView {
      */
     private func configureLayout() {
         // Add SubViews
+        self.addSubview(coverView)
         self.addSubview(itemStack)
         
         // Add Stacks
@@ -63,6 +70,10 @@ class ControlBarView: UIView {
         itemStack.addArrangedSubview(timerButton)
         
         // AutoLayout
+        coverView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         itemStack.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

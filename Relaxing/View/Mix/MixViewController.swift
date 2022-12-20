@@ -18,6 +18,8 @@ class MixViewController: UIViewController {
     var viewModel: MixViewModelType
     
     // MARK: - UI
+    var backgroundView = UIView()
+    
     var mixTableView: UITableView!
     
     // MARK: - Initializers
@@ -49,14 +51,31 @@ class MixViewController: UIViewController {
         setupBindings()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureStyle()
+    }
+    
+    /**
+     UI 스타일 설정
+     */
+    private func configureStyle() {
+        backgroundView.setGradient(firstColor: UIColor.gradientBlue, secondColor: UIColor.gradientGreen)
+    }
+    
     /**
      레이아웃 설정
      */
     private func configureLayout() {
         // AddSubviews
+        view.addSubview(backgroundView)
         view.addSubview(mixTableView)
         
         // Constraints
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         mixTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -67,6 +86,8 @@ class MixViewController: UIViewController {
      */
     private func configureTableView() {
         mixTableView = UITableView()
+        
+        mixTableView.backgroundColor = .clear
         
         // Attach Delegate , DataSource
         mixTableView.delegate = self
@@ -89,7 +110,6 @@ class MixViewController: UIViewController {
 
 // MARK: - UITableView Delegate
 extension MixViewController: UITableViewDelegate {
-    
 }
 
 // MARK: - UITableView DataSource
@@ -108,6 +128,20 @@ extension MixViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    // Delete
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            self.viewModel.deleteMix.onNext(indexPath)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+
+        }
     }
     
 }

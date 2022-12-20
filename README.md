@@ -73,3 +73,9 @@
     - TimerPopUpViewController에서 countDown DatePicker로 타이머 설정 후 시작 버튼 터치시 TimerManager의 Timer실행.
     - 종료되면 SoundManager의 audioPlayers(재생목록)의 모든 player 중지 및 timer.invalidate()
 - UI 와이어프레임 제작 (Figma)
+
+### 2022.12.20
+- LaunchScreen 이미지 제작, 추가
+- Localizing으로 다국어 처리(en,ko) 완료
+- MixViewController에서 TableView 좌로 슬라이드시 Mix 삭제 구현
+    - TableView Editing을 사용해 editingStyle이 delete라면 viewModel의 deleteMix로 indexPath Event를 전달해 먼저 viewModel에서 realm 데이터 삭제, soundItems 요소 삭제 후 tableView.deleteRows

@@ -14,16 +14,18 @@ class MixItemCell: UITableViewCell {
     static let identifier = "MixItemCell"
     
     // MARK: - UI
+    private let containerView = UIView()
+    
     private let mixTitle = UILabel().then {
         $0.textAlignment = .left
         $0.numberOfLines = 1
-        $0.applyPoppins(style: .bold, size: 11, color: .black)
+        $0.applyPoppins(style: .bold, size: 17, color: .limeWhite)
     }
     
     private let subTitle = UILabel().then {
         $0.textAlignment = .left
         $0.numberOfLines = 1
-        $0.applyPoppins(style: .bold, size: 11, color: .black)
+        $0.applyPoppins(style: .semiBold, size: 13, color: .limeWhite)
     }
     
     // MARK: - Initializers
@@ -31,6 +33,7 @@ class MixItemCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         configureLayout()
+        configureStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -39,16 +42,32 @@ class MixItemCell: UITableViewCell {
     
     // MARK: - Layout
     /**
+     스타일 설정
+     */
+    private func configureStyle() {
+        containerView.layer.applyBorder(color: .clear, radius: 14)
+        containerView.backgroundColor = .black.withAlphaComponent(0.4)
+        self.backgroundColor = .clear
+    }
+    
+    /**
      셀 레이아웃 설정
      */
     private func configureLayout() {
         // Add Subview
-        contentView.addSubview(mixTitle)
-        contentView.addSubview(subTitle)
+        contentView.addSubview(containerView)
+        
+        containerView.addSubview(mixTitle)
+        containerView.addSubview(subTitle)
         
         // Constraints
+        containerView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().offset(8)
+            make.bottom.trailing.equalToSuperview().offset(-8)
+        }
+        
         mixTitle.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview()
+            make.top.leading.equalToSuperview().offset(8)
         }
         
         subTitle.snp.makeConstraints { make in

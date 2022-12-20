@@ -92,7 +92,7 @@ class SoundMixViewModel: SoundMixViewModelType {
         // Alert OK Touched
         alertOKTouching.bind { [weak self] mixTitle in
             self?.saveSoundMix(with: mixTitle)
-            //print(Realm.Configuration.defaultConfiguration.fileURL!)
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
         }.disposed(by: disposeBag)
     }
 }
@@ -118,4 +118,6 @@ extension SoundMixViewModel {
             realm.add(soundMixs)
         }
     }
+    
+    
 }

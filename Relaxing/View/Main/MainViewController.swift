@@ -27,6 +27,8 @@ class MainViewController: UIViewController {
     //var soundPlayers = [AVAudioPlayer]()
     
     // MARK: - Views
+    var backgroundView = UIView()
+    
     var collectionView: UICollectionView!
     
     let controlBarView = ControlBarView()
@@ -45,10 +47,22 @@ class MainViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureCollectionView()
         configureLayout()
         setBindings()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureStyle()
+    }
+    
+    /**
+     UI 스타일 설정
+     */
+    private func configureStyle() {
+        backgroundView.setGradient(firstColor: UIColor.gradientBlue, secondColor: UIColor.gradientGreen)
+        
     }
     
     /**
@@ -56,10 +70,16 @@ class MainViewController: UIViewController {
      */
     private func configureLayout() {
         // Add Subviews
+        
+        view.addSubview(backgroundView)
         view.addSubview(collectionView)
         view.addSubview(controlBarView)
         
         // AutoLayout
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -68,7 +88,7 @@ class MainViewController: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(50)
+            make.height.equalTo(60)
         }
     }
     
@@ -78,7 +98,7 @@ class MainViewController: UIViewController {
     private func configureCollectionView() {
         let layout = createCompositionalLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         
         // Attach Delegate & DataSource
         collectionView.delegate = self

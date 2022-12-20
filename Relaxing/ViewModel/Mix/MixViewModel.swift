@@ -14,10 +14,11 @@ protocol MixViewModelType {
     // INPUT
     // ---------------------
     var mixTouch: PublishSubject<IndexPath> { get }
+    var deleteMix: PublishSubject<IndexPath> { get }
     
     // OUTPUT
     // ---------------------
-    var mixItems: [ViewMix] { get }
+    var mixItems: [ViewMix] { get set }
 }
 
 class MixViewModel: MixViewModelType {
@@ -26,6 +27,7 @@ class MixViewModel: MixViewModelType {
     // INPUT
     // ---------------------
     var mixTouch: PublishSubject<IndexPath>
+    var deleteMix: PublishSubject<IndexPath>
     
     // OUTPUT
     // ---------------------
@@ -33,10 +35,12 @@ class MixViewModel: MixViewModelType {
     
     init() {
         let mixTouching = PublishSubject<IndexPath>()
+        let deletingMix = PublishSubject<IndexPath>()
         
         // INPUT
         // ---------------------
         mixTouch = mixTouching.asObserver()
+        deleteMix = deletingMix.asObserver()
         
         // OUTPUT
         // ---------------------
@@ -63,14 +67,23 @@ class MixViewModel: MixViewModelType {
                 default:
                     return
                 }
-                #warning("TODO : - 재생은 된다. control Bar. 추가할것. ")
             }
+        }.disposed(by: disposeBag)
+        
+        deletingMix.bind { [weak self] indexPath in
+            print("\(indexPath.item) 삭제")
+            let rest = realm.objects(SoundMixs.self)[indexPath.row]
+            try! realm.write {
+                realm.delete(rest)
+            }
+            self?.mixItems.remove(at: indexPath.item)
         }.disposed(by: disposeBag)
         
         
     }
 }
 
+// MARK: - Realm
 extension MixViewModel {
     private func readSoundMixs() -> Results<SoundMixs> {
         let realm = try! Realm()
