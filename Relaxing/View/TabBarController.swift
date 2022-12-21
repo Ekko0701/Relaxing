@@ -22,21 +22,20 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.selectedIndex = 0
         
         let mainVC = MainViewController()
-        mainVC.tabBarItem.image = UIImage(systemName: "house")
+        mainVC.tabBarItem.image = UIImage(named: "homeIcon")
         let MixVC = MixViewController()
-        MixVC.tabBarItem.image = UIImage(systemName: "play.square.stack")
-        MixVC.tabBarItem.title = "내 라이브러리"
+        MixVC.tabBarItem.image = UIImage(named: "libraryIcon")
         viewControllers = [
-            generateNavController(viewController: MainViewController(), title: "홈", image: UIImage(systemName: "house")),
+            generateNavController(viewController: MainViewController(), title: "홈", image: UIImage(named: "homeIcon")),
             MixVC,
-            generateNavController(viewController: SettingViewController(), title: "설정", image: UIImage(systemName: "gearshape"))
+            generateNavController(viewController: SettingViewController(), title: "설정", image: UIImage(named: "gearIcon"))
         ]
         
         self.tabBar.isTranslucent = true
-        self.tabBar.backgroundColor = UIColor(red: 0.20, green: 0.30, blue: 0.40, alpha: 1.00).withAlphaComponent(0.98)
+        self.tabBar.backgroundColor = UIColor(red: 0.09, green: 0.11, blue: 0.19, alpha: 1.00).withAlphaComponent(0.98)
     
-        self.tabBar.unselectedItemTintColor = UIColor(red: 0.43, green: 0.80, blue: 0.69, alpha: 1.00)
-        self.tabBar.tintColor = UIColor(red: 0.95, green: 0.93, blue: 0.69, alpha: 1.00)
+        self.tabBar.unselectedItemTintColor = UIColor(red: 0.40, green: 0.54, blue: 0.51, alpha: 1.00)
+        self.tabBar.tintColor = UIColor(red: 0.90, green: 0.87, blue: 0.77, alpha: 1.00)
         
         tabBar.layer.cornerRadius = tabBar.frame.height * 0.41
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -48,7 +47,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     private func generateNavController(viewController: UIViewController, title: String, image: UIImage?) -> UINavigationController {
         // Set TabBar Item
         viewController.tabBarItem.image = image
-        viewController.tabBarItem.title = title
+        //viewController.tabBarItem.title = title
         
         // Set Navigation
         viewController.navigationItem.title = title

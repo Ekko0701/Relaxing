@@ -27,8 +27,10 @@ class SoundMixViewController: UIViewController {
     // MARK: - Views
     var soundTable: UITableView!
     
+    var saveButtonContainer = UIView()
+    
     var saveButton = UIButton().then {
-        $0.setTitle("내 믹스 저장하기", for: .normal)
+        $0.setTitle("저장", for: .normal)
     }
     
     // MARK: - Initializers
@@ -46,10 +48,15 @@ class SoundMixViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .black
         configureSoundTable()
         configureLayout()
         setupBindings()
+        configureStyle()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -71,23 +78,41 @@ class SoundMixViewController: UIViewController {
         soundTable.register(SoundTableCell.self, forCellReuseIdentifier: SoundTableCell.identifier)
     }
     
-    // MARK: - Layout
+    // MARK: - Configure
+    private func configureStyle() {
+        self.view.backgroundColor = UIColor(red: 0.09, green: 0.11, blue: 0.19, alpha: 0.9)
+        
+        soundTable.backgroundColor = .clear
+        
+        saveButton.backgroundColor = .clear
+        
+        saveButtonContainer.backgroundColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.5)
+        saveButtonContainer.layer.applyBorder(color: .clear, radius: 12)
+    }
+    
     /**
      레이아웃 설정
      */
     private func configureLayout() {
         // Add Subviews
-        view.addSubview(saveButton)
+        view.addSubview(saveButtonContainer)
+        saveButtonContainer.addSubview(saveButton)
         view.addSubview(soundTable)
         
         // AutoLayout
+        saveButtonContainer.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().offset(-12)
+            make.width.equalTo(view.frame.width / 6.5)
+            make.height.equalTo(saveButtonContainer.snp.width).multipliedBy(0.7)
+        }
+        
         saveButton.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-16)
+            make.edges.equalToSuperview()
         }
         
         soundTable.snp.makeConstraints { make in
-            make.top.equalTo(saveButton.snp.bottom).offset(8)
+            make.top.equalTo(saveButtonContainer.snp.bottom).offset(8)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -170,3 +195,18 @@ extension SoundMixViewController: PanModalPresentable {
         return true
     }
 }
+
+
+//MARK: - Preview
+
+#if DEBUG
+import SwiftUI
+struct SoundMixViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        SoundMixViewController().getPreview()
+            .ignoresSafeArea()
+    }
+}
+/// option + command +enter -> 접었다 폈다
+/// option + command + p -> 미리보기 실행
+#endif

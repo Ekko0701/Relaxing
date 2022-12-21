@@ -24,16 +24,11 @@ class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     var controlViewIsOn = false
-    /** 오디오 플레이어 관련 변수 */
-    //var player: AVAudioPlayer?
-    //var soundPlayers = [AVAudioPlayer]()
     
     // MARK: - Views
     var backgroundView = UIView()
     
     var collectionView: UICollectionView!
-    
-    let controlBarView = ControlBarView()
     
     let controlView = ControlMenuView()
     
@@ -76,7 +71,6 @@ class MainViewController: UIViewController {
         
         view.addSubview(backgroundView)
         view.addSubview(collectionView)
-        view.addSubview(controlBarView)
         view.addSubview(controlView)
         
         // AutoLayout
@@ -88,15 +82,9 @@ class MainViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
-        controlBarView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(60)
-        }
         controlView.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-8)
-            make.bottom.equalTo(controlBarView.snp.top).offset(-8)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.height.width.equalTo(self.view.frame.width / 6.5)
         }
     }
@@ -169,38 +157,46 @@ class MainViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         // MARK: - Control Bar View Binding
-        /** Play Button을 탭하면 viewModel의 playButtonTouch로 이벤트 전달. */
-        controlBarView.playButton.rx.tap
-            .bind(to: viewModel.playButtonTouch)
+        controlView.playButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.playButtonTouch.onNext(Void())
+            })
             .disposed(by: disposeBag)
         
         /** Play Button 이미지 변경 ViewModel의 isEntirePlayed를 구독*/
         viewModel.isEntirePlayed
             .do(onNext: { [weak self] isPlaying in
                 if isPlaying {
-                    self?.controlBarView.playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+                    self?.controlView.playIcon.image = UIImage(named: "pauseIcon")
                 } else {
-                    self?.controlBarView.playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+                    self?.controlView.playIcon.image = UIImage(named: "playIcon")
                 }
             })
             .subscribe(onNext: { _ in () })
             .disposed(by: disposeBag)
                 
         /** Sound Mix Button을 탭하면 viewModel의 soundMixButtonTouch로 이벤트 전달. */
-        controlBarView.soundMixButton.rx.tap
-            .bind(to: viewModel.soundMixButtonTouch)
-            .disposed(by: disposeBag)
+        controlView.soundMixButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .bind(onNext: { [weak self] _ in
+                self?.viewModel.soundMixButtonTouch.onNext(Void())
+            }).disposed(by: disposeBag)
         
         /** Show Sound Mix VC */
         viewModel.showSoundMixVC.subscribe(onNext: { _ in
             self.presentPanModal(SoundMixViewController())
-            
         }).disposed(by: disposeBag)
         
         /** Timer Button 탭 */
-        controlBarView.timerButton.rx.tap
-            .bind(to: viewModel.timerButtonTouch)
-            .disposed(by: disposeBag)
+        controlView.timerButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .bind(onNext: {[weak self] _ in
+                self?.viewModel.timerButtonTouch.onNext(Void())
+            }).disposed(by: disposeBag)
         
         /** Show Timer VC Pop Up*/
         viewModel.showTimerPopUp.subscribe(onNext: { _ in

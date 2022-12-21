@@ -14,9 +14,7 @@ class SoundTableCell: UITableViewCell {
     static let identifier = "SoundTableCell"
     
     // MARK: - UI
-    let background = UIView().then {
-        $0.backgroundColor = .systemGray
-    }
+    let containerView = UIView()
     
     private let titleStack = UIStackView().then {
         $0.alignment = .center
@@ -33,7 +31,7 @@ class SoundTableCell: UITableViewCell {
     private let titleLabel = UILabel().then {
         $0.numberOfLines = 1
         $0.textAlignment = .left
-        $0.applyPoppins(text: "테스트", style: .regular, size: 11, color: .black)
+        $0.applyPoppins(text: "테스트", style: .regular, size: 14, color: .limeWhite)
     }
     
     let volumeSlider = UISlider().then {
@@ -49,6 +47,7 @@ class SoundTableCell: UITableViewCell {
         
         self.backgroundColor = .systemRed
         configureLayout()
+        configureStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -57,31 +56,52 @@ class SoundTableCell: UITableViewCell {
     
     // MARK: - Layout
     /**
+     스타일 설정
+     */
+    private func configureStyle() {
+        containerView.layer.applyBorder(color: .clear, radius: 14)
+        //containerView.backgroundColor = .black.withAlphaComponent(0.4)
+        containerView.backgroundColor = .limeWhite
+        self.backgroundColor = .clear
+    }
+    
+    /**
      셀 레이아웃 설정
      */
     private func configureLayout() {
         // Add Subview
-        contentView.addSubview(background)
+        contentView.addSubview(containerView)
         
         titleStack.addArrangedSubview(titleImage)
         titleStack.addArrangedSubview(titleLabel)
         
-        background.addSubview(titleStack)
-        background.addSubview(volumeSlider)
+        containerView.addSubview(titleStack)
+        containerView.addSubview(volumeSlider)
         
         // Constraints
-        background.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        containerView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(4)
+            make.bottom.equalToSuperview().offset(-4)
+            make.leading.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().offset(-8)
+        }
+        
+        titleImage.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalToSuperview().offset(4)
+            make.height.equalTo(titleImage.snp.width)
         }
         
         titleStack.snp.makeConstraints { make in
-            make.centerY.equalTo(background)
+            make.centerY.equalTo(containerView)
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalTo(volumeSlider.snp.leading).offset(-8)
         }
         
         volumeSlider.snp.makeConstraints { make in
-            make.centerY.equalTo(background)
+            make.centerY.equalTo(containerView)
+            make.width.equalTo(self.frame.width * 0.85)
             make.trailing.equalToSuperview().offset(-16)
         }
     }
@@ -91,7 +111,7 @@ class SoundTableCell: UITableViewCell {
      */
     func configure(data: ViewSoundMix) {
         self.titleImage.image = data.titleImage
-        self.titleLabel.text = data.titleLabel
+        self.titleLabel.text = data.title.localized()
         self.volumeSlider.value = data.playerVolume * 100
     }
     

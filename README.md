@@ -79,3 +79,9 @@
 - Localizing으로 다국어 처리(en,ko) 완료
 - MixViewController에서 TableView 좌로 슬라이드시 Mix 삭제 구현
     - TableView Editing을 사용해 editingStyle이 delete라면 viewModel의 deleteMix로 indexPath Event를 전달해 먼저 viewModel에서 realm 데이터 삭제, soundItems 요소 삭제 후 tableView.deleteRows
+
+### 2022.12.21
+- ControlView 추가, Open / Close 애니메이션 구현, Icon 추가
+- 전체 UI 변경중
+- TimerPopUpViewController 나가기 Button과 배경을 터치했을때 dismiss 액션 구현 완료
+    - 팝업뷰를 dismiss하는 모든 이벤트는 viewModel의 dismissTimerView Subject로 전달되어 처리된다. -> 나중에 다른 event 추가할때 편의성을 위함

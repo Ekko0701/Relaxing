@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 extension UIView {
+    /// Gradient 효과 추가
+    /// - Parameters:
+    ///   - firstColor: 왼쪽 위에서 시작하는 색상
+    ///   - secondColor: 오른쪽 아래에서 끝나는 색상
     func setGradient(firstColor: UIColor, secondColor: UIColor) {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.colors = [firstColor.cgColor, secondColor.cgColor]

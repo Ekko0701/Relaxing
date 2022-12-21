@@ -67,11 +67,11 @@ enum TitleInfo: String {
     var image: UIImage {
         switch self {
         case .BirdSound:
-            return UIImage(systemName: "house")!
+            return UIImage(named: "bird")!
         case .HighWaySound:
-            return UIImage(systemName: "gear")!
+            return UIImage(named: "road")!
         case .WaterSound:
-            return UIImage(systemName: "eraser")!
+            return UIImage(named: "wave")!
         }
     }
     

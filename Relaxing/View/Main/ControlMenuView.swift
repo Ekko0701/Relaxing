@@ -66,10 +66,10 @@ class ControlMenuView: UIView {
     private func configureStyle() {
         self.backgroundColor = UIColor(red: 0.20, green: 0.30, blue: 0.40, alpha: 1.00).withAlphaComponent(0.98)
         
-        menuIcon.tintColor = .limeWhite
-        playIcon.tintColor = .limeWhite
-        soundMixIcon.tintColor = .limeWhite
-        timerIcon.tintColor = .limeWhite
+        menuIcon.tintColor = UIColor(red: 0.94, green: 0.91, blue: 0.82, alpha: 1.00)
+        playIcon.tintColor = UIColor(red: 0.94, green: 0.91, blue: 0.82, alpha: 1.00)
+        soundMixIcon.tintColor = UIColor(red: 0.94, green: 0.91, blue: 0.82, alpha: 1.00)
+        timerIcon.tintColor = UIColor(red: 0.94, green: 0.91, blue: 0.82, alpha: 1.00)
     }
     
     /**
