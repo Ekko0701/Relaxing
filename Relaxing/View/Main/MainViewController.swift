@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    var controlViewIsOn = false
     /** 오디오 플레이어 관련 변수 */
     //var player: AVAudioPlayer?
     //var soundPlayers = [AVAudioPlayer]()
@@ -34,11 +35,7 @@ class MainViewController: UIViewController {
     
     let controlBarView = ControlBarView()
     
-    let testView = UIView().then {
-        $0.backgroundColor = .purple
-    }
-    
-    let testView2 = TestView()
+    let controlView = ControlMenuView()
     
     // MARK: - Initializers
     init(viewModel: MainViewModelType = MainViewModel()) {
@@ -68,7 +65,7 @@ class MainViewController: UIViewController {
      */
     private func configureStyle() {
         backgroundView.setGradient(firstColor: UIColor.gradientBlue, secondColor: UIColor.gradientGreen)
-        
+        controlView.layer.cornerRadius = controlView.frame.width / 2
     }
     
     /**
@@ -80,7 +77,7 @@ class MainViewController: UIViewController {
         view.addSubview(backgroundView)
         view.addSubview(collectionView)
         view.addSubview(controlBarView)
-        view.addSubview(testView2)
+        view.addSubview(controlView)
         
         // AutoLayout
         backgroundView.snp.makeConstraints { make in
@@ -97,37 +94,10 @@ class MainViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(60)
         }
-        
-        testView2.snp.makeConstraints { make in
+        controlView.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-8)
             make.bottom.equalTo(controlBarView.snp.top).offset(-8)
-            make.height.width.equalTo(50)
-        }
-        
-        testView2.layer.cornerRadius = 25
-        
-        
-        testView2.rx
-            .tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { [weak self] _ in
-                print("탭탭")
-                self?.animationTest()
-            })
-            .disposed(by: disposeBag)
-            
-    }
-    
-    private func animationTest() {
-        
-        UIView.animate(withDuration: 0.5, delay: 0,options: .curveEaseInOut) {
-            self.testView2.snp.updateConstraints { make in
-                make.height.equalTo(200)
-            }
-            
-            self.testView2.updateTestView()
-            
-            self.testView2.superview?.layoutIfNeeded()
+            make.height.width.equalTo(self.view.frame.width / 6.5)
         }
     }
     /**
@@ -198,7 +168,7 @@ class MainViewController: UIViewController {
             self?.collectionView.reloadItems(at: [indexPath])   // 터치시 cell 스타일 변화 적용
         }).disposed(by: disposeBag)
         
-        //MARK: - Control Bar View Binding
+        // MARK: - Control Bar View Binding
         /** Play Button을 탭하면 viewModel의 playButtonTouch로 이벤트 전달. */
         controlBarView.playButton.rx.tap
             .bind(to: viewModel.playButtonTouch)
@@ -246,6 +216,41 @@ class MainViewController: UIViewController {
         viewModel.reloadCollection.bind { [weak self] _ in
             self?.collectionView.reloadData()
         }.disposed(by: disposeBag)
+        
+        // MARK: - Control View Binding
+        /** Tap Control View */
+        controlView.menuButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                self?.controlViewIsOn.toggle()
+                self?.controlMenuViewAnimation()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    
+    /**
+     ControlView를 탭했을때 나타나는 animation
+     */
+    private func controlMenuViewAnimation() {
+        if controlViewIsOn {
+            UIView.animate(withDuration: 0.5, delay: 0,options: .curveEaseInOut) {
+                self.controlView.snp.updateConstraints { make in
+                    make.height.equalTo(self.view.frame.width / 6.5 * 3.85)
+                }
+                self.controlView.openControlView()
+                self.controlView.superview?.layoutIfNeeded()
+            }
+        } else {
+            UIView.animate(withDuration: 0.3, delay: 0,options: .curveEaseInOut) {
+                self.controlView.snp.updateConstraints { make in
+                    make.height.equalTo(self.view.frame.width / 6.5)
+                }
+                self.controlView.closeControlView()
+                self.controlView.superview?.layoutIfNeeded()
+            }
+        }
         
     }
 }

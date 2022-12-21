@@ -32,10 +32,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             generateNavController(viewController: SettingViewController(), title: "설정", image: UIImage(systemName: "gearshape"))
         ]
         
-        //self.tabBar.backgroundColor = .white.withAlphaComponent(0.5)
-        self.tabBar.backgroundColor = .black.withAlphaComponent(0.2)        //self.tabBar.barTintColor = .lime
-        self.tabBar.isTranslucent = false
-        self.tabBar.tintColor = .systemRed
+        self.tabBar.isTranslucent = true
+        self.tabBar.backgroundColor = UIColor(red: 0.20, green: 0.30, blue: 0.40, alpha: 1.00).withAlphaComponent(0.98)
+    
+        self.tabBar.unselectedItemTintColor = UIColor(red: 0.43, green: 0.80, blue: 0.69, alpha: 1.00)
+        self.tabBar.tintColor = UIColor(red: 0.95, green: 0.93, blue: 0.69, alpha: 1.00)
+        
+        tabBar.layer.cornerRadius = tabBar.frame.height * 0.41
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     /**

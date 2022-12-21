@@ -45,7 +45,7 @@
 		6A44137F2951647B001CD3DE /* CALayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A44137E2951647B001CD3DE /* CALayer+Ext.swift */; };
 		6A4413822951B2F5001CD3DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A4413842951B2F5001CD3DE /* Localizable.strings */; };
 		6A4413872951B4DF001CD3DE /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4413862951B4DF001CD3DE /* String+Ext.swift */; };
-		6A4413892951DB8D001CD3DE /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4413882951DB8D001CD3DE /* TestView.swift */; };
+		6A4413892951DB8D001CD3DE /* ControlMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4413882951DB8D001CD3DE /* ControlMenuView.swift */; };
 		6A8A8B212943306F00B4451C /* bird_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A8B202943306F00B4451C /* bird_sound.mp3 */; };
 		6A8A8B232943355C00B4451C /* highway_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A8B222943355C00B4451C /* highway_sound.mp3 */; };
 		6A8A8B2529433AB400B4451C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A8B2429433AB400B4451C /* SoundManager.swift */; };
@@ -100,7 +100,7 @@
 		6A4413832951B2F5001CD3DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6A4413852951B318001CD3DE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6A4413862951B4DF001CD3DE /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		6A4413882951DB8D001CD3DE /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		6A4413882951DB8D001CD3DE /* ControlMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlMenuView.swift; sourceTree = "<group>"; };
 		6A8A8B202943306F00B4451C /* bird_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird_sound.mp3; sourceTree = "<group>"; };
 		6A8A8B222943355C00B4451C /* highway_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = highway_sound.mp3; sourceTree = "<group>"; };
 		6A8A8B2429433AB400B4451C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 			children = (
 				6A13859E2942410500615E0E /* MainViewController.swift */,
 				6A08C1822944592B0044242B /* ControlBarView.swift */,
-				6A4413882951DB8D001CD3DE /* TestView.swift */,
+				6A4413882951DB8D001CD3DE /* ControlMenuView.swift */,
 				6A08C1892945F40F0044242B /* SoundMixView */,
 				6A441370294F38C7001CD3DE /* Timer */,
 				6A1385FE29425C7500615E0E /* Cell */,
@@ -527,7 +527,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A4413892951DB8D001CD3DE /* TestView.swift in Sources */,
+				6A4413892951DB8D001CD3DE /* ControlMenuView.swift in Sources */,
 				6AB61B2F29497AD200EEAEE8 /* SoundMix.swift in Sources */,
 				6A441368294A23AC001CD3DE /* MixItemCell.swift in Sources */,
 				6A1385E72942464100615E0E /* UIFont+Ext.swift in Sources */,
