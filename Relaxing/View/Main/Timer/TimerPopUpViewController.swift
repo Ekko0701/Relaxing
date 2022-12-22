@@ -11,6 +11,7 @@ import Then
 import SnapKit
 import RxSwift
 import RxGesture
+import Lottie
 
 /**
     타이머 설정 ViewController (Pop up)
@@ -22,34 +23,45 @@ class TimerPopUpViewController: UIViewController {
     let viewModel: TimerPopUpViewModelType
     
     // MARK: - Views
-    var behindView = UIView().then {
+    private var behindView = UIView().then {
         $0.backgroundColor = .clear
     }
     
-    var backgroundView = UIView().then {
+    private var backgroundView = UIView().then {
         $0.backgroundColor = .black.withAlphaComponent(0.8)
     }
-    var datePicker = UIDatePicker().then {
+    private var datePicker = UIDatePicker().then {
         $0.tintColor = .white
         $0.datePickerMode = .countDownTimer
     }
     
-    var buttonStack = UIStackView().then {
+    private var buttonStack = UIStackView().then {
         $0.distribution = .fillEqually
         $0.alignment = .center
         $0.axis = .horizontal
         $0.spacing = 8
     }
     
-    var startButton = UIButton().then {
+    private var startButton = UIButton().then {
         $0.setTitle("시작", for: .normal)
     }
     
-    var exitButton = UIButton().then {
+    private var exitButton = UIButton().then {
         $0.setTitle("나가기", for: .normal)
     }
     
-    var activeView = UIView()
+    private var activeView = UIView()
+    
+    private var animationView: LottieAnimationView?
+    
+    private var timerCancelButton = UIButton().then {
+        $0.setTitle("취소", for: .normal)
+    }
+    
+    private var timerLabel = UILabel().then {
+        $0.textAlignment = .center
+        $0.applyPoppins(text:"00:00", style: .regular, size: 24, color: .limeWhite)
+    }
     
     // MARK: - Initializers
     init(viewModel: TimerPopUpViewModelType = TimerPopUpViewModel()) {
@@ -66,7 +78,9 @@ class TimerPopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureStyle()
+        configureAnimation()
         configureLayout()
+        
         setupBindings()
     }
     
@@ -89,7 +103,9 @@ class TimerPopUpViewController: UIViewController {
         exitButton.backgroundColor = .systemGray
 
         activeView.isHidden = true
-        activeView.backgroundColor = .black.withAlphaComponent(0.5)
+        activeView.backgroundColor = .black.withAlphaComponent(0.8)
+        self.timerCancelButton.layer.applyBorder(color: .clear, radius: 12)
+        timerCancelButton.backgroundColor = .systemGray
     }
     
     /**
@@ -106,6 +122,10 @@ class TimerPopUpViewController: UIViewController {
         
         buttonStack.addArrangedSubview(exitButton)
         buttonStack.addArrangedSubview(startButton)
+        
+        activeView.addSubview(animationView!)
+        activeView.addSubview(timerCancelButton)
+        activeView.addSubview(timerLabel)
         
         // AutoLayout
         behindView.snp.makeConstraints { make in
@@ -133,6 +153,24 @@ class TimerPopUpViewController: UIViewController {
             make.edges.equalTo(backgroundView)
         }
         
+        animationView?.snp.makeConstraints { make in
+            //make.top.equalToSuperview().offset(32)
+            make.bottom.equalTo(timerLabel.snp.top).offset(-8)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        timerLabel.snp.makeConstraints { make in
+            make.top.equalTo(animationView!.snp.bottom).offset(8)
+            make.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        timerCancelButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-32)
+            make.leading.equalToSuperview().offset(64)
+            make.trailing.equalToSuperview().offset(-64)
+        }
     }
     
     /**
@@ -170,12 +208,41 @@ class TimerPopUpViewController: UIViewController {
         viewModel.timerActivated
             .debug()
             .map{ !$0 }
+            .do(onNext: { [weak self] isPlay in
+                if isPlay {
+                    self?.animationView?.stop()
+                } else {
+                    self?.animationView?.play()
+                }}
+            )
             .bind(to: activeView.rx.isHidden)
             .disposed(by: disposeBag)
         
         viewModel.timerActivated
             .bind(to: backgroundView.rx.isHidden)
             .disposed(by: disposeBag)
+                
+                viewModel.timerString
+                .bind(to: timerLabel.rx.text)
+                .disposed(by: disposeBag)
+                
+//                timerCancelButton.rx.tap.bind{ [weak self] _ in
+//                    viewModel.cancelButtonTouch.onNext(Void())
+//                }.disposed(by: disposeBag)
+        
+        timerCancelButton.rx.tap.bind(to: viewModel.cancelButtonTouch).disposed(by: disposeBag)
+    }
+    
+    /**
+     Animation 설정
+     */
+    private func configureAnimation() {
+        animationView = .init(name: "music_animation")
+        animationView?.contentMode = .scaleAspectFit
+        animationView?.loopMode = .loop
+        animationView?.animationSpeed = 1
+        
+        
     }
 }
 

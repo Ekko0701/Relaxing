@@ -48,6 +48,8 @@
 		6A4413892951DB8D001CD3DE /* ControlMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4413882951DB8D001CD3DE /* ControlMenuView.swift */; };
 		6A44138B29531CC1001CD3DE /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A44138A29531CC1001CD3DE /* UIImage+Ext.swift */; };
 		6A44138D29532280001CD3DE /* UIPreview+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A44138C29532280001CD3DE /* UIPreview+Ext.swift */; };
+		6A441390295427E3001CD3DE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6A44138F295427E3001CD3DE /* Lottie */; };
+		6A441393295431E3001CD3DE /* music_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A441392295431E3001CD3DE /* music_animation.json */; };
 		6A8A8B212943306F00B4451C /* bird_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A8B202943306F00B4451C /* bird_sound.mp3 */; };
 		6A8A8B232943355C00B4451C /* highway_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A8B222943355C00B4451C /* highway_sound.mp3 */; };
 		6A8A8B2529433AB400B4451C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A8B2429433AB400B4451C /* SoundManager.swift */; };
@@ -105,6 +107,7 @@
 		6A4413882951DB8D001CD3DE /* ControlMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlMenuView.swift; sourceTree = "<group>"; };
 		6A44138A29531CC1001CD3DE /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		6A44138C29532280001CD3DE /* UIPreview+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPreview+Ext.swift"; sourceTree = "<group>"; };
+		6A441392295431E3001CD3DE /* music_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music_animation.json; sourceTree = "<group>"; };
 		6A8A8B202943306F00B4451C /* bird_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird_sound.mp3; sourceTree = "<group>"; };
 		6A8A8B222943355C00B4451C /* highway_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = highway_sound.mp3; sourceTree = "<group>"; };
 		6A8A8B2429433AB400B4451C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB61B2C294979C000EEAEE8 /* RealmSwift in Frameworks */,
+				6A441390295427E3001CD3DE /* Lottie in Frameworks */,
 				6A08C1882945E4EC0044242B /* PanModal in Frameworks */,
 				6A1385EF29424A7C00615E0E /* SnapKit in Frameworks */,
 				6A1385F229424A8E00615E0E /* Then in Frameworks */,
@@ -175,6 +179,7 @@
 		6A1385992942410500615E0E /* Relaxing */ = {
 			isa = PBXGroup;
 			children = (
+				6A441391295431D8001CD3DE /* Animations */,
 				6A4413842951B2F5001CD3DE /* Localizable.strings */,
 				6A8A8B1F2943306500B4451C /* Sounds */,
 				6A1385B22942425F00615E0E /* Font */,
@@ -341,6 +346,14 @@
 			path = TimerManager;
 			sourceTree = "<group>";
 		};
+		6A441391295431D8001CD3DE /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				6A441392295431E3001CD3DE /* music_animation.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		6A8A8B1F2943306500B4451C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +430,7 @@
 				6A08C1872945E4EC0044242B /* PanModal */,
 				6AB61B29294979C000EEAEE8 /* Realm */,
 				6AB61B2B294979C000EEAEE8 /* RealmSwift */,
+				6A44138F295427E3001CD3DE /* Lottie */,
 			);
 			productName = Relaxing;
 			productReference = 6A1385972942410500615E0E /* Relaxing.app */;
@@ -452,6 +466,7 @@
 				6A1385F029424A8E00615E0E /* XCRemoteSwiftPackageReference "Then" */,
 				6A08C1862945E4EC0044242B /* XCRemoteSwiftPackageReference "PanModal" */,
 				6AB61B28294979C000EEAEE8 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				6A44138E295427E3001CD3DE /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 6A1385982942410500615E0E /* Products */;
 			projectDirPath = "";
@@ -477,6 +492,7 @@
 				6A8A8B212943306F00B4451C /* bird_sound.mp3 in Resources */,
 				6A1385DC2942451400615E0E /* Poppins-Light.ttf in Resources */,
 				6A1385D82942450300615E0E /* Poppins-Thin.ttf in Resources */,
+				6A441393295431E3001CD3DE /* music_animation.json in Resources */,
 				6A1385DE2942451F00615E0E /* Poppins-Regular.ttf in Resources */,
 				6A1385E22942453600615E0E /* Poppins-SemiBold.ttf in Resources */,
 				6A1385A72942410500615E0E /* LaunchScreen.storyboard in Resources */,
@@ -812,6 +828,14 @@
 				kind = branch;
 			};
 		};
+		6A44138E295427E3001CD3DE /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		6AB61B28294979C000EEAEE8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -837,6 +861,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6A1385F029424A8E00615E0E /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		6A44138F295427E3001CD3DE /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A44138E295427E3001CD3DE /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		6AB61B29294979C000EEAEE8 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;

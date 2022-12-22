@@ -13,22 +13,20 @@ class TimerManager {
     
     var timer = Timer()
     var timerDuration: Double = 0.0
-    var isOn = false
     var disposeBag = DisposeBag()
     
     var testOn = BehaviorSubject(value: false)
+    var timeObservable = PublishSubject<String>()
     
     func start(withPeriod period: TimeInterval) {
         timer.invalidate()
+        timeObservable.onNext(secondToString(second: timerDuration))
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
-        //isOn = true
         testOn.onNext(true) // 이벤트 방출
     }
     
     func stop() {
-        print("멈춤")
         timer.invalidate()
-        //isOn = false
         testOn.onNext(false)
     }
     
@@ -42,10 +40,33 @@ class TimerManager {
             timer.invalidate()
             testOn.onNext(false)
         } else {
-            timerDuration = timerDuration - 20
+            timeObservable.onNext(secondToString(second: timerDuration))
+            timerDuration = timerDuration - 1
             testOn.onNext(true)
         }
         
+    }
+    
+    private func secondToString(second: Double) -> String {
+        var hour = String(Int(timerDuration / 3600))
+        var minute = String(Int( Int(timerDuration / 60) % 60 ))
+        var second = String(Int(timerDuration) % 60)
+        
+        if hour.count < 2 {
+            hour = "0" + hour
+        }
+        
+        if minute.count < 2 {
+            minute = "0" + minute
+        }
+        
+        if second.count < 2 {
+            second = "0" + second
+        }
+        
+        let timeString: String = hour + ":" + minute + ":" + second
+        
+        return timeString
     }
     
 }

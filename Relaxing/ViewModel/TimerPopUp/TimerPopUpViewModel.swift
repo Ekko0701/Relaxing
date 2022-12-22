@@ -18,6 +18,8 @@ protocol TimerPopUpViewModelType {
     var exitButtonTouch: AnyObserver<Void> { get }
     /** Behind View Touch Event */
     var behindViewTouch: AnyObserver<Void> { get }
+    /** Animation View Cancel Button Touch Event */
+    var cancelButtonTouch: AnyObserver<Void> { get }
     
     // OUTPUT
     // ---------------------
@@ -25,6 +27,8 @@ protocol TimerPopUpViewModelType {
     var dismissTimerView: PublishSubject<Void> { get }
     /** Timer Activate */
     var timerActivated: Observable<Bool> { get }
+    /** Timer String */
+    var timerString: PublishSubject<String> { get }
 }
 
 class TimerPopUpViewModel: TimerPopUpViewModelType {
@@ -35,28 +39,35 @@ class TimerPopUpViewModel: TimerPopUpViewModelType {
     var startButtonTouch: AnyObserver<Double>
     var exitButtonTouch: AnyObserver<Void>
     var behindViewTouch: AnyObserver<Void>
+    var cancelButtonTouch: AnyObserver<Void>
     
     // OUTPUT
     // ---------------------
     var dismissTimerView: PublishSubject<Void>
     var timerActivated: Observable<Bool>
+    var timerString: PublishSubject<String>
     
     init() {
         let startButtonTouching = PublishSubject<Double>()
         let exitButtonTouching = PublishSubject<Void>()
         let behindViewTouching = PublishSubject<Void>()
+        let cancelButtonTouching = PublishSubject<Void>()
         
         let dismissingTimerView = PublishSubject<Void>()
         
         let timerActivating = BehaviorSubject(value: false)
+        
+        let timerStringing = PublishSubject<String>()
         
         // INPUT
         // ---------------------
         startButtonTouch = startButtonTouching.asObserver()
         exitButtonTouch = exitButtonTouching.asObserver()
         behindViewTouch = behindViewTouching.asObserver()
+        cancelButtonTouch = cancelButtonTouching.asObserver()
         
         timerActivated = timerActivating.distinctUntilChanged()
+        timerString = timerStringing.asObserver()
         
         // OUTPUT
         // ---------------------
@@ -84,6 +95,13 @@ class TimerPopUpViewModel: TimerPopUpViewModelType {
             timerActivating.onNext(value)
         }).disposed(by: disposeBag)
     
+        TimerManager.shared.timeObservable.subscribe(onNext: { [weak self] value in
+            self?.timerString.onNext(value)
+        }).disposed(by: disposeBag)
         
+        cancelButtonTouching.bind(onNext: { _ in
+            TimerManager.shared.stop()
+            //timerActivating.onNext(false)
+        }).disposed(by: disposeBag)
     }
 }
