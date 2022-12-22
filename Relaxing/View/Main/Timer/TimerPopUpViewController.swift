@@ -49,6 +49,8 @@ class TimerPopUpViewController: UIViewController {
         $0.setTitle("나가기", for: .normal)
     }
     
+    var activeView = UIView()
+    
     // MARK: - Initializers
     init(viewModel: TimerPopUpViewModelType = TimerPopUpViewModel()) {
         self.viewModel = viewModel
@@ -86,6 +88,8 @@ class TimerPopUpViewController: UIViewController {
         startButton.backgroundColor = UIColor(red: 0.40, green: 0.54, blue: 0.51, alpha: 1.00)
         exitButton.backgroundColor = .systemGray
 
+        activeView.isHidden = true
+        activeView.backgroundColor = .black.withAlphaComponent(0.5)
     }
     
     /**
@@ -95,13 +99,13 @@ class TimerPopUpViewController: UIViewController {
         // Add Subviews
         view.addSubview(behindView)
         view.addSubview(backgroundView)
+        view.addSubview(activeView)
         
         backgroundView.addSubview(datePicker)
         backgroundView.addSubview(buttonStack)
         
         buttonStack.addArrangedSubview(exitButton)
         buttonStack.addArrangedSubview(startButton)
-        
         
         // AutoLayout
         behindView.snp.makeConstraints { make in
@@ -125,6 +129,10 @@ class TimerPopUpViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-8)
         }
         
+        activeView.snp.makeConstraints { make in
+            make.edges.equalTo(backgroundView)
+        }
+        
     }
     
     /**
@@ -145,14 +153,29 @@ class TimerPopUpViewController: UIViewController {
                 self?.viewModel.behindViewTouch.onNext(Void())
             }).disposed(by: disposeBag)
         
+        /** 나가기 Button 터치 */
         exitButton.rx.tap
             .bind(to: viewModel.exitButtonTouch)
             .disposed(by: disposeBag)
         
+        /** Dismiss 연결 */
         viewModel.dismissTimerView.bind { [weak self] _ in
-            //print("Dd")
             self?.dismiss(animated: false)
         }.disposed(by: disposeBag)
+        
+        /**
+         타이머 실행중 여부 검사
+         실행중 이라면 activeView를 보여준다.
+         */
+        viewModel.timerActivated
+            .debug()
+            .map{ !$0 }
+            .bind(to: activeView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.timerActivated
+            .bind(to: backgroundView.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 }
 

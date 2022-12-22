@@ -149,15 +149,23 @@ class MainViewModel: MainViewModelType {
                 self?.playingState(observable: isEntirePlaying)         // Control Bar의 Play 버튼 활성화 여부 전달
         }).disposed(by: disposeBag)
         
-//        timerButtonTouching
-//            .subscribe(onNext: { [weak self] _ in })
-//            .disposed(by: disposeBag)
-        
         reloading
             .do(onNext: { _ in reloadingCollection.onNext(Void())})
             .subscribe(onNext: { [weak self] _ in
             self?.applyMixPlayerToCollection()
             self?.playingState(observable: isEntirePlaying)
+        }).disposed(by: disposeBag)
+                
+        
+        // Timer Finish
+        TimerManager.shared.testOn.subscribe(onNext: { [weak self] value in //타이머가 끝나면 재생 목록을 초기화하고 mainCollectionView의 상태를 reload한다.
+            if !(value) {
+                print("발동")
+                SoundManager.shared.audioPlayers.removeAll()
+                self?.applyMixPlayerToCollection()
+                self?.playingState(observable: isEntirePlaying)
+                reloadingCollection.onNext(Void())
+            }
         }).disposed(by: disposeBag)
     }
     

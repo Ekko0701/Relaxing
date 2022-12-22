@@ -85,3 +85,10 @@
 - 전체 UI 변경중
 - TimerPopUpViewController 나가기 Button과 배경을 터치했을때 dismiss 액션 구현 완료
     - 팝업뷰를 dismiss하는 모든 이벤트는 viewModel의 dismissTimerView Subject로 전달되어 처리된다. -> 나중에 다른 event 추가할때 편의성을 위함
+- Timer 실행중 여부를 판단해 실행중인 경우에는 TimerPopUpView에 timerActivatedView가 나타나 타이머가 진행중임을 보여준다. Timer가 끝나면 timerActivatedView가 없어진다.
+    - TimerManager에 testOn이라는 subject가 Timer실행중 여부에 따라 Bool값을 받는다. testOn을 TimerPopUpViewModel에서 구독하고 그 값을 timerActivating에 전달한다. TimerActivated = timerActivating으로 TimerViewController에서 timerActivated를 bind해 사용한다.
+- Issue 5: Timer가 종료되어도 Main CollectionView의 isSelected 값이 변경되지 않는다.
+    - 시도해볼것 -> 타이머가 끝나는 순간 mainViewModel의 reloading에 이벤트를 보내 실행해 주자. (applyMixPlayerToCollection, playingState)
+
+### 2022.12.22
+- Issue5 해결 완료
