@@ -95,3 +95,8 @@
 - 타이머 진행중일때 애니메이션을 보여주기 위해 Lottie 추가 (SPM)
 - TimerAnimationView 구성 요소 (AnimationView, Label...) 추가 및 viewModel과 Bind
 - Issue6 : AnimationView의 cancel 버튼을 누르면 재생목록이 전부 삭제되고 플레이어가 종료된다. 아마도 viewModel에서 잘못 연결된것같다.
+
+### 2022.12.23
+- Issue6 해결 완료
+    - 타이머 시작, 종료, 캔슬 세가지 이벤트가 timerInProgress Observable과 연결되어 있었는데 종료와 캔슬이 다르게 동작해야 했기에 새로운 Observable을 만들어 이벤트를 나눴다.
+- Timer 진행중일때 TimerPopUpView가 처음 보여지면 DataPicker가 보여지는 문제 해결

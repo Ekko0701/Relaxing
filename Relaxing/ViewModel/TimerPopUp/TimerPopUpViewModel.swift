@@ -29,6 +29,8 @@ protocol TimerPopUpViewModelType {
     var timerActivated: Observable<Bool> { get }
     /** Timer String */
     var timerString: PublishSubject<String> { get }
+    /** Timer Cancel */
+    var timerCancel: PublishSubject<Void> { get }
 }
 
 class TimerPopUpViewModel: TimerPopUpViewModelType {
@@ -46,6 +48,7 @@ class TimerPopUpViewModel: TimerPopUpViewModelType {
     var dismissTimerView: PublishSubject<Void>
     var timerActivated: Observable<Bool>
     var timerString: PublishSubject<String>
+    var timerCancel: PublishSubject<Void>
     
     init() {
         let startButtonTouching = PublishSubject<Double>()
@@ -55,9 +58,12 @@ class TimerPopUpViewModel: TimerPopUpViewModelType {
         
         let dismissingTimerView = PublishSubject<Void>()
         
-        let timerActivating = BehaviorSubject(value: false)
+        //let timerActivating = BehaviorSubject(value: false)
+        let timerActivating = PublishSubject<Bool>()
         
         let timerStringing = PublishSubject<String>()
+        
+        let timerCanceling = PublishSubject<Void>()
         
         // INPUT
         // ---------------------
@@ -72,6 +78,7 @@ class TimerPopUpViewModel: TimerPopUpViewModelType {
         // OUTPUT
         // ---------------------
         dismissTimerView = dismissingTimerView.asObserver()
+        timerCancel = timerCanceling.asObserver()
         
         startButtonTouching
             .do(onNext: { _ in timerActivating.onNext(true) })
@@ -91,8 +98,12 @@ class TimerPopUpViewModel: TimerPopUpViewModelType {
             }).disposed(by: disposeBag)
         
         /** TimerManager의 testOn을 구독해 값을 timerActivating에 보낸다. */
-        TimerManager.shared.testOn.subscribe(onNext: { value in
-            timerActivating.onNext(value)
+        TimerManager.shared.timerInProgress.subscribe(onNext: { value in
+            timerActivating.onNext(true) // 타이머가 진행중인 경우 timerActivating에 true를 보냄
+        }).disposed(by: disposeBag)
+        
+        TimerManager.shared.timerFinished.subscribe(onNext: { _ in
+            timerActivating.onNext(false)
         }).disposed(by: disposeBag)
     
         TimerManager.shared.timeObservable.subscribe(onNext: { [weak self] value in
@@ -101,7 +112,14 @@ class TimerPopUpViewModel: TimerPopUpViewModelType {
         
         cancelButtonTouching.bind(onNext: { _ in
             TimerManager.shared.stop()
-            //timerActivating.onNext(false)
+            timerActivating.onNext(false)
         }).disposed(by: disposeBag)
+        
+        TimerManager.shared.timerCancel
+            //.bind(to: timerCanceling)
+            .subscribe(onNext: { _ in
+                timerCanceling.onNext(Void())
+            })
+            .disposed(by: disposeBag)
     }
 }

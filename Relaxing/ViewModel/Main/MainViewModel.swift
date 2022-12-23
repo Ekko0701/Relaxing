@@ -158,14 +158,12 @@ class MainViewModel: MainViewModelType {
                 
         
         // Timer Finish
-        TimerManager.shared.testOn.subscribe(onNext: { [weak self] value in //타이머가 끝나면 재생 목록을 초기화하고 mainCollectionView의 상태를 reload한다.
-            if !(value) {
-                print("발동")
-                SoundManager.shared.audioPlayers.removeAll()
-                self?.applyMixPlayerToCollection()
-                self?.playingState(observable: isEntirePlaying)
-                reloadingCollection.onNext(Void())
-            }
+                
+        TimerManager.shared.timerFinished.subscribe(onNext: { [weak self] _ in
+            SoundManager.shared.audioPlayers.removeAll()
+            self?.applyMixPlayerToCollection()
+            self?.playingState(observable: isEntirePlaying)
+            reloadingCollection.onNext(Void())
         }).disposed(by: disposeBag)
     }
     

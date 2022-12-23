@@ -102,8 +102,13 @@ class TimerPopUpViewController: UIViewController {
         startButton.backgroundColor = UIColor(red: 0.40, green: 0.54, blue: 0.51, alpha: 1.00)
         exitButton.backgroundColor = .systemGray
 
-        activeView.isHidden = true
+        // Active View
+        activeView.isHidden = !(TimerManager.shared.isTimerInProgress)
+        if TimerManager.shared.isTimerInProgress {
+            animationView?.play()
+        }
         activeView.backgroundColor = .black.withAlphaComponent(0.8)
+        timerLabel.text = TimerManager.shared.secondToString(second: TimerManager.shared.timerDuration)
         self.timerCancelButton.layer.applyBorder(color: .clear, radius: 12)
         timerCancelButton.backgroundColor = .systemGray
     }
@@ -218,19 +223,30 @@ class TimerPopUpViewController: UIViewController {
             .bind(to: activeView.rx.isHidden)
             .disposed(by: disposeBag)
         
+        /**
+         타이머 실행중 여부 검사
+         실행중 이라면 backgroundView를 숨김
+         */
         viewModel.timerActivated
             .bind(to: backgroundView.rx.isHidden)
             .disposed(by: disposeBag)
                 
-                viewModel.timerString
-                .bind(to: timerLabel.rx.text)
-                .disposed(by: disposeBag)
-                
-//                timerCancelButton.rx.tap.bind{ [weak self] _ in
-//                    viewModel.cancelButtonTouch.onNext(Void())
-//                }.disposed(by: disposeBag)
+        /** 타이머String 바인딩 */
+        viewModel.timerString
+            .bind(to: timerLabel.rx.text)
+            .disposed(by: disposeBag)
         
-        timerCancelButton.rx.tap.bind(to: viewModel.cancelButtonTouch).disposed(by: disposeBag)
+        /** 타이머 취소 버튼 터치 액션 전달 */
+        timerCancelButton.rx.tap
+                .bind(to: viewModel.cancelButtonTouch)
+                .disposed(by: disposeBag)
+        
+        /** 타이머 터치 액션 전달 받음 */
+        viewModel.timerCancel.subscribe(onNext: { [weak self] _ in
+            self?.activeView.isHidden = true
+            self?.animationView?.stop()
+            self?.backgroundView.isHidden = false
+        }).disposed(by: disposeBag)
     }
     
     /**

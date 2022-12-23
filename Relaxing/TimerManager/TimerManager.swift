@@ -15,19 +15,27 @@ class TimerManager {
     var timerDuration: Double = 0.0
     var disposeBag = DisposeBag()
     
-    var testOn = BehaviorSubject(value: false)
+    var isTimerInProgress = false
+    
+    var timerInProgress = PublishSubject<Void>()
+    var timerFinished = PublishSubject<Void>()
+    var timerCancel = PublishSubject<Bool>()
     var timeObservable = PublishSubject<String>()
     
     func start(withPeriod period: TimeInterval) {
         timer.invalidate()
         timeObservable.onNext(secondToString(second: timerDuration))
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
-        testOn.onNext(true) // 이벤트 방출
+        timerInProgress.onNext(Void()) // 이벤트 방출
+        
+        isTimerInProgress = true
     }
     
     func stop() {
         timer.invalidate()
-        testOn.onNext(false)
+        timerCancel.onNext(true)
+        
+        isTimerInProgress = false
     }
     
     @objc
@@ -38,16 +46,17 @@ class TimerManager {
                 player.stop()
             }
             timer.invalidate()
-            testOn.onNext(false)
+            timerFinished.onNext(Void())
+            isTimerInProgress = false
         } else {
             timeObservable.onNext(secondToString(second: timerDuration))
             timerDuration = timerDuration - 1
-            testOn.onNext(true)
+            timerInProgress.onNext(Void())
         }
         
     }
     
-    private func secondToString(second: Double) -> String {
+    func secondToString(second: Double) -> String {
         var hour = String(Int(timerDuration / 3600))
         var minute = String(Int( Int(timerDuration / 60) % 60 ))
         var second = String(Int(timerDuration) % 60)
