@@ -146,7 +146,7 @@ class MainViewModel: MainViewModelType {
         playButtonTouching
             .subscribe(onNext: { [weak self] _ in
             SoundManager.shared.playAndPauseAll()
-                self?.playingState(observable: isEntirePlaying)         // Control Bar의 Play 버튼 활성화 여부 전달
+            self?.playingState(observable: isEntirePlaying)         // Control Bar의 Play 버튼 활성화 여부 전달
         }).disposed(by: disposeBag)
         
         reloading

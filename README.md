@@ -100,3 +100,7 @@
 - Issue6 해결 완료
     - 타이머 시작, 종료, 캔슬 세가지 이벤트가 timerInProgress Observable과 연결되어 있었는데 종료와 캔슬이 다르게 동작해야 했기에 새로운 Observable을 만들어 이벤트를 나눴다.
 - Timer 진행중일때 TimerPopUpView가 처음 보여지면 DataPicker가 보여지는 문제 해결
+
+### 2022.12.25
+- MPRemoteCommandCenter, MPNowPlayingInfoCenter 를 사용해 제어센터에서 재생, 일시정시 가능하도록 구현
+- 공유마당에서 사운드 서치 및 앱에 추가

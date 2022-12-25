@@ -10,9 +10,6 @@ import AVFoundation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -25,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error as NSError {
             print("audioSession 설정 오류 : \(error.localizedDescription)")
         }
+        
+        // Remote Control Events 처리할 수 있도록 싱글톤 객체 등록
+        MPRemoteCommandCenterManager.shared.remoteCommandCenterSetting()
+        MPRemoteCommandCenterManager.shared.remoteCommandInfoCenterSetting()
+        
         return true
     }
 

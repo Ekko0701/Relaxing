@@ -61,6 +61,7 @@
 		6AB61B2A294979C000EEAEE8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6AB61B29294979C000EEAEE8 /* Realm */; };
 		6AB61B2C294979C000EEAEE8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6AB61B2B294979C000EEAEE8 /* RealmSwift */; };
 		6AB61B2F29497AD200EEAEE8 /* SoundMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB61B2E29497AD200EEAEE8 /* SoundMix.swift */; };
+		6AC491872955B5C600CEAF23 /* MPRemoteCommandCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC491862955B5C600CEAF23 /* MPRemoteCommandCenterManager.swift */; };
 		F9410848391AB9DE9876657F /* Pods_Relaxing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E553FBECA1709B25DB89D5E /* Pods_Relaxing.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		6AB61B222946F1C500EEAEE8 /* ViewSoundMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSoundMix.swift; sourceTree = "<group>"; };
 		6AB61B262947532E00EEAEE8 /* VolumeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeData.swift; sourceTree = "<group>"; };
 		6AB61B2E29497AD200EEAEE8 /* SoundMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMix.swift; sourceTree = "<group>"; };
+		6AC491862955B5C600CEAF23 /* MPRemoteCommandCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemoteCommandCenterManager.swift; sourceTree = "<group>"; };
 		9E4B3616D671C9123632A666 /* Pods-Relaxing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.debug.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.debug.xcconfig"; sourceTree = "<group>"; };
 		D18381B17A208381DBEDAE5F /* Pods-Relaxing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.release.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -369,6 +371,7 @@
 			children = (
 				6A8A8B2429433AB400B4451C /* SoundManager.swift */,
 				6A8A8B2629433D4600B4451C /* SoundStructures.swift */,
+				6AC491862955B5C600CEAF23 /* MPRemoteCommandCenterManager.swift */,
 			);
 			path = SoundManager;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				6A13859B2942410500615E0E /* AppDelegate.swift in Sources */,
 				6A08C1852945E4320044242B /* SoundMixViewController.swift in Sources */,
 				6A441375294F63F2001CD3DE /* TimerPopUpViewModel.swift in Sources */,
+				6AC491872955B5C600CEAF23 /* MPRemoteCommandCenterManager.swift in Sources */,
 				6A44138D29532280001CD3DE /* UIPreview+Ext.swift in Sources */,
 				6A1385F429424E6500615E0E /* TabBarController.swift in Sources */,
 				6A4413872951B4DF001CD3DE /* String+Ext.swift in Sources */,
