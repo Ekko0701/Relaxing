@@ -42,7 +42,7 @@ class MixItemCell: UITableViewCell {
     
     // MARK: - Layout
     /**
-     스타일 설정
+     View 스타일 설정
      */
     private func configureStyle() {
         containerView.layer.applyBorder(color: .clear, radius: 14)

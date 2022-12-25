@@ -48,6 +48,7 @@ class SoundMixViewModel: SoundMixViewModelType {
     var playerItems: [ViewSoundMix]
     var showMixAlert: Observable<Void>
     
+    // MARK: - Initializer
     init() {
         /** 현재 재생중인 목록 Sound Mix View의 Table Data 배열 */
         playerItems = []

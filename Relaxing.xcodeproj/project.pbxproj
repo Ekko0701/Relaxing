@@ -62,6 +62,10 @@
 		6AB61B2C294979C000EEAEE8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6AB61B2B294979C000EEAEE8 /* RealmSwift */; };
 		6AB61B2F29497AD200EEAEE8 /* SoundMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB61B2E29497AD200EEAEE8 /* SoundMix.swift */; };
 		6AC491872955B5C600CEAF23 /* MPRemoteCommandCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC491862955B5C600CEAF23 /* MPRemoteCommandCenterManager.swift */; };
+		6AC4918A2957F80F00CEAF23 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC491892957F80F00CEAF23 /* SettingCell.swift */; };
+		6AC4918D2957FD0300CEAF23 /* ViewSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4918C2957FD0300CEAF23 /* ViewSetting.swift */; };
+		6AC4918F2957FD3300CEAF23 /* SettingTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4918E2957FD3300CEAF23 /* SettingTableViewModel.swift */; };
+		6AC491912958377E00CEAF23 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC491902958377E00CEAF23 /* SettingHeaderView.swift */; };
 		F9410848391AB9DE9876657F /* Pods_Relaxing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E553FBECA1709B25DB89D5E /* Pods_Relaxing.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +123,10 @@
 		6AB61B262947532E00EEAEE8 /* VolumeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeData.swift; sourceTree = "<group>"; };
 		6AB61B2E29497AD200EEAEE8 /* SoundMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMix.swift; sourceTree = "<group>"; };
 		6AC491862955B5C600CEAF23 /* MPRemoteCommandCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPRemoteCommandCenterManager.swift; sourceTree = "<group>"; };
+		6AC491892957F80F00CEAF23 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		6AC4918C2957FD0300CEAF23 /* ViewSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSetting.swift; sourceTree = "<group>"; };
+		6AC4918E2957FD3300CEAF23 /* SettingTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewModel.swift; sourceTree = "<group>"; };
+		6AC491902958377E00CEAF23 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		9E4B3616D671C9123632A666 /* Pods-Relaxing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.debug.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.debug.xcconfig"; sourceTree = "<group>"; };
 		D18381B17A208381DBEDAE5F /* Pods-Relaxing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.release.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +215,7 @@
 				6A441363294A1B55001CD3DE /* Mix */,
 				6AB61B242946F1FB00EEAEE8 /* Main */,
 				6AB61B252946F20800EEAEE8 /* SoundMix */,
+				6AC4918B2957FBD400CEAF23 /* Setting */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				6A1385F629424FD200615E0E /* SettingViewController.swift */,
+				6AC491882957F7C700CEAF23 /* Cell */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -399,6 +409,24 @@
 				6AB61B2E29497AD200EEAEE8 /* SoundMix.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		6AC491882957F7C700CEAF23 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6AC491892957F80F00CEAF23 /* SettingCell.swift */,
+				6AC491902958377E00CEAF23 /* SettingHeaderView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6AC4918B2957FBD400CEAF23 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				6AC4918C2957FD0300CEAF23 /* ViewSetting.swift */,
+				6AC4918E2957FD3300CEAF23 /* SettingTableViewModel.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		F317A54C5AFCD1140F124B72 /* Frameworks */ = {
@@ -561,6 +589,8 @@
 				6A8A8B2729433D4600B4451C /* SoundStructures.swift in Sources */,
 				6A441379294F81BB001CD3DE /* TimerManager.swift in Sources */,
 				6A08C18B2945FC3D0044242B /* SoundTableCell.swift in Sources */,
+				6AC4918D2957FD0300CEAF23 /* ViewSetting.swift in Sources */,
+				6AC4918F2957FD3300CEAF23 /* SettingTableViewModel.swift in Sources */,
 				6A44138B29531CC1001CD3DE /* UIImage+Ext.swift in Sources */,
 				6A13859B2942410500615E0E /* AppDelegate.swift in Sources */,
 				6A08C1852945E4320044242B /* SoundMixViewController.swift in Sources */,
@@ -570,6 +600,7 @@
 				6A1385F429424E6500615E0E /* TabBarController.swift in Sources */,
 				6A4413872951B4DF001CD3DE /* String+Ext.swift in Sources */,
 				6A13860029425C8300615E0E /* ItemCell.swift in Sources */,
+				6AC4918A2957F80F00CEAF23 /* SettingCell.swift in Sources */,
 				6A08C1832944592B0044242B /* ControlBarView.swift in Sources */,
 				6A441365294A1B66001CD3DE /* MixViewModel.swift in Sources */,
 				6AB61B212946D24600EEAEE8 /* SoundMixViewModel.swift in Sources */,
@@ -583,6 +614,7 @@
 				6A1385FA2942523500615E0E /* MixViewController.swift in Sources */,
 				6A13860229425FFA00615E0E /* MainViewModel.swift in Sources */,
 				6A441372294F3910001CD3DE /* TimerPopUpViewController.swift in Sources */,
+				6AC491912958377E00CEAF23 /* SettingHeaderView.swift in Sources */,
 				6A44137F2951647B001CD3DE /* CALayer+Ext.swift in Sources */,
 				6AB61B232946F1C500EEAEE8 /* ViewSoundMix.swift in Sources */,
 				6A44136A294A2680001CD3DE /* ViewMix.swift in Sources */,

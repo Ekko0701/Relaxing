@@ -104,3 +104,7 @@
 ### 2022.12.25
 - MPRemoteCommandCenter, MPNowPlayingInfoCenter 를 사용해 제어센터에서 재생, 일시정시 가능하도록 구현
 - 공유마당에서 사운드 서치 및 앱에 추가
+- SettingView 추가 및 레이아웃 설정
+    - TableView위에 NavigationBarController가 있도록 보이게 UINavigationBarAppearance를 설정해 구현
+        - configureWithTransparentBackground(), backgroundColor, backgroundEffect
+- SettingView TableViewCell과 Header에 들어갈 데이터 enum으로 설정 및 viewModel에서 관리하도록 구현

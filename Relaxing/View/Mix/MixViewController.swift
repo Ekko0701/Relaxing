@@ -37,7 +37,6 @@ class MixViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // mix를 새로 추가하면 viewModel을 다시 설정하고 tableView를 reload 해줘야 한다
-        #warning("TODO : - RxViewController로 다시 구현할것 ")
         viewModel = MixViewModel()
         mixTableView.reloadData()
     }
@@ -57,7 +56,7 @@ class MixViewController: UIViewController {
     }
     
     /**
-     UI 스타일 설정
+     View Style 설정 
      */
     private func configureStyle() {
         backgroundView.setGradient(firstColor: UIColor.gradientBlue, secondColor: UIColor.gradientGreen)
