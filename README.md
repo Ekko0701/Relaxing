@@ -114,3 +114,4 @@
     - TableViewModel에서는 TableView 데이터 관련 로직을 처리, SettingViewModel에서는 나머지 로직을 처리 (터치 이벤트, 화면 전환..)
 - LicenseViewController, LicenseViewModel 구현 완료
     - WebKit의 WKWebView를 이용히 License 정보를 가지는 노션 웹페이지를 보여줌.
+- 앱 기본 Apperance를 다크 모드로 수정

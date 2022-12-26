@@ -137,6 +137,7 @@
 		6AC4919629592D3B00CEAF23 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		6AC491992959482000CEAF23 /* LicenseWebAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWebAddress.swift; sourceTree = "<group>"; };
 		6AC4919B29594BA400CEAF23 /* LicenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewModel.swift; sourceTree = "<group>"; };
+		6AC4919D29595BE500CEAF23 /* SoundLicense.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SoundLicense.md; sourceTree = "<group>"; };
 		9E4B3616D671C9123632A666 /* Pods-Relaxing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.debug.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.debug.xcconfig"; sourceTree = "<group>"; };
 		D18381B17A208381DBEDAE5F /* Pods-Relaxing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relaxing.release.xcconfig"; path = "Target Support Files/Pods-Relaxing/Pods-Relaxing.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +182,7 @@
 		6A13858E2942410500615E0E = {
 			isa = PBXGroup;
 			children = (
+				6AC4919D29595BE500CEAF23 /* SoundLicense.md */,
 				6A1385E8294246F800615E0E /* README.md */,
 				6A1385992942410500615E0E /* Relaxing */,
 				6A1385982942410500615E0E /* Products */,
