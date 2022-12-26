@@ -15,7 +15,8 @@ class SettingViewController: UIViewController {
     // MARK: - Properties
     let disposeBag = DisposeBag()
     
-    let viewModel : SettingTableViewModelType
+    let viewModel: SettingViewModelType
+    let tableViewModel : SettingTableViewModelType
     
     // MARK: - UI
     var backgroundView = UIView()
@@ -23,8 +24,9 @@ class SettingViewController: UIViewController {
     var settingTableView: UITableView!
     
     // MARK: - Initializers
-    init(viewModel: SettingTableViewModelType = SettingTableViewModel()) {
+    init(viewModel: SettingViewModelType = SettingViewModel() ,tableViewModel: SettingTableViewModelType = SettingTableViewModel()) {
         self.viewModel = viewModel
+        self.tableViewModel = tableViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,6 +56,7 @@ class SettingViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureTableView()
         configureLayout()
+        setupBindings()
         
     }
     
@@ -88,8 +91,6 @@ class SettingViewController: UIViewController {
         settingTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        
     }
     
     private func configureTableView() {
@@ -106,6 +107,21 @@ class SettingViewController: UIViewController {
         settingTableView.register(SettingTableViewHeader.self, forHeaderFooterViewReuseIdentifier: SettingTableViewHeader.identifier)
         
     }
+    
+    private func setupBindings() {
+        // 테이블뷰 아이템 선택 이벤트를 viewModel로 보냄
+        settingTableView.rx.itemSelected
+            .bind(to: viewModel.cellTouch)
+            .disposed(by: disposeBag)
+        
+        viewModel.showLicenseWebView
+            .bind { address in
+                let vc = LicenseWebViewController()
+                vc.viewModel = LicenseWebViewModel(httpAddress: address)
+                self.present(vc, animated: true)
+                print(address)
+            }.disposed(by: disposeBag)
+    }
 }
 
 // MARK: - TableView Delegate
@@ -114,7 +130,7 @@ extension SettingViewController: UITableViewDelegate {
         return 90
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch self .viewModel.headerDataSource[section] {
+        switch self .tableViewModel.headerDataSource[section] {
         case let .license(licenseHeaderModel):
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingTableViewHeader.identifier) as? SettingTableViewHeader else { return UIView() }
             
@@ -132,18 +148,18 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        self.viewModel.dataSource.count
+        self.tableViewModel.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch self .viewModel.dataSource[section] {
+        switch self .tableViewModel.dataSource[section] {
         case let .license(licenseCellModels):
             return licenseCellModels.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch self .viewModel.dataSource[indexPath.section] {
+        switch self .tableViewModel.dataSource[indexPath.section] {
         case let .license(licenseCellModels):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell else { return UITableViewCell() }
             let lincenseModel = licenseCellModels[indexPath.row]

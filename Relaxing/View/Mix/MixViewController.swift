@@ -55,8 +55,9 @@ class MixViewController: UIViewController {
         configureStyle()
     }
     
+    // MARK: - Configure
     /**
-     View Style 설정 
+     View Style 설정
      */
     private func configureStyle() {
         backgroundView.setGradient(firstColor: UIColor.gradientBlue, secondColor: UIColor.gradientGreen)
