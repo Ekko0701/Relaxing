@@ -38,7 +38,7 @@ class SettingTableViewModel: SettingTableViewModelType {
         // 라이센스 셀 모델
         let licensesModel = [
             licenseCellModel(title: "Sound Licenses" ),
-            licenseCellModel(title: "Licenses")
+            //licenseCellModel(title: "Licenses")
         ]
         
         let licenseSectionHeader = SettingSectionHeader.license(licenseHeaderModel)

@@ -47,7 +47,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     private func generateNavController(viewController: UIViewController, title: String, image: UIImage?) -> UINavigationController {
         // Set TabBar Item
         viewController.tabBarItem.image = image
-        //viewController.tabBarItem.title = title
         
         // Set Navigation
         viewController.navigationItem.title = title.localized()

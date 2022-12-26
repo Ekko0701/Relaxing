@@ -34,6 +34,7 @@
 		6A1385FD29425A2100615E0E /* SoundItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1385FC29425A2100615E0E /* SoundItemModel.swift */; };
 		6A13860029425C8300615E0E /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1385FF29425C8300615E0E /* ItemCell.swift */; };
 		6A13860229425FFA00615E0E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13860129425FFA00615E0E /* MainViewModel.swift */; };
+		6A1F254D2959EF7A002D02C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A1F254C2959EF7A002D02C0 /* Settings.bundle */; };
 		6A441365294A1B66001CD3DE /* MixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A441364294A1B66001CD3DE /* MixViewModel.swift */; };
 		6A441368294A23AC001CD3DE /* MixItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A441367294A23AC001CD3DE /* MixItemCell.swift */; };
 		6A44136A294A2680001CD3DE /* ViewMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A441369294A2680001CD3DE /* ViewMix.swift */; };
@@ -124,6 +125,7 @@
 		6A1385FC29425A2100615E0E /* SoundItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundItemModel.swift; sourceTree = "<group>"; };
 		6A1385FF29425C8300615E0E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		6A13860129425FFA00615E0E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		6A1F254C2959EF7A002D02C0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6A441364294A1B66001CD3DE /* MixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixViewModel.swift; sourceTree = "<group>"; };
 		6A441367294A23AC001CD3DE /* MixItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixItemCell.swift; sourceTree = "<group>"; };
 		6A441369294A2680001CD3DE /* ViewMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMix.swift; sourceTree = "<group>"; };
@@ -159,7 +161,6 @@
 		6AC4919629592D3B00CEAF23 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		6AC491992959482000CEAF23 /* LicenseWebAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWebAddress.swift; sourceTree = "<group>"; };
 		6AC4919B29594BA400CEAF23 /* LicenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewModel.swift; sourceTree = "<group>"; };
-		6AC4919D29595BE500CEAF23 /* SoundLicense.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SoundLicense.md; sourceTree = "<group>"; };
 		6AC4919E2959A8E900CEAF23 /* Wind 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Wind 1.mp3"; path = "../../../../Desktop/Relaxing 소리 모음/Wind 1.mp3"; sourceTree = "<group>"; };
 		6AC4919F2959A8E900CEAF23 /* Criket Crying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Criket Crying.mp3"; path = "../../../../Desktop/Relaxing 소리 모음/Criket Crying.mp3"; sourceTree = "<group>"; };
 		6AC491A02959A8E900CEAF23 /* Bonfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bonfire.wav; path = "../../../../Desktop/Relaxing 소리 모음/Bonfire.wav"; sourceTree = "<group>"; };
@@ -226,7 +227,7 @@
 		6A13858E2942410500615E0E = {
 			isa = PBXGroup;
 			children = (
-				6AC4919D29595BE500CEAF23 /* SoundLicense.md */,
+				6A1F254C2959EF7A002D02C0 /* Settings.bundle */,
 				6A1385E8294246F800615E0E /* README.md */,
 				6A1385992942410500615E0E /* Relaxing */,
 				6A1385982942410500615E0E /* Products */,
@@ -625,6 +626,7 @@
 				6A8A8B212943306F00B4451C /* bird_sound.mp3 in Resources */,
 				6A1385DC2942451400615E0E /* Poppins-Light.ttf in Resources */,
 				6A1385D82942450300615E0E /* Poppins-Thin.ttf in Resources */,
+				6A1F254D2959EF7A002D02C0 /* Settings.bundle in Resources */,
 				6AC491C82959A8EA00CEAF23 /* Firework.mp3 in Resources */,
 				6A441393295431E3001CD3DE /* music_animation.json in Resources */,
 				6AC491C42959A8EA00CEAF23 /* Clock.mp3 in Resources */,

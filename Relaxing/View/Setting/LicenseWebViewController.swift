@@ -40,7 +40,6 @@ class LicenseWebViewController: UIViewController {
         super.viewDidLoad()
         configureStyle()
         configureLayout()
-        //view.addSubview(webView)
         configureWebView()
         
     }
@@ -60,6 +59,7 @@ class LicenseWebViewController: UIViewController {
     }
     
     private func configureWebView() {
+        webView.navigationDelegate = self
         if let url = URL(string: viewModel.httpAddress) {
             let request = URLRequest(url: url)
             DispatchQueue.main.async {
@@ -77,5 +77,21 @@ class LicenseWebViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
+}
+
+extension LicenseWebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("로드완료")
+    }
     
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (cancel) in
+            self.dismiss(animated: true)
+        }
+        
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
