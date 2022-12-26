@@ -18,8 +18,11 @@ struct ViewMix {
         mixTitle = item.mixTitle
         subTitle = ""
         item.soundMixs.forEach { soundMix in
-            subTitle.append(soundMix.title)
+            subTitle.append("\(soundMix.title.localized()), ")
         }
+        
+        subTitle.removeLast()
+        subTitle.removeLast()
         
     }
 }

@@ -43,11 +43,11 @@ class TimerPopUpViewController: UIViewController {
     }
     
     private var startButton = UIButton().then {
-        $0.setTitle("시작", for: .normal)
+        $0.setTitle("Start".localized(), for: .normal)
     }
     
     private var exitButton = UIButton().then {
-        $0.setTitle("나가기", for: .normal)
+        $0.setTitle("Back".localized(), for: .normal)
     }
     
     private var activeView = UIView()
@@ -55,7 +55,7 @@ class TimerPopUpViewController: UIViewController {
     private var animationView: LottieAnimationView?
     
     private var timerCancelButton = UIButton().then {
-        $0.setTitle("취소", for: .normal)
+        $0.setTitle("Cancel".localized(), for: .normal)
     }
     
     private var timerLabel = UILabel().then {

@@ -39,12 +39,24 @@ class MixViewController: UIViewController {
         // mix를 새로 추가하면 viewModel을 다시 설정하고 tableView를 reload 해줘야 한다
         viewModel = MixViewModel()
         mixTableView.reloadData()
+        
+        navigationController?.isNavigationBarHidden = false
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+        appearance.backgroundEffect = .init(style: .dark)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Poppins-SemiBold", size: 17) as Any]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .systemYellow
         configureTableView()
         configureLayout()
         setupBindings()
@@ -88,6 +100,9 @@ class MixViewController: UIViewController {
         mixTableView = UITableView()
         
         mixTableView.backgroundColor = .clear
+        mixTableView.separatorStyle = .singleLine
+        mixTableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        mixTableView.separatorInsetReference = .fromAutomaticInsets
         
         // Attach Delegate , DataSource
         mixTableView.delegate = self
@@ -121,6 +136,7 @@ extension MixViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MixItemCell.identifier, for: indexPath) as? MixItemCell else { return UITableViewCell() }
         
+        cell.selectionStyle = .none
         cell.configure(data: viewModel.mixItems[indexPath.row])
         
         return cell

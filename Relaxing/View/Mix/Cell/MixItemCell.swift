@@ -16,6 +16,13 @@ class MixItemCell: UITableViewCell {
     // MARK: - UI
     private let containerView = UIView()
     
+    private let titleStack = UIStackView().then {
+        $0.alignment = .center
+        $0.distribution = .fillEqually
+        $0.axis = .vertical
+        $0.spacing = 4
+    }
+    
     private let mixTitle = UILabel().then {
         $0.textAlignment = .left
         $0.numberOfLines = 1
@@ -56,9 +63,10 @@ class MixItemCell: UITableViewCell {
     private func configureLayout() {
         // Add Subview
         contentView.addSubview(containerView)
+        containerView.addSubview(titleStack)
         
-        containerView.addSubview(mixTitle)
-        containerView.addSubview(subTitle)
+        titleStack.addArrangedSubview(mixTitle)
+        titleStack.addArrangedSubview(subTitle)
         
         // Constraints
         containerView.snp.makeConstraints { make in
@@ -66,19 +74,16 @@ class MixItemCell: UITableViewCell {
             make.bottom.trailing.equalToSuperview().offset(-8)
         }
         
-        mixTitle.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().offset(8)
-        }
-        
-        subTitle.snp.makeConstraints { make in
-            make.top.equalTo(mixTitle.snp.bottom).offset(8)
-            make.leading.equalToSuperview()
+        titleStack.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().offset(-16)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
     func configure(data: ViewMix) {
         mixTitle.text = data.mixTitle
-        subTitle.text = data.subTitle
+        subTitle.text = data.subTitle.localized()
     }
     
     override func prepareForReuse() {

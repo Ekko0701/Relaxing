@@ -64,6 +64,51 @@ class MixViewModel: MixViewModelType {
                     SoundManager.shared.play(sound: HighWaySound(volumeSize: soundMix.volume))
                 case "WaterSound":
                     SoundManager.shared.play(sound: WaterSound(volumeSize: soundMix.volume))
+                case "Down Tempo":
+                    SoundManager.shared.play(sound: DownTempo(volumeSize: soundMix.volume))
+                case "Bonfire":
+                    SoundManager.shared.play(sound: Bonfire(volumeSize: soundMix.volume))
+                case "Rain 1":
+                    SoundManager.shared.play(sound: Rain1(volumeSize: soundMix.volume))
+                case "Rain 2":
+                    SoundManager.shared.play(sound: Rain2(volumeSize: soundMix.volume))
+                case "River":
+                    SoundManager.shared.play(sound: River(volumeSize: soundMix.volume))
+                case "Waterfall":
+                    SoundManager.shared.play(sound: Waterfall(volumeSize: soundMix.volume))
+                case "Forest":
+                    SoundManager.shared.play(sound: Forest(volumeSize: soundMix.volume))
+                case "Wave 1":
+                    SoundManager.shared.play(sound: Wave1(volumeSize: soundMix.volume))
+                case "Wave 2":
+                    SoundManager.shared.play(sound: Wave2(volumeSize: soundMix.volume))
+                case "Wind 1":
+                    SoundManager.shared.play(sound: Wind1(volumeSize: soundMix.volume))
+                case "Wind 2":
+                    SoundManager.shared.play(sound: Wind2(volumeSize: soundMix.volume))
+                case "Cave":
+                    SoundManager.shared.play(sound: Cave(volumeSize: soundMix.volume))
+                case "Bird":
+                    SoundManager.shared.play(sound: Bird(volumeSize: soundMix.volume))
+                case "Criket Crying":
+                    SoundManager.shared.play(sound: CriketCrying(volumeSize: soundMix.volume))
+                case "Cicada":
+                    SoundManager.shared.play(sound: Cicada(volumeSize: soundMix.volume))
+                case "Library":
+                    SoundManager.shared.play(sound: Library(volumeSize: soundMix.volume))
+                case "Temple":
+                    SoundManager.shared.play(sound: Temple(volumeSize: soundMix.volume))
+                case "Highway":
+                    SoundManager.shared.play(sound: Highway(volumeSize: soundMix.volume))
+                case "Firework":
+                    SoundManager.shared.play(sound: Firework(volumeSize: soundMix.volume))
+                case "Clock":
+                    SoundManager.shared.play(sound: Clock(volumeSize: soundMix.volume))
+                case "Pencil":
+                    SoundManager.shared.play(sound: Pencil(volumeSize: soundMix.volume))
+                case "Fan":
+                    SoundManager.shared.play(sound: Fan(volumeSize: soundMix.volume))
+                    
                 default:
                     return
                 }
@@ -92,34 +137,3 @@ extension MixViewModel {
         return soundMixs
     }
 }
-
-//enum playMixSound: String, Sound {
-//    func getTitle() -> String {
-//        <#code#>
-//    }
-//
-//    func getFileName() -> String {
-//        <#code#>
-//    }
-//
-//    func getFileExtension() -> String {
-//        <#code#>
-//    }
-//
-//    var tag: Int
-//
-//    var soundTitle: String
-//
-//    var volumeSize: Float
-//
-//    case BirdSound
-//    case HighWaySound
-//    case WaterSound
-//
-//    var soundData: Sound {
-//        switch self {
-//        case .BirdSound:
-//            return playMixSound.BirdSound
-//        }
-//    }
-//}

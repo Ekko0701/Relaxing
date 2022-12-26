@@ -30,7 +30,7 @@ class SoundMixViewController: UIViewController {
     var saveButtonContainer = UIView()
     
     var saveButton = UIButton().then {
-        $0.setTitle("저장", for: .normal)
+        $0.setTitle("Save".localized(), for: .normal)
     }
     
     // MARK: - Initializers
@@ -125,18 +125,18 @@ class SoundMixViewController: UIViewController {
         
         // Show Alert
         viewModel.showMixAlert.bind { _ in
-            let alert = UIAlertController(title: "믹스 타이틀을 입력하세요", message: "", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "저장", style: .default) { [weak self] (ok) in
+            let alert = UIAlertController(title: "Please Enter a Mix Title".localized(), message: "", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Save".localized(), style: .default) { [weak self] (ok) in
                 let inputTitle = alert.textFields?[0].text
                 self?.viewModel.alertOKTouch.onNext(inputTitle ?? "")
             }
             
-            let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+            let cancel = UIAlertAction(title: "Cancel".localized(), style: .cancel) { (cancel) in
                 print("cancel pressed")
             }
             
             alert.addTextField { textField in
-                textField.placeholder = "Title"
+                textField.placeholder = "Mix Title".localized()
             }
             alert.addAction(ok)
             alert.addAction(cancel)

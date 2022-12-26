@@ -97,6 +97,9 @@ class SettingViewController: UIViewController {
         settingTableView = UITableView(frame: .zero, style: .insetGrouped)
         
         settingTableView.backgroundColor = .clear
+        settingTableView.separatorStyle = .singleLine
+        settingTableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        settingTableView.separatorInsetReference = .fromAutomaticInsets
         
         // Attach Delegate , DataSource
         settingTableView.delegate = self
@@ -164,6 +167,7 @@ extension SettingViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell else { return UITableViewCell() }
             let lincenseModel = licenseCellModels[indexPath.row]
             
+            cell.selectionStyle = .none
             cell.configure(cellTitle: lincenseModel.title ?? "")
             
             return cell

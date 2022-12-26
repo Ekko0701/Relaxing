@@ -26,9 +26,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let MixVC = MixViewController()
         MixVC.tabBarItem.image = UIImage(named: "libraryIcon")
         viewControllers = [
-            generateNavController(viewController: MainViewController(), title: "홈", image: UIImage(named: "homeIcon")),
-            MixVC,
-            generateNavController(viewController: SettingViewController(), title: "설정", image: UIImage(named: "gearIcon"))
+            generateNavController(viewController: MainViewController(), title: "Home", image: UIImage(named: "homeIcon")),
+            generateNavController(viewController: MixViewController(), title: "My Mix", image: UIImage(named: "libraryIcon")),
+            generateNavController(viewController: SettingViewController(), title: "Setting", image: UIImage(named: "gearIcon"))
         ]
         
         self.tabBar.isTranslucent = true
@@ -50,7 +50,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         //viewController.tabBarItem.title = title
         
         // Set Navigation
-        viewController.navigationItem.title = title
+        viewController.navigationItem.title = title.localized()
         let navController = UINavigationController(rootViewController: viewController)
         navController.isNavigationBarHidden = true
 

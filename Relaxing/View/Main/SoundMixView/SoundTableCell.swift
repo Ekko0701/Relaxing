@@ -45,7 +45,6 @@ class SoundTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = .systemRed
         configureLayout()
         configureStyle()
     }
@@ -60,8 +59,8 @@ class SoundTableCell: UITableViewCell {
      */
     private func configureStyle() {
         containerView.layer.applyBorder(color: .clear, radius: 14)
-        //containerView.backgroundColor = .black.withAlphaComponent(0.4)
-        containerView.backgroundColor = .limeWhite
+        containerView.backgroundColor = .black.withAlphaComponent(0.4)
+        //containerView.backgroundColor = .limeWhite
         self.backgroundColor = .clear
     }
     

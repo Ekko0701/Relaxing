@@ -115,3 +115,6 @@
 - LicenseViewController, LicenseViewModel 구현 완료
     - WebKit의 WKWebView를 이용히 License 정보를 가지는 노션 웹페이지를 보여줌.
 - 앱 기본 Apperance를 다크 모드로 수정
+- 사운드 파일, 사운드 아이콘 파일 추가 및 적용 완료
+- UI 수정 완료
+- Localizing 완료

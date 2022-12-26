@@ -19,7 +19,7 @@ class SettingCell: UITableViewCell {
     private let cellTitle = UILabel().then {
         $0.textAlignment = .left
         $0.numberOfLines = 1
-        $0.applyPoppins(style: .semiBold, size: 17, color: .limeWhite)
+        $0.applyPoppins(style: .regular, size: 16, color: .limeWhite)
     }
     
     private let cellAccessory = UIView()
@@ -48,9 +48,6 @@ class SettingCell: UITableViewCell {
     private func configureStyle() {
         self.backgroundColor = .black.withAlphaComponent(0.4)
         cellAccessoryImg.tintColor = .limeWhite
-        
-        //cellAccessory.backgroundColor = .yellow
-        //cellAccessoryImg.backgroundColor = .red
     }
     
     /**

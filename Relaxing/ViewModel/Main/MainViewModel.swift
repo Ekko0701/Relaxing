@@ -105,32 +105,53 @@ class MainViewModel: MainViewModelType {
         reloadCollection = reloadingCollection.asObserver()
         
         soundItems = [
-            SoundItemModel(image: UIImage(named: "bird")!, title: "BirdSound"),
-            SoundItemModel(image: UIImage(named: "road")!, title: "HighWaySound"),
-            SoundItemModel(image: UIImage(named: "wave")!, title: "WaterSound"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "4번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "5번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "1번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "2번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "3번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "4번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "5번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "1번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "2번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "3번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "4번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "5번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "1번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "2번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "3번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "4번"),
-            SoundItemModel(image: UIImage(systemName: "gear")!, title: "5번"),
+            SoundItemModel(image: UIImage(named: "Down Tempo_Icon")!, title: "Down Tempo"),
+            SoundItemModel(image: UIImage(named: "Bonfire_Icon")!, title: "Bonfire"),
+            SoundItemModel(image: UIImage(named: "Rain 1_Icon")!, title: "Rain 1"),
+            SoundItemModel(image: UIImage(named: "Rain 2_Icon")!, title: "Rain 2"),
+            SoundItemModel(image: UIImage(named: "River_Icon")!, title: "River"),
+            SoundItemModel(image: UIImage(named: "Waterfall_Icon")!, title: "Waterfall"),
+            SoundItemModel(image: UIImage(named: "Forest_Icon")!, title: "Forest"),
+            SoundItemModel(image: UIImage(named: "Wave 1_Icon")!, title: "Wave 1"),
+            SoundItemModel(image: UIImage(named: "Wave 2_Icon")!, title: "Wave 2"),
+            SoundItemModel(image: UIImage(named: "Wind 1_Icon")!, title: "Wind 1"),
+            SoundItemModel(image: UIImage(named: "Wind 2_Icon")!, title: "Wind 2"),
+            SoundItemModel(image: UIImage(named: "Cave_Icon")!, title: "Cave"),
+            SoundItemModel(image: UIImage(named: "Bird_Icon")!, title: "Bird"),
+            SoundItemModel(image: UIImage(named: "Criket Crying_Icon")!, title: "Criket Crying"),
+            SoundItemModel(image: UIImage(named: "Cicada_Icon")!, title: "Cicada"),
+            SoundItemModel(image: UIImage(named: "Library_Icon")!, title: "Library"),
+            SoundItemModel(image: UIImage(named: "Temple_Icon")!, title: "Temple"),
+            SoundItemModel(image: UIImage(named: "Highway_Icon")!, title: "Highway"),
+            SoundItemModel(image: UIImage(named: "Firework_Icon")!, title: "Firework"),
+            SoundItemModel(image: UIImage(named: "Clock_Icon")!, title: "Clock"),
+            SoundItemModel(image: UIImage(named: "Pencil_Icon")!, title: "Pencil"),
+            SoundItemModel(image: UIImage(named: "Fan_Icon")!, title: "Fan"),
         ]
         
         soundData = [
-            BirdSound(),
-            HighWaySound(),
-            WaterSound(),
+            DownTempo(),
+            Bonfire(),
+            Rain1(),
+            Rain2(),
+            River(),
+            Waterfall(),
+            Forest(),
+            Wave1(),
+            Wave2(),
+            Wind1(),
+            Wind2(),
+            Cave(),
+            Bird(),
+            CriketCrying(),
+            Cicada(),
+            Library(),
+            Temple(),
+            Highway(),
+            Firework(),
+            Clock(),
+            Pencil(),
+            Fan()
         ]
         
         // Sound Item Touch
@@ -177,15 +198,70 @@ class MainViewModel: MainViewModelType {
             soundItems[i].isSelected = false
         }
         
+//        SoundManager.shared.audioPlayers.forEach { key, players in
+//            soundItems.forEach { soundItemModel in
+//                if soundItemModel.title == key { // key값 변형 필요 switch 추천
+//                    if key == "BirdSound" {
+//                        soundItems[0].isSelected = true
+//                    } else if key == "HighWaySound" {
+//                        soundItems[1].isSelected = true
+//                    } else if key == "WaterSound" {
+//                        soundItems[2].isSelected = true
+//                    }
+//                }
+//            }
+//        }
+        
         SoundManager.shared.audioPlayers.forEach { key, players in
             soundItems.forEach { soundItemModel in
-                if soundItemModel.title == key { // key값 변형 필요 switch 추천
-                    if key == "BirdSound" {
+                if soundItemModel.title == key {
+                    switch key {
+                    case "Down Tempo":
                         soundItems[0].isSelected = true
-                    } else if key == "HighWaySound" {
+                    case "Bonfire":
                         soundItems[1].isSelected = true
-                    } else if key == "WaterSound" {
+                    case "Rain 1":
                         soundItems[2].isSelected = true
+                    case "Rain 2":
+                        soundItems[3].isSelected = true
+                    case "River":
+                        soundItems[4].isSelected = true
+                    case "Waterfall":
+                        soundItems[5].isSelected = true
+                    case "Forest":
+                        soundItems[6].isSelected = true
+                    case "Wave 1":
+                        soundItems[7].isSelected = true
+                    case "Wave 2":
+                        soundItems[8].isSelected = true
+                    case "Wind 1":
+                        soundItems[9].isSelected = true
+                    case "Wind 2":
+                        soundItems[10].isSelected = true
+                    case "Cave":
+                        soundItems[11].isSelected = true
+                    case "Bird":
+                        soundItems[12].isSelected = true
+                    case "Criket Crying":
+                        soundItems[13].isSelected = true
+                    case "Cicada":
+                        soundItems[14].isSelected = true
+                    case "Library":
+                        soundItems[15].isSelected = true
+                    case "Temple":
+                        soundItems[16].isSelected = true
+                    case "Highway":
+                        soundItems[17].isSelected = true
+                    case "Firework":
+                        soundItems[18].isSelected = true
+                    case "Clock":
+                        soundItems[19].isSelected = true
+                    case "Pencil":
+                        soundItems[20].isSelected = true
+                    case "Fan":
+                        soundItems[21].isSelected = true
+                    default:
+                        return
                     }
                 }
             }

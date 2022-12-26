@@ -3,3 +3,38 @@
 "HighWaySound" = "HighWaySound";
 "WaterSound" = "WaterSound";
 
+
+"My Mix" = "My Mix";
+"Setting" = "Setting";
+
+"Down Tempo" = "Down Tempo";
+"Bonfire" = "Bonfire";
+"Rain 1" = "Rain 1";
+"Rain 2" = "Rain 2";
+"River" = "River";
+"Waterfall" = "Waterfall";
+"Forest" = "Forest";
+"Wave 1" = "Wave 1";
+"Wave 2" = "Wave 2";
+"Wind 1" = "Wind 1";
+"Wind 2" = "Wind 2";
+"Cave" = "Cave";
+"Bird" = "Bird";
+"Criket Crying" = "Criket Crying";
+"Cicada" = "Cicada";
+"Library" = "Library";
+"Temple" = "Temple";
+"Highway" = "Highway";
+"Firework" = "Firework";
+"Clock" = "Clock";
+"Pencil" = "Pencil";
+"Fan" = "Fan";
+
+"Please Enter a Mix Title" = "Please Enter a Mix Title";
+"Save" = "Save";
+"Cancel" = "Candel";
+"Mix Title" = "Mix Title";
+
+"Start" = "Start";
+"Back" = "Back";
+"Cancel" = "Cancel";

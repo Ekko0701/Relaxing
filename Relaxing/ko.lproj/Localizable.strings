@@ -3,4 +3,37 @@
 "HighWaySound" = "고속도로";
 "WaterSound" = "물 흐르는 소리";
 
+"My Mix" = "내 믹스";
+"Setting" = "설정";
 
+"Down Tempo" = "다운 템포";
+"Bonfire" = "모닥불";
+"Rain 1" = "비 1";
+"Rain 2" = "비 2";
+"River" = "시냇물";
+"Waterfall" = "폭포";
+"Forest" = "숲속";
+"Wave 1" = "파도 1";
+"Wave 2" = "파도 2";
+"Wind 1" = "바람 1";
+"Wind 2" = "바람 2";
+"Cave" = "동굴";
+"Bird" = "새";
+"Criket Crying" = "귀뚜라미";
+"Cicada" = "매미";
+"Library" = "도서관";
+"Temple" = "사원";
+"Highway" = "도로";
+"Firework" = "폭죽";
+"Clock" = "시계";
+"Pencil" = "연필";
+"Fan" = "선풍기";
+
+"Please Enter a Mix Title" = "믹스 제목을 입력하세요";
+"Save" = "저장";
+"Cancel" = "취소";
+"Mix Title" = "믹스 제목";
+
+"Start" = "시작";
+"Back" = "나가기";
+"Cancel" = "취소";
