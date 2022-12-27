@@ -1,4 +1,8 @@
-# Relaxing
+<p align="left">
+    <img src= "https://github.com/Ekko0701/Relaxing/blob/main/Chilling%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD/Clilling%20ScreenShots/Chilling%20Logo.png" width="15%">
+</p>
+
+# Relaxing<br/>
 [App Store](https://apps.apple.com/us/app/%EC%B9%A0%EB%A7%81/id1661592110?platform=iphone)
 
 ## 미리보기
