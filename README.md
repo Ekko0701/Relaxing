@@ -1,5 +1,46 @@
 # Relaxing
+[App Store](https://apps.apple.com/us/app/%EC%B9%A0%EB%A7%81/id1661592110?platform=iphone)
 
+## 미리보기
+<p align="left">
+    <img src= "https://github.com/Ekko0701/Relaxing/blob/main/Chilling%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%AD/Clilling%20ScreenShots/%E1%84%8B%E1%85%A2%E1%86%B8%E1%84%89%E1%85%B3%E1%84%90%E1%85%A9%E1%84%8B%E1%85%A5%20%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA.png" width="80%">
+</p>
+
+
+## Introduce
+공부, 수면, 명상과 같은 활동을 할 때 빗소리, 새소리, 물 흐르는 소리 등 차분한 소리를 필요로 한 적이 있을 것이다. 이 앱은 단순히 차분한 소리를 재생시킬 뿐만이 아니라 여러 소리를 섞어서 사용할 수 있다. 여러 소리를 섞고 각 소리의 볼륨을 조절해 나만의 소리를 만들어보자.
+<br/>
+<br/>
+<br/>
+
+## 개발 상세
+- 홈 화면에서 소리를 터치하면 재생됩니다.
+- 여러 소리를 동시에 재생할 수 있습니다.
+- 우측 하단의 버튼을 누르면 재생, 믹스, 타이머 버튼을 사용할 수 있습니다.
+    - 재생 버튼을 누르면 현재 재생 중인 모든 사운드를 일시 정지시킵니다.
+    - 믹스 버튼을 누르면 현재 재생 중인 사운드 목록이 나오고 각각의 볼륨을 조절할 수 있습니다.
+        - 저장 버튼을 눌러 현재 재생 중인 사운드 목록을 저장할 수 있습니다.
+    - 타이머 버튼을 누르면 사운드 종료 타이머를 설정할 수 있습니다.
+- 믹스 탭에서 저장한 사운드 목록을 확인하고 재생시킬 수 있습니다.
+<br/>
+<br/>
+<br/>
+
+## 오픈 소스 라이브러리 (CocoaPods, SPM)
+- Lottie
+- PanModal
+- Realm
+- SnapKit
+- Then
+- RxSwift
+- RxCocoa
+- RxViewController
+- RxGesture
+<br/>
+<br/>
+<br/>
+
+## 개발 일지
 ### 2022.12.09
 - 폰트 추가 및 Extension 설정
 - SnapKit, Then 라이브러리 추가 (SPM)
@@ -121,3 +162,5 @@
 - WKWebView 로드 에러 처리 구현
 - 라이브러리 라이센스 정보 추가 완료
 
+### 2022.12.27
+- 앱 심사 및 배포 완료 [App Store](https://apps.apple.com/us/app/%EC%B9%A0%EB%A7%81/id1661592110?platform=iphone)
