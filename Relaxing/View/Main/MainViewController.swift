@@ -85,7 +85,8 @@ class MainViewController: UIViewController {
         controlView.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
-            make.height.width.equalTo(self.view.frame.width / 6.5)
+            //make.height.width.equalTo(self.view.frame.width / 6.5)
+            make.height.width.equalTo(70)
         }
     }
     /**
@@ -233,7 +234,8 @@ class MainViewController: UIViewController {
         if controlViewIsOn {
             UIView.animate(withDuration: 0.5, delay: 0,options: .curveEaseInOut) {
                 self.controlView.snp.updateConstraints { make in
-                    make.height.equalTo(self.view.frame.width / 6.5 * 3.85)
+                    //make.height.equalTo(self.view.frame.width / 6.5 * 3.85)
+                    make.height.equalTo(70 * 3.85)
                 }
                 self.controlView.openControlView()
                 self.controlView.superview?.layoutIfNeeded()
@@ -241,7 +243,8 @@ class MainViewController: UIViewController {
         } else {
             UIView.animate(withDuration: 0.3, delay: 0,options: .curveEaseInOut) {
                 self.controlView.snp.updateConstraints { make in
-                    make.height.equalTo(self.view.frame.width / 6.5)
+//                    make.height.equalTo(self.view.frame.width / 6.5)
+                    make.height.equalTo(70)
                 }
                 self.controlView.closeControlView()
                 self.controlView.superview?.layoutIfNeeded()

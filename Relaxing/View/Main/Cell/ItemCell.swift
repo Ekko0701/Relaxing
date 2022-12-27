@@ -65,8 +65,8 @@ class ItemCell: UICollectionViewCell {
         titleImage.image = with.image
         titleLabel.text = with.title.localized()
         if with.isSelected {
-            backgroundColor = UIColor(red: 0.38, green: 0.83, blue: 0.67, alpha: 1.00)
-            titleLabel.textColor = .black
+            backgroundColor = UIColor(red: 0.38, green: 0.83, blue: 0.67, alpha: 0.4)
+            titleLabel.textColor = .limeWhite
             titleImage.tintColor = .limeWhite
         } else {
             backgroundColor = UIColor.black.withAlphaComponent(0.7)

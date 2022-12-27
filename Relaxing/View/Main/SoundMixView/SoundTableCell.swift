@@ -19,8 +19,8 @@ class SoundTableCell: UITableViewCell {
     private let titleStack = UIStackView().then {
         $0.alignment = .center
         $0.axis = .vertical
-        $0.distribution = .fill
-        $0.spacing = 8
+        $0.distribution = .fillEqually
+        $0.spacing = 1
     }
     
     private let titleImage = UIImageView().then {
@@ -60,7 +60,6 @@ class SoundTableCell: UITableViewCell {
     private func configureStyle() {
         containerView.layer.applyBorder(color: .clear, radius: 14)
         containerView.backgroundColor = .black.withAlphaComponent(0.4)
-        //containerView.backgroundColor = .limeWhite
         self.backgroundColor = .clear
     }
     
@@ -93,14 +92,17 @@ class SoundTableCell: UITableViewCell {
         }
         
         titleStack.snp.makeConstraints { make in
-            make.centerY.equalTo(containerView)
+            //make.centerY.equalTo(containerView)
+            make.top.equalToSuperview().offset(4)
+            make.bottom.equalToSuperview().offset(-4)
             make.leading.equalToSuperview().offset(8)
-            make.trailing.equalTo(volumeSlider.snp.leading).offset(-8)
+            //make.trailing.equalTo(volumeSlider.snp.leading).offset(-8)
         }
         
         volumeSlider.snp.makeConstraints { make in
             make.centerY.equalTo(containerView)
-            make.width.equalTo(self.frame.width * 0.85)
+            //make.width.equalTo(self.frame.width * 0.85)
+            make.leading.equalTo(titleStack.snp.trailing).offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
     }
