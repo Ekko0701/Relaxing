@@ -1,0 +1,38 @@
+name: RxCocoa, nameSpecified: 
+body: **The MIT License**
+…
+version: 6.5.0
+
+name: RxGesture, nameSpecified: 
+body: Copyright (c) RxSwif…
+version: 4.0.4
+
+name: RxRelay, nameSpecified: 
+body: **The MIT License**
+…
+version: 6.5.0
+
+name: RxSwift, nameSpecified: 
+body: **The MIT License**
+…
+version: 6.5.0
+
+name: RxViewController, nameSpecified: 
+body: The MIT License (MIT…
+version: 2.0.0
+
+name: lottie-ios, nameSpecified: Lottie, owner: airbnb, version: 4.0.1, source: https://github.com/airbnb/lottie-ios
+
+name: PanModal, nameSpecified: PanModal, owner: slackhq, version: 1.2.7, source: https://github.com/slackhq/PanModal
+
+name: realm-core, nameSpecified: realm-core, owner: realm, version: 12.13.0, source: https://github.com/realm/realm-core
+
+name: realm-swift, nameSpecified: realm-swift, owner: realm, version: , source: https://github.com/realm/realm-swift
+
+name: SnapKit, nameSpecified: SnapKit, owner: SnapKit, version: 5.6.0, source: https://github.com/SnapKit/SnapKit
+
+name: Then, nameSpecified: Then, owner: devxoul, version: , source: https://github.com/devxoul/Then
+
+add-version-numbers: false
+
+LicensePlist Version: 3.23.4
