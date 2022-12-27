@@ -11,28 +11,28 @@
 		6A08C1852945E4320044242B /* SoundMixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A08C1842945E4320044242B /* SoundMixViewController.swift */; };
 		6A08C1882945E4EC0044242B /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 6A08C1872945E4EC0044242B /* PanModal */; };
 		6A08C18B2945FC3D0044242B /* SoundTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A08C18A2945FC3D0044242B /* SoundTableCell.swift */; };
-		6A0CDDDF295B43F5001D409D /* Firework.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDC8295B43F4001D409D /* Firework.mp3 */; };
-		6A0CDDE0295B43F5001D409D /* Cave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDC9295B43F4001D409D /* Cave.mp3 */; };
-		6A0CDDE1295B43F5001D409D /* Bonfire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDCA295B43F4001D409D /* Bonfire.wav */; };
-		6A0CDDE2295B43F5001D409D /* Cicada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDCB295B43F4001D409D /* Cicada.mp3 */; };
-		6A0CDDE3295B43F5001D409D /* River.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDCC295B43F4001D409D /* River.mp3 */; };
-		6A0CDDE4295B43F5001D409D /* Wave 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDCD295B43F4001D409D /* Wave 2.mp3 */; };
-		6A0CDDE5295B43F5001D409D /* Rain 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDCE295B43F4001D409D /* Rain 1.mp3 */; };
-		6A0CDDE6295B43F5001D409D /* Wave 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDCF295B43F4001D409D /* Wave 1.mp3 */; };
-		6A0CDDE7295B43F5001D409D /* Pencil.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD0295B43F4001D409D /* Pencil.mp3 */; };
-		6A0CDDE8295B43F5001D409D /* Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD1295B43F4001D409D /* Temple.mp3 */; };
-		6A0CDDEA295B43F5001D409D /* Highway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD3295B43F4001D409D /* Highway.mp3 */; };
-		6A0CDDEB295B43F5001D409D /* Library.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD4295B43F4001D409D /* Library.mp3 */; };
-		6A0CDDEC295B43F5001D409D /* Waterfall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD5295B43F4001D409D /* Waterfall.mp3 */; };
-		6A0CDDED295B43F5001D409D /* Forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD6295B43F4001D409D /* Forest.mp3 */; };
-		6A0CDDEE295B43F5001D409D /* Rain 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD7295B43F4001D409D /* Rain 2.mp3 */; };
-		6A0CDDEF295B43F5001D409D /* Criket Crying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD8295B43F4001D409D /* Criket Crying.mp3 */; };
-		6A0CDDF0295B43F5001D409D /* Wind 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDD9295B43F4001D409D /* Wind 1.mp3 */; };
-		6A0CDDF2295B43F5001D409D /* Bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDDB295B43F4001D409D /* Bird.mp3 */; };
-		6A0CDDF4295B43F5001D409D /* Clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDDD295B43F5001D409D /* Clock.mp3 */; };
-		6A0CDDF5295B43F5001D409D /* Wind 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDDE295B43F5001D409D /* Wind 2.mp3 */; };
-		6A0CDDF8295B44CD001D409D /* Fan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDF6295B44CD001D409D /* Fan.mp3 */; };
-		6A0CDDF9295B44CD001D409D /* Down Tempo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDF7295B44CD001D409D /* Down Tempo.mp3 */; };
+		6A0CDE10295B4979001D409D /* Firework.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDFA295B4975001D409D /* Firework.mp3 */; };
+		6A0CDE11295B4979001D409D /* Cicada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDFB295B4975001D409D /* Cicada.mp3 */; };
+		6A0CDE12295B4979001D409D /* Pencil.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDFC295B4975001D409D /* Pencil.mp3 */; };
+		6A0CDE13295B4979001D409D /* Library.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDFD295B4975001D409D /* Library.mp3 */; };
+		6A0CDE14295B4979001D409D /* Bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDFE295B4976001D409D /* Bird.mp3 */; };
+		6A0CDE15295B4979001D409D /* Rain 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDDFF295B4976001D409D /* Rain 1.mp3 */; };
+		6A0CDE16295B4979001D409D /* Wave 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE00295B4976001D409D /* Wave 2.mp3 */; };
+		6A0CDE17295B4979001D409D /* Forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE01295B4976001D409D /* Forest.mp3 */; };
+		6A0CDE18295B4979001D409D /* Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE02295B4976001D409D /* Temple.mp3 */; };
+		6A0CDE19295B4979001D409D /* Highway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE03295B4977001D409D /* Highway.mp3 */; };
+		6A0CDE1A295B4979001D409D /* Clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE04295B4977001D409D /* Clock.mp3 */; };
+		6A0CDE1B295B4979001D409D /* Wave 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE05295B4977001D409D /* Wave 1.mp3 */; };
+		6A0CDE1C295B4979001D409D /* Wind 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE06295B4977001D409D /* Wind 2.mp3 */; };
+		6A0CDE1D295B4979001D409D /* Waterfall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE07295B4977001D409D /* Waterfall.mp3 */; };
+		6A0CDE1E295B4979001D409D /* Down Tempo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE08295B4978001D409D /* Down Tempo.mp3 */; };
+		6A0CDE1F295B4979001D409D /* Cave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE09295B4978001D409D /* Cave.mp3 */; };
+		6A0CDE20295B4979001D409D /* Rain 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE0A295B4978001D409D /* Rain 2.mp3 */; };
+		6A0CDE21295B4979001D409D /* River.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE0B295B4978001D409D /* River.mp3 */; };
+		6A0CDE22295B4979001D409D /* Wind 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE0C295B4978001D409D /* Wind 1.mp3 */; };
+		6A0CDE23295B4979001D409D /* Bonfire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE0D295B4979001D409D /* Bonfire.wav */; };
+		6A0CDE24295B4979001D409D /* Fan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE0E295B4979001D409D /* Fan.mp3 */; };
+		6A0CDE25295B4979001D409D /* Criket Crying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CDE0F295B4979001D409D /* Criket Crying.mp3 */; };
 		6A13859B2942410500615E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13859A2942410500615E0E /* AppDelegate.swift */; };
 		6A13859D2942410500615E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13859C2942410500615E0E /* SceneDelegate.swift */; };
 		6A13859F2942410500615E0E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13859E2942410500615E0E /* MainViewController.swift */; };
@@ -99,28 +99,28 @@
 		6A08C1822944592B0044242B /* ControlBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlBarView.swift; sourceTree = "<group>"; };
 		6A08C1842945E4320044242B /* SoundMixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMixViewController.swift; sourceTree = "<group>"; };
 		6A08C18A2945FC3D0044242B /* SoundTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTableCell.swift; sourceTree = "<group>"; };
-		6A0CDDC8295B43F4001D409D /* Firework.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Firework.mp3; path = ../../../../Desktop/Firework.mp3; sourceTree = "<group>"; };
-		6A0CDDC9295B43F4001D409D /* Cave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Cave.mp3; path = ../../../../Desktop/Cave.mp3; sourceTree = "<group>"; };
-		6A0CDDCA295B43F4001D409D /* Bonfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bonfire.wav; path = ../../../../Desktop/Bonfire.wav; sourceTree = "<group>"; };
-		6A0CDDCB295B43F4001D409D /* Cicada.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Cicada.mp3; path = ../../../../Desktop/Cicada.mp3; sourceTree = "<group>"; };
-		6A0CDDCC295B43F4001D409D /* River.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = River.mp3; path = ../../../../Desktop/River.mp3; sourceTree = "<group>"; };
-		6A0CDDCD295B43F4001D409D /* Wave 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Wave 2.mp3"; path = "../../../../Desktop/Wave 2.mp3"; sourceTree = "<group>"; };
-		6A0CDDCE295B43F4001D409D /* Rain 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Rain 1.mp3"; path = "../../../../Desktop/Rain 1.mp3"; sourceTree = "<group>"; };
-		6A0CDDCF295B43F4001D409D /* Wave 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Wave 1.mp3"; path = "../../../../Desktop/Wave 1.mp3"; sourceTree = "<group>"; };
-		6A0CDDD0295B43F4001D409D /* Pencil.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Pencil.mp3; path = ../../../../Desktop/Pencil.mp3; sourceTree = "<group>"; };
-		6A0CDDD1295B43F4001D409D /* Temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Temple.mp3; path = ../../../../Desktop/Temple.mp3; sourceTree = "<group>"; };
-		6A0CDDD3295B43F4001D409D /* Highway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Highway.mp3; path = ../../../../Desktop/Highway.mp3; sourceTree = "<group>"; };
-		6A0CDDD4295B43F4001D409D /* Library.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Library.mp3; path = ../../../../Desktop/Library.mp3; sourceTree = "<group>"; };
-		6A0CDDD5295B43F4001D409D /* Waterfall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Waterfall.mp3; path = ../../../../Desktop/Waterfall.mp3; sourceTree = "<group>"; };
-		6A0CDDD6295B43F4001D409D /* Forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Forest.mp3; path = ../../../../Desktop/Forest.mp3; sourceTree = "<group>"; };
-		6A0CDDD7295B43F4001D409D /* Rain 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Rain 2.mp3"; path = "../../../../Desktop/Rain 2.mp3"; sourceTree = "<group>"; };
-		6A0CDDD8295B43F4001D409D /* Criket Crying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Criket Crying.mp3"; path = "../../../../Desktop/Criket Crying.mp3"; sourceTree = "<group>"; };
-		6A0CDDD9295B43F4001D409D /* Wind 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Wind 1.mp3"; path = "../../../../Desktop/Wind 1.mp3"; sourceTree = "<group>"; };
-		6A0CDDDB295B43F4001D409D /* Bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Bird.mp3; path = ../../../../Desktop/Bird.mp3; sourceTree = "<group>"; };
-		6A0CDDDD295B43F5001D409D /* Clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Clock.mp3; path = ../../../../Desktop/Clock.mp3; sourceTree = "<group>"; };
-		6A0CDDDE295B43F5001D409D /* Wind 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Wind 2.mp3"; path = "../../../../Desktop/Wind 2.mp3"; sourceTree = "<group>"; };
-		6A0CDDF6295B44CD001D409D /* Fan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Fan.mp3; path = ../../../../Desktop/Fan.mp3; sourceTree = "<group>"; };
-		6A0CDDF7295B44CD001D409D /* Down Tempo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Down Tempo.mp3"; path = "../../../../Desktop/Down Tempo.mp3"; sourceTree = "<group>"; };
+		6A0CDDFA295B4975001D409D /* Firework.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Firework.mp3; sourceTree = "<group>"; };
+		6A0CDDFB295B4975001D409D /* Cicada.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cicada.mp3; sourceTree = "<group>"; };
+		6A0CDDFC295B4975001D409D /* Pencil.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Pencil.mp3; sourceTree = "<group>"; };
+		6A0CDDFD295B4975001D409D /* Library.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Library.mp3; sourceTree = "<group>"; };
+		6A0CDDFE295B4976001D409D /* Bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bird.mp3; sourceTree = "<group>"; };
+		6A0CDDFF295B4976001D409D /* Rain 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rain 1.mp3"; sourceTree = "<group>"; };
+		6A0CDE00295B4976001D409D /* Wave 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Wave 2.mp3"; sourceTree = "<group>"; };
+		6A0CDE01295B4976001D409D /* Forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Forest.mp3; sourceTree = "<group>"; };
+		6A0CDE02295B4976001D409D /* Temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Temple.mp3; sourceTree = "<group>"; };
+		6A0CDE03295B4977001D409D /* Highway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Highway.mp3; sourceTree = "<group>"; };
+		6A0CDE04295B4977001D409D /* Clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Clock.mp3; sourceTree = "<group>"; };
+		6A0CDE05295B4977001D409D /* Wave 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Wave 1.mp3"; sourceTree = "<group>"; };
+		6A0CDE06295B4977001D409D /* Wind 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Wind 2.mp3"; sourceTree = "<group>"; };
+		6A0CDE07295B4977001D409D /* Waterfall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Waterfall.mp3; sourceTree = "<group>"; };
+		6A0CDE08295B4978001D409D /* Down Tempo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Down Tempo.mp3"; sourceTree = "<group>"; };
+		6A0CDE09295B4978001D409D /* Cave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cave.mp3; sourceTree = "<group>"; };
+		6A0CDE0A295B4978001D409D /* Rain 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rain 2.mp3"; sourceTree = "<group>"; };
+		6A0CDE0B295B4978001D409D /* River.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = River.mp3; sourceTree = "<group>"; };
+		6A0CDE0C295B4978001D409D /* Wind 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Wind 1.mp3"; sourceTree = "<group>"; };
+		6A0CDE0D295B4979001D409D /* Bonfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bonfire.wav; sourceTree = "<group>"; };
+		6A0CDE0E295B4979001D409D /* Fan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fan.mp3; sourceTree = "<group>"; };
+		6A0CDE0F295B4979001D409D /* Criket Crying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Criket Crying.mp3"; sourceTree = "<group>"; };
 		6A1385972942410500615E0E /* Relaxing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relaxing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A13859A2942410500615E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A13859C2942410500615E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -422,28 +422,28 @@
 		6A8A8B1F2943306500B4451C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				6A0CDDF7295B44CD001D409D /* Down Tempo.mp3 */,
-				6A0CDDF6295B44CD001D409D /* Fan.mp3 */,
-				6A0CDDCA295B43F4001D409D /* Bonfire.wav */,
-				6A0CDDDD295B43F5001D409D /* Clock.mp3 */,
-				6A0CDDDB295B43F4001D409D /* Bird.mp3 */,
-				6A0CDDC9295B43F4001D409D /* Cave.mp3 */,
-				6A0CDDCB295B43F4001D409D /* Cicada.mp3 */,
-				6A0CDDD8295B43F4001D409D /* Criket Crying.mp3 */,
-				6A0CDDC8295B43F4001D409D /* Firework.mp3 */,
-				6A0CDDD6295B43F4001D409D /* Forest.mp3 */,
-				6A0CDDD3295B43F4001D409D /* Highway.mp3 */,
-				6A0CDDD4295B43F4001D409D /* Library.mp3 */,
-				6A0CDDD0295B43F4001D409D /* Pencil.mp3 */,
-				6A0CDDCE295B43F4001D409D /* Rain 1.mp3 */,
-				6A0CDDD7295B43F4001D409D /* Rain 2.mp3 */,
-				6A0CDDCC295B43F4001D409D /* River.mp3 */,
-				6A0CDDD1295B43F4001D409D /* Temple.mp3 */,
-				6A0CDDD5295B43F4001D409D /* Waterfall.mp3 */,
-				6A0CDDCF295B43F4001D409D /* Wave 1.mp3 */,
-				6A0CDDCD295B43F4001D409D /* Wave 2.mp3 */,
-				6A0CDDD9295B43F4001D409D /* Wind 1.mp3 */,
-				6A0CDDDE295B43F5001D409D /* Wind 2.mp3 */,
+				6A0CDDFE295B4976001D409D /* Bird.mp3 */,
+				6A0CDE0D295B4979001D409D /* Bonfire.wav */,
+				6A0CDE09295B4978001D409D /* Cave.mp3 */,
+				6A0CDDFB295B4975001D409D /* Cicada.mp3 */,
+				6A0CDE04295B4977001D409D /* Clock.mp3 */,
+				6A0CDE0F295B4979001D409D /* Criket Crying.mp3 */,
+				6A0CDE08295B4978001D409D /* Down Tempo.mp3 */,
+				6A0CDE0E295B4979001D409D /* Fan.mp3 */,
+				6A0CDDFA295B4975001D409D /* Firework.mp3 */,
+				6A0CDE01295B4976001D409D /* Forest.mp3 */,
+				6A0CDE03295B4977001D409D /* Highway.mp3 */,
+				6A0CDDFD295B4975001D409D /* Library.mp3 */,
+				6A0CDDFC295B4975001D409D /* Pencil.mp3 */,
+				6A0CDDFF295B4976001D409D /* Rain 1.mp3 */,
+				6A0CDE0A295B4978001D409D /* Rain 2.mp3 */,
+				6A0CDE0B295B4978001D409D /* River.mp3 */,
+				6A0CDE02295B4976001D409D /* Temple.mp3 */,
+				6A0CDE07295B4977001D409D /* Waterfall.mp3 */,
+				6A0CDE05295B4977001D409D /* Wave 1.mp3 */,
+				6A0CDE00295B4976001D409D /* Wave 2.mp3 */,
+				6A0CDE0C295B4978001D409D /* Wind 1.mp3 */,
+				6A0CDE06295B4977001D409D /* Wind 2.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -597,41 +597,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A0CDDED295B43F5001D409D /* Forest.mp3 in Resources */,
-				6A0CDDF0295B43F5001D409D /* Wind 1.mp3 in Resources */,
 				6A1385DA2942450B00615E0E /* Poppins-ExtraLight.ttf in Resources */,
-				6A0CDDEB295B43F5001D409D /* Library.mp3 in Resources */,
-				6A0CDDE4295B43F5001D409D /* Wave 2.mp3 in Resources */,
+				6A0CDE16295B4979001D409D /* Wave 2.mp3 in Resources */,
+				6A0CDE10295B4979001D409D /* Firework.mp3 in Resources */,
+				6A0CDE19295B4979001D409D /* Highway.mp3 in Resources */,
 				6A1385E42942453F00615E0E /* Poppins-Bold.ttf in Resources */,
+				6A0CDE12295B4979001D409D /* Pencil.mp3 in Resources */,
+				6A0CDE1B295B4979001D409D /* Wave 1.mp3 in Resources */,
+				6A0CDE1F295B4979001D409D /* Cave.mp3 in Resources */,
+				6A0CDE13295B4979001D409D /* Library.mp3 in Resources */,
+				6A0CDE15295B4979001D409D /* Rain 1.mp3 in Resources */,
 				6A4413822951B2F5001CD3DE /* Localizable.strings in Resources */,
+				6A0CDE22295B4979001D409D /* Wind 1.mp3 in Resources */,
 				6A1385E9294246F800615E0E /* README.md in Resources */,
 				6A1385E02942452900615E0E /* Poppins-Medium.ttf in Resources */,
 				6A1385DC2942451400615E0E /* Poppins-Light.ttf in Resources */,
+				6A0CDE21295B4979001D409D /* River.mp3 in Resources */,
+				6A0CDE14295B4979001D409D /* Bird.mp3 in Resources */,
+				6A0CDE11295B4979001D409D /* Cicada.mp3 in Resources */,
+				6A0CDE18295B4979001D409D /* Temple.mp3 in Resources */,
 				6A1385D82942450300615E0E /* Poppins-Thin.ttf in Resources */,
+				6A0CDE1E295B4979001D409D /* Down Tempo.mp3 in Resources */,
 				6A1F254D2959EF7A002D02C0 /* Settings.bundle in Resources */,
-				6A0CDDE5295B43F5001D409D /* Rain 1.mp3 in Resources */,
-				6A0CDDE6295B43F5001D409D /* Wave 1.mp3 in Resources */,
+				6A0CDE24295B4979001D409D /* Fan.mp3 in Resources */,
+				6A0CDE23295B4979001D409D /* Bonfire.wav in Resources */,
+				6A0CDE1C295B4979001D409D /* Wind 2.mp3 in Resources */,
+				6A0CDE25295B4979001D409D /* Criket Crying.mp3 in Resources */,
 				6A441393295431E3001CD3DE /* music_animation.json in Resources */,
-				6A0CDDE2295B43F5001D409D /* Cicada.mp3 in Resources */,
-				6A0CDDDF295B43F5001D409D /* Firework.mp3 in Resources */,
-				6A0CDDE8295B43F5001D409D /* Temple.mp3 in Resources */,
 				6A1385DE2942451F00615E0E /* Poppins-Regular.ttf in Resources */,
-				6A0CDDEC295B43F5001D409D /* Waterfall.mp3 in Resources */,
-				6A0CDDF5295B43F5001D409D /* Wind 2.mp3 in Resources */,
-				6A0CDDF4295B43F5001D409D /* Clock.mp3 in Resources */,
-				6A0CDDF8295B44CD001D409D /* Fan.mp3 in Resources */,
-				6A0CDDE1295B43F5001D409D /* Bonfire.wav in Resources */,
-				6A0CDDF9295B44CD001D409D /* Down Tempo.mp3 in Resources */,
+				6A0CDE1D295B4979001D409D /* Waterfall.mp3 in Resources */,
+				6A0CDE1A295B4979001D409D /* Clock.mp3 in Resources */,
+				6A0CDE17295B4979001D409D /* Forest.mp3 in Resources */,
 				6A1385E22942453600615E0E /* Poppins-SemiBold.ttf in Resources */,
 				6A1385A72942410500615E0E /* LaunchScreen.storyboard in Resources */,
-				6A0CDDEE295B43F5001D409D /* Rain 2.mp3 in Resources */,
-				6A0CDDE3295B43F5001D409D /* River.mp3 in Resources */,
-				6A0CDDEA295B43F5001D409D /* Highway.mp3 in Resources */,
+				6A0CDE20295B4979001D409D /* Rain 2.mp3 in Resources */,
 				6A1385A42942410500615E0E /* Assets.xcassets in Resources */,
-				6A0CDDEF295B43F5001D409D /* Criket Crying.mp3 in Resources */,
-				6A0CDDF2295B43F5001D409D /* Bird.mp3 in Resources */,
-				6A0CDDE0295B43F5001D409D /* Cave.mp3 in Resources */,
-				6A0CDDE7295B43F5001D409D /* Pencil.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
