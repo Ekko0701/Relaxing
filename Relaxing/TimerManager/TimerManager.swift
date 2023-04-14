@@ -77,5 +77,5 @@ class TimerManager {
         
         return timeString
     }
-    
+    //.
 }
